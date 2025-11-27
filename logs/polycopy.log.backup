@@ -1,0 +1,1583 @@
+2025-11-27 03:57:00 | INFO     | __main__             | Configuration loaded and validated
+2025-11-27 03:57:00 | INFO     | __main__             | Initializing RPC Manager...
+2025-11-27 03:57:00 | INFO     | rpc_manager          | Using Infura RPC (from INFURA_API_KEY)
+2025-11-27 03:57:00 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 03:57:00 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 03:57:00 | INFO     | __main__             | Initializing Database Manager...
+2025-11-27 03:57:00 | INFO     | database             | ✓ Database initialized: data/trades.db
+2025-11-27 03:57:00 | INFO     | __main__             | Initializing Polymarket Monitor...
+2025-11-27 03:57:00 | INFO     | monitor              | ============================================================
+2025-11-27 03:57:00 | INFO     | monitor              | 🚀 Polymarket Monitor Initialized (Optimized)
+2025-11-27 03:57:00 | INFO     | monitor              | ============================================================
+2025-11-27 03:57:00 | INFO     | monitor              | Monitoring method: eth_getLogs
+2025-11-27 03:57:00 | INFO     | monitor              | Monitored addresses: 3
+2025-11-27 03:57:00 | INFO     | monitor              |   1. 0x0f37Cb80DEe49D55B5F6d9E595D52591D6371410
+2025-11-27 03:57:00 | INFO     | monitor              |   2. 0xCA8F0374E3Fc79b485499CC0b038D4F7e783D963
+2025-11-27 03:57:00 | INFO     | monitor              |   3. 0x7C3Db723F1D4d8cB9C550095203b686cB11E5C6B
+2025-11-27 03:57:00 | INFO     | monitor              | Polymarket contracts: 2
+2025-11-27 03:57:00 | INFO     | monitor              |   - CTF Exchange: 0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E
+2025-11-27 03:57:00 | INFO     | monitor              |   - Neg Risk CTF: 0xC5d563A36AE78145C45a50134d48A1215220f80a
+2025-11-27 03:57:00 | INFO     | monitor              | Batch size: 100 blocks
+2025-11-27 03:57:00 | INFO     | monitor              | Poll interval: 60s
+2025-11-27 03:57:00 | INFO     | monitor              | Request delay: 0.1s
+2025-11-27 03:57:00 | INFO     | monitor              | Rolling window: True (24h)
+2025-11-27 03:57:00 | INFO     | monitor              | ============================================================
+2025-11-27 03:57:00 | INFO     | __main__             | Starting monitor...
+2025-11-27 03:57:00 | INFO     | monitor              | ============================================================
+2025-11-27 03:57:00 | INFO     | monitor              | 🕐 24-HOUR ROLLING WINDOW MODE
+2025-11-27 03:57:00 | INFO     | monitor              | ============================================================
+2025-11-27 03:57:00 | INFO     | monitor              | Current block: 79555392
+2025-11-27 03:57:00 | INFO     | monitor              | Window: 24 hours (43,200 blocks)
+2025-11-27 03:57:00 | INFO     | monitor              | Start block: 79,512,192
+2025-11-27 03:57:00 | INFO     | monitor              | Blocks to sync: 43,200
+2025-11-27 03:57:00 | INFO     | monitor              | ============================================================
+2025-11-27 03:57:00 | INFO     | monitor              | 🔍 POLYMARKET MONITOR STARTED
+2025-11-27 03:57:00 | INFO     | monitor              | Ready to process from block 79512192
+2025-11-27 03:57:00 | INFO     | monitor              | Processing blocks 79,512,192 to 79,512,291 (100 blocks, 43201 behind)
+2025-11-27 03:57:02 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:57:02 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 03:57:02 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 03:57:03 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:57:03 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 03:57:03 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 03:57:03 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:03 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,216
+2025-11-27 03:57:03 | INFO     | monitor              |    Tx Hash: 0f34af302d97b01e77d12272c55e39673b84909c181a72a18b57e47ea1386826
+2025-11-27 03:57:03 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:57:03 | INFO     | monitor              |    Side: sell
+2025-11-27 03:57:03 | INFO     | monitor              |    Time: 2025-11-26 03:57:47
+2025-11-27 03:57:03 | INFO     | monitor              |    Capture delay: 86356s
+2025-11-27 03:57:03 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:03 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:57:03 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 03:57:03 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 03:57:03 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 03:57:03 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:57:03 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:57:04 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:04 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,225
+2025-11-27 03:57:04 | INFO     | monitor              |    Tx Hash: acd9c0f7f12bfd673cbe5dc9a120a7c28c618d32ca493125926fed79ea99562d
+2025-11-27 03:57:04 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:57:04 | INFO     | monitor              |    Side: buy
+2025-11-27 03:57:04 | INFO     | monitor              |    Time: 2025-11-26 03:58:05
+2025-11-27 03:57:04 | INFO     | monitor              |    Capture delay: 86339s
+2025-11-27 03:57:04 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:05 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:05 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,248
+2025-11-27 03:57:05 | INFO     | monitor              |    Tx Hash: 392443e1fe10fc950a26f3d6b1c8a0a32c917a46f3303f45e2ce0d2676a52c04
+2025-11-27 03:57:05 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:57:05 | INFO     | monitor              |    Side: sell
+2025-11-27 03:57:05 | INFO     | monitor              |    Time: 2025-11-26 03:58:51
+2025-11-27 03:57:05 | INFO     | monitor              |    Capture delay: 86294s
+2025-11-27 03:57:05 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:05 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:05 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,248
+2025-11-27 03:57:05 | INFO     | monitor              |    Tx Hash: b9861f92eec7d884c400d370eb37780cdcb03f6aa35c7a35d1a06e1e1ffe15a2
+2025-11-27 03:57:05 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:57:05 | INFO     | monitor              |    Side: sell
+2025-11-27 03:57:05 | INFO     | monitor              |    Time: 2025-11-26 03:58:51
+2025-11-27 03:57:05 | INFO     | monitor              |    Capture delay: 86294s
+2025-11-27 03:57:05 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:06 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:06 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,283
+2025-11-27 03:57:06 | INFO     | monitor              |    Tx Hash: 2893c25ac7f82ccda6359ecb24cb847a96b6d716b67012c7f68a2f1568f3c250
+2025-11-27 03:57:06 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:57:06 | INFO     | monitor              |    Side: buy
+2025-11-27 03:57:06 | INFO     | monitor              |    Time: 2025-11-26 04:00:01
+2025-11-27 03:57:06 | INFO     | monitor              |    Capture delay: 86225s
+2025-11-27 03:57:06 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:07 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:57:07 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:57:07 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:57:07 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:57:12 | INFO     | monitor              | ✅ Found 5 trades in this batch
+2025-11-27 03:57:12 | INFO     | monitor              | Processing blocks 79,512,292 to 79,512,341 (50 blocks, 43106 behind)
+2025-11-27 03:57:13 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:57:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:57:13 | WARNING  | rpc_manager          | ✗ Error connecting to RPC https://polygon-rpc.com: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 'data': {'trace_id': '150e7c38a0886bb794ad4503ba04bfed'}}
+2025-11-27 03:57:13 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 03:57:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 03:57:13 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 03:57:13 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 03:57:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 03:57:13 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 03:57:13 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 03:57:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 03:57:13 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 03:57:13 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 03:57:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 03:57:14 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 03:57:14 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 03:57:14 | ERROR    | rpc_manager          | Failed to connect to any RPC endpoint
+2025-11-27 03:57:14 | WARNING  | rpc_manager          | Attempt 1/3 failed: Failed to reconnect to RPC
+2025-11-27 03:57:19 | INFO     | monitor              | Processing blocks 79,512,342 to 79,512,391 (50 blocks, 43061 behind)
+2025-11-27 03:57:20 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:57:20 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:57:20 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:57:20 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:57:26 | INFO     | monitor              | Processing blocks 79,512,392 to 79,512,441 (50 blocks, 43014 behind)
+2025-11-27 03:57:28 | INFO     | monitor              | Processing blocks 79,512,442 to 79,512,491 (50 blocks, 42965 behind)
+2025-11-27 03:57:28 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:57:35 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:35 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,465
+2025-11-27 03:57:35 | INFO     | monitor              |    Tx Hash: bb5e11732ad99bab9c99efcaba04ba965b1433f23b5794f4a86203dbd4c87a98
+2025-11-27 03:57:35 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:57:35 | INFO     | monitor              |    Side: buy
+2025-11-27 03:57:35 | INFO     | monitor              |    Time: 2025-11-26 04:06:05
+2025-11-27 03:57:35 | INFO     | monitor              |    Capture delay: 85890s
+2025-11-27 03:57:35 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:35 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:57:35 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:57:35 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:57:35 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:35 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,471
+2025-11-27 03:57:35 | INFO     | monitor              |    Tx Hash: 0d90381ef0c4d98369ff2adbf12b10231faf3c6c915c5923775894740d79074f
+2025-11-27 03:57:35 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:57:35 | INFO     | monitor              |    Side: buy
+2025-11-27 03:57:35 | INFO     | monitor              |    Time: 2025-11-26 04:06:17
+2025-11-27 03:57:35 | INFO     | monitor              |    Capture delay: 85878s
+2025-11-27 03:57:35 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:36 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:57:41 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 03:57:41 | INFO     | monitor              | Processing blocks 79,512,492 to 79,512,541 (50 blocks, 42921 behind)
+2025-11-27 03:57:42 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:42 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,514
+2025-11-27 03:57:42 | INFO     | monitor              |    Tx Hash: 67eeefb26d7720009e631d1c5de43bb56bde503be249743cad960f9f6c6bcb13
+2025-11-27 03:57:42 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:57:42 | INFO     | monitor              |    Side: sell
+2025-11-27 03:57:42 | INFO     | monitor              |    Time: 2025-11-26 04:07:43
+2025-11-27 03:57:42 | INFO     | monitor              |    Capture delay: 85799s
+2025-11-27 03:57:42 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:43 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:57:48 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 03:57:48 | INFO     | monitor              | Processing blocks 79,512,542 to 79,512,591 (50 blocks, 42874 behind)
+2025-11-27 03:57:48 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:57:48 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:57:48 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:57:48 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:57:48 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:57:49 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:57:49 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:57:49 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:57:49 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:57:50 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:57:55 | INFO     | database             | ✓ Trade recorded: 91bea50f2e...
+2025-11-27 03:57:55 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:55 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,566
+2025-11-27 03:57:55 | INFO     | monitor              |    Tx Hash: 91bea50f2ed01a45dd76a5b4ab2fa5ce0684be47d883d199707a28dd4b6576a7
+2025-11-27 03:57:55 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 03:57:55 | INFO     | monitor              |    Side: sell
+2025-11-27 03:57:55 | INFO     | monitor              |    Time: 2025-11-26 04:09:27
+2025-11-27 03:57:55 | INFO     | monitor              |    Capture delay: 85708s
+2025-11-27 03:57:55 | INFO     | monitor              | ================================================================================
+2025-11-27 03:57:55 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 03:57:55 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:58:00 | INFO     | monitor              | Processing blocks 79,512,592 to 79,512,641 (50 blocks, 42830 behind)
+2025-11-27 03:58:01 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:58:06 | INFO     | database             | ✓ Trade recorded: 288d8f16d5...
+2025-11-27 03:58:06 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:06 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,618
+2025-11-27 03:58:06 | INFO     | monitor              |    Tx Hash: 288d8f16d565f6217c193a030c1de468d89a0127c67e01c672695d9537b90bfb
+2025-11-27 03:58:06 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 03:58:06 | INFO     | monitor              |    Side: sell
+2025-11-27 03:58:06 | INFO     | monitor              |    Time: 2025-11-26 04:11:11
+2025-11-27 03:58:06 | INFO     | monitor              |    Capture delay: 85615s
+2025-11-27 03:58:06 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:07 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 03:58:07 | INFO     | monitor              | Processing blocks 79,512,642 to 79,512,691 (50 blocks, 42784 behind)
+2025-11-27 03:58:08 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:58:08 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:58:08 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:58:08 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:58:08 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:58:09 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:58:09 | INFO     | monitor              | Processing blocks 79,512,692 to 79,512,741 (50 blocks, 42735 behind)
+2025-11-27 03:58:10 | INFO     | database             | ✓ Trade recorded: 42ddf78a84...
+2025-11-27 03:58:10 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:10 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,700
+2025-11-27 03:58:10 | INFO     | monitor              |    Tx Hash: 42ddf78a847a1202efbc37855de188511a07891ce7f37836390be203cbb28b67
+2025-11-27 03:58:10 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:10 | INFO     | monitor              |    Side: sell
+2025-11-27 03:58:10 | INFO     | monitor              |    Time: 2025-11-26 04:13:55
+2025-11-27 03:58:10 | INFO     | monitor              |    Capture delay: 85455s
+2025-11-27 03:58:10 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:11 | INFO     | database             | ✓ Trade recorded: 675b5efc71...
+2025-11-27 03:58:11 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:11 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,727
+2025-11-27 03:58:11 | INFO     | monitor              |    Tx Hash: 675b5efc71d7efd8c0227a87e71af542295bee240781fff848ad2b8ce47e3ece
+2025-11-27 03:58:11 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 03:58:11 | INFO     | monitor              |    Side: sell
+2025-11-27 03:58:11 | INFO     | monitor              |    Time: 2025-11-26 04:14:49
+2025-11-27 03:58:11 | INFO     | monitor              |    Capture delay: 85402s
+2025-11-27 03:58:11 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:11 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 03:58:11 | INFO     | monitor              | Processing blocks 79,512,742 to 79,512,791 (50 blocks, 42686 behind)
+2025-11-27 03:58:12 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:58:17 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:58:23 | INFO     | database             | ✓ Trade recorded: 93e0cc3e10...
+2025-11-27 03:58:23 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:23 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,748
+2025-11-27 03:58:23 | INFO     | monitor              |    Tx Hash: 93e0cc3e104e6187d8fdde4893a47dc34c19c19da4843fb25a7b46a433d562d7
+2025-11-27 03:58:23 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:23 | INFO     | monitor              |    Side: buy
+2025-11-27 03:58:23 | INFO     | monitor              |    Time: 2025-11-26 04:15:31
+2025-11-27 03:58:23 | INFO     | monitor              |    Capture delay: 85372s
+2025-11-27 03:58:23 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:23 | INFO     | database             | ✓ Trade recorded: fa5d6d24d1...
+2025-11-27 03:58:23 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:23 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,748
+2025-11-27 03:58:23 | INFO     | monitor              |    Tx Hash: fa5d6d24d1ad4111ee1c27d7c5d09a5ffda5e358ee6d79b9aea5940abe15f6da
+2025-11-27 03:58:23 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:23 | INFO     | monitor              |    Side: sell
+2025-11-27 03:58:23 | INFO     | monitor              |    Time: 2025-11-26 04:15:31
+2025-11-27 03:58:23 | INFO     | monitor              |    Capture delay: 85372s
+2025-11-27 03:58:23 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:24 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:58:24 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:58:24 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:58:24 | INFO     | database             | ✓ Trade recorded: 2f22fd9976...
+2025-11-27 03:58:24 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:24 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,790
+2025-11-27 03:58:24 | INFO     | monitor              |    Tx Hash: 2f22fd9976dab48113e92465bd927ed1e7e8af30defccb993bc1379e1600fd00
+2025-11-27 03:58:24 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:24 | INFO     | monitor              |    Side: sell
+2025-11-27 03:58:24 | INFO     | monitor              |    Time: 2025-11-26 04:16:55
+2025-11-27 03:58:24 | INFO     | monitor              |    Capture delay: 85289s
+2025-11-27 03:58:24 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:24 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:58:24 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:58:25 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:58:25 | INFO     | monitor              | ✅ Found 3 trades in this batch
+2025-11-27 03:58:25 | INFO     | monitor              | Processing blocks 79,512,792 to 79,512,841 (50 blocks, 42644 behind)
+2025-11-27 03:58:25 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:58:25 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:58:26 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:58:26 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:58:31 | INFO     | database             | ✓ Trade recorded: 8dfa1533c0...
+2025-11-27 03:58:31 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:31 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,836
+2025-11-27 03:58:31 | INFO     | monitor              |    Tx Hash: 8dfa1533c04b8c4b87bf7f681044b575eb02e3e2a4522e19942ed090c3d675ed
+2025-11-27 03:58:31 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:31 | INFO     | monitor              |    Side: sell
+2025-11-27 03:58:31 | INFO     | monitor              |    Time: 2025-11-26 04:18:27
+2025-11-27 03:58:31 | INFO     | monitor              |    Capture delay: 85204s
+2025-11-27 03:58:31 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:31 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:58:37 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:58:42 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 03:58:42 | INFO     | monitor              | Processing blocks 79,512,842 to 79,512,891 (50 blocks, 42602 behind)
+2025-11-27 03:58:42 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:58:42 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:58:43 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:58:43 | INFO     | database             | ✓ Trade recorded: e3a20f5fa7...
+2025-11-27 03:58:43 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:43 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,848
+2025-11-27 03:58:43 | INFO     | monitor              |    Tx Hash: e3a20f5fa7d419f7b4e0c43265aa881c2638ce49392542a89b5a833008c0c0f8
+2025-11-27 03:58:43 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:43 | INFO     | monitor              |    Side: sell
+2025-11-27 03:58:43 | INFO     | monitor              |    Time: 2025-11-26 04:18:51
+2025-11-27 03:58:43 | INFO     | monitor              |    Capture delay: 85192s
+2025-11-27 03:58:43 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:43 | INFO     | database             | ✓ Trade recorded: dd2ddcfc19...
+2025-11-27 03:58:43 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:43 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,848
+2025-11-27 03:58:43 | INFO     | monitor              |    Tx Hash: dd2ddcfc19b98a6979d4948f38e24e6caf1211b9b5ee89c0a06bd8dba85da301
+2025-11-27 03:58:43 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:43 | INFO     | monitor              |    Side: buy
+2025-11-27 03:58:43 | INFO     | monitor              |    Time: 2025-11-26 04:18:51
+2025-11-27 03:58:43 | INFO     | monitor              |    Capture delay: 85192s
+2025-11-27 03:58:43 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:43 | INFO     | database             | ✓ Trade recorded: f3734ea1de...
+2025-11-27 03:58:43 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:43 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,851
+2025-11-27 03:58:43 | INFO     | monitor              |    Tx Hash: f3734ea1de4eea54b925a929d98f20b0d91900e8fa265da49af125a2a2a795d3
+2025-11-27 03:58:43 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:43 | INFO     | monitor              |    Side: buy
+2025-11-27 03:58:43 | INFO     | monitor              |    Time: 2025-11-26 04:18:57
+2025-11-27 03:58:43 | INFO     | monitor              |    Capture delay: 85186s
+2025-11-27 03:58:43 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:44 | INFO     | database             | ✓ Trade recorded: 277e9f0698...
+2025-11-27 03:58:44 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:44 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,864
+2025-11-27 03:58:44 | INFO     | monitor              |    Tx Hash: 277e9f069823aadf1ea65bb64af5f8707273e481ab8bb25bb71fc1e959809f3a
+2025-11-27 03:58:44 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:44 | INFO     | monitor              |    Side: buy
+2025-11-27 03:58:44 | INFO     | monitor              |    Time: 2025-11-26 04:19:23
+2025-11-27 03:58:44 | INFO     | monitor              |    Capture delay: 85161s
+2025-11-27 03:58:44 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:44 | INFO     | database             | ✓ Trade recorded: 31cc36612f...
+2025-11-27 03:58:44 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:44 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,865
+2025-11-27 03:58:44 | INFO     | monitor              |    Tx Hash: 31cc36612ffda86ad49eff6cf03fdb68682b5bd4001daa10663c9979e69d490c
+2025-11-27 03:58:44 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:44 | INFO     | monitor              |    Side: buy
+2025-11-27 03:58:44 | INFO     | monitor              |    Time: 2025-11-26 04:19:25
+2025-11-27 03:58:44 | INFO     | monitor              |    Capture delay: 85159s
+2025-11-27 03:58:44 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:44 | INFO     | database             | ✓ Trade recorded: c137ef07b6...
+2025-11-27 03:58:44 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:44 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,875
+2025-11-27 03:58:44 | INFO     | monitor              |    Tx Hash: c137ef07b6babc792bfb0ef746c26995d17a1319631a49643cae1ea9a2db6663
+2025-11-27 03:58:44 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:44 | INFO     | monitor              |    Side: buy
+2025-11-27 03:58:44 | INFO     | monitor              |    Time: 2025-11-26 04:19:45
+2025-11-27 03:58:44 | INFO     | monitor              |    Capture delay: 85139s
+2025-11-27 03:58:44 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:44 | INFO     | database             | ✓ Trade recorded: be14f3039f...
+2025-11-27 03:58:44 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:44 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,875
+2025-11-27 03:58:44 | INFO     | monitor              |    Tx Hash: be14f3039fb63b4eb6e749108be323506f4a7fcfecb30c211bf5dda5a92fe796
+2025-11-27 03:58:44 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:58:44 | INFO     | monitor              |    Side: buy
+2025-11-27 03:58:44 | INFO     | monitor              |    Time: 2025-11-26 04:19:45
+2025-11-27 03:58:44 | INFO     | monitor              |    Capture delay: 85139s
+2025-11-27 03:58:44 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:45 | INFO     | database             | ✓ Trade recorded: 6017941b44...
+2025-11-27 03:58:45 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:45 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,864
+2025-11-27 03:58:45 | INFO     | monitor              |    Tx Hash: 6017941b448e3dfd1d10dfbf01c13d7191abf5ec348c6c37ee3505749e2ec10a
+2025-11-27 03:58:45 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 03:58:45 | INFO     | monitor              |    Side: sell
+2025-11-27 03:58:45 | INFO     | monitor              |    Time: 2025-11-26 04:19:23
+2025-11-27 03:58:45 | INFO     | monitor              |    Capture delay: 85162s
+2025-11-27 03:58:45 | INFO     | monitor              | ================================================================================
+2025-11-27 03:58:45 | INFO     | monitor              | ✅ Found 8 trades in this batch
+2025-11-27 03:58:45 | INFO     | monitor              | Processing blocks 79,512,892 to 79,512,941 (50 blocks, 42552 behind)
+2025-11-27 03:58:47 | INFO     | monitor              | Processing blocks 79,512,942 to 79,512,991 (50 blocks, 42505 behind)
+2025-11-27 03:58:50 | INFO     | monitor              | Processing blocks 79,512,992 to 79,513,041 (50 blocks, 42455 behind)
+2025-11-27 03:58:51 | INFO     | monitor              | Processing blocks 79,513,042 to 79,513,091 (50 blocks, 42407 behind)
+2025-11-27 03:58:52 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:58:58 | INFO     | monitor              | Processing blocks 79,513,092 to 79,513,141 (50 blocks, 42360 behind)
+2025-11-27 03:59:00 | INFO     | monitor              | Processing blocks 79,513,142 to 79,513,191 (50 blocks, 42311 behind)
+2025-11-27 03:59:01 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:59:01 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:59:01 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:59:03 | INFO     | monitor              | Processing blocks 79,513,192 to 79,513,241 (50 blocks, 42263 behind)
+2025-11-27 03:59:05 | INFO     | database             | ✓ Trade recorded: c618ea9e84...
+2025-11-27 03:59:05 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:05 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,222
+2025-11-27 03:59:05 | INFO     | monitor              |    Tx Hash: c618ea9e84b0de12a81135c5f08a658f07a35e9343084c97d122e9b543817171
+2025-11-27 03:59:05 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 03:59:05 | INFO     | monitor              |    Side: sell
+2025-11-27 03:59:05 | INFO     | monitor              |    Time: 2025-11-26 04:31:19
+2025-11-27 03:59:05 | INFO     | monitor              |    Capture delay: 84466s
+2025-11-27 03:59:05 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:06 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 03:59:06 | INFO     | monitor              | Processing blocks 79,513,242 to 79,513,291 (50 blocks, 42214 behind)
+2025-11-27 03:59:08 | INFO     | monitor              | Processing blocks 79,513,292 to 79,513,341 (50 blocks, 42165 behind)
+2025-11-27 03:59:09 | INFO     | database             | ✓ Trade recorded: 52c7e088a0...
+2025-11-27 03:59:09 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:09 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,304
+2025-11-27 03:59:09 | INFO     | monitor              |    Tx Hash: 52c7e088a03be852667a468e7a66b4f08adb15556e511904b3a065e634c047c4
+2025-11-27 03:59:09 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 03:59:09 | INFO     | monitor              |    Side: sell
+2025-11-27 03:59:09 | INFO     | monitor              |    Time: 2025-11-26 04:34:03
+2025-11-27 03:59:09 | INFO     | monitor              |    Capture delay: 84306s
+2025-11-27 03:59:09 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:09 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 03:59:10 | INFO     | monitor              | Processing blocks 79,513,342 to 79,513,391 (50 blocks, 42116 behind)
+2025-11-27 03:59:10 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:59:16 | INFO     | monitor              | Processing blocks 79,513,392 to 79,513,441 (50 blocks, 42068 behind)
+2025-11-27 03:59:17 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:59:23 | INFO     | database             | ✓ Trade recorded: 5bf994af30...
+2025-11-27 03:59:23 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:23 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,393
+2025-11-27 03:59:23 | INFO     | monitor              |    Tx Hash: 5bf994af30d1f276127edc4d5e2f3dccf9e90d23394f1d8da69fbe7f14cc8a33
+2025-11-27 03:59:23 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 03:59:23 | INFO     | monitor              |    Side: sell
+2025-11-27 03:59:23 | INFO     | monitor              |    Time: 2025-11-26 04:37:01
+2025-11-27 03:59:23 | INFO     | monitor              |    Capture delay: 84142s
+2025-11-27 03:59:23 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:23 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 03:59:23 | INFO     | monitor              | Processing blocks 79,513,442 to 79,513,491 (50 blocks, 42022 behind)
+2025-11-27 03:59:23 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:59:29 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:59:29 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:59:29 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:59:29 | INFO     | monitor              | Processing blocks 79,513,492 to 79,513,541 (50 blocks, 41975 behind)
+2025-11-27 03:59:30 | INFO     | monitor              | Processing blocks 79,513,542 to 79,513,591 (50 blocks, 41925 behind)
+2025-11-27 03:59:31 | INFO     | database             | ✓ Trade recorded: 3a718d4039...
+2025-11-27 03:59:31 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:31 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,543
+2025-11-27 03:59:31 | INFO     | monitor              |    Tx Hash: 3a718d4039ec1718348f6f8eff068e3c676fa98c408062a4571735ea4d3ee0b8
+2025-11-27 03:59:31 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:59:31 | INFO     | monitor              |    Side: sell
+2025-11-27 03:59:31 | INFO     | monitor              |    Time: 2025-11-26 04:42:01
+2025-11-27 03:59:31 | INFO     | monitor              |    Capture delay: 83850s
+2025-11-27 03:59:31 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:31 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 03:59:31 | INFO     | monitor              | Processing blocks 79,513,592 to 79,513,641 (50 blocks, 41876 behind)
+2025-11-27 03:59:31 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:59:31 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:59:32 | WARNING  | rpc_manager          | ✗ Error connecting to RPC https://polygon-rpc.com: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 'data': {'trace_id': 'e6da07a23863cd937a22b92eedde6c3a'}}
+2025-11-27 03:59:32 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 03:59:32 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 03:59:32 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 03:59:32 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 03:59:32 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 03:59:32 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 03:59:32 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 03:59:32 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 03:59:32 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 03:59:32 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 03:59:32 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 03:59:32 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 03:59:33 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:59:33 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 03:59:33 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 03:59:33 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 03:59:33 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:59:33 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:59:34 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:59:39 | INFO     | database             | ✓ Trade recorded: e312b68588...
+2025-11-27 03:59:39 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:39 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,623
+2025-11-27 03:59:39 | INFO     | monitor              |    Tx Hash: e312b6858899a686717a8c8362190546011b12596f0ad8c6826c7a0e2cbf9245
+2025-11-27 03:59:39 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 03:59:39 | INFO     | monitor              |    Side: sell
+2025-11-27 03:59:39 | INFO     | monitor              |    Time: 2025-11-26 04:44:41
+2025-11-27 03:59:39 | INFO     | monitor              |    Capture delay: 83698s
+2025-11-27 03:59:39 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:39 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 03:59:39 | INFO     | monitor              | Processing blocks 79,513,642 to 79,513,691 (50 blocks, 41830 behind)
+2025-11-27 03:59:40 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:59:40 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:59:40 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:59:40 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:59:45 | INFO     | monitor              | Processing blocks 79,513,692 to 79,513,741 (50 blocks, 41784 behind)
+2025-11-27 03:59:45 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:59:45 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:59:46 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:59:47 | INFO     | monitor              | Processing blocks 79,513,742 to 79,513,791 (50 blocks, 41734 behind)
+2025-11-27 03:59:47 | INFO     | database             | ✓ Trade recorded: 92bed46f98...
+2025-11-27 03:59:47 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:47 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,753
+2025-11-27 03:59:47 | INFO     | monitor              |    Tx Hash: 92bed46f989a1cc6769ab6256fadf11ec90f60e21e82f3383e44b553c860488c
+2025-11-27 03:59:47 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:59:47 | INFO     | monitor              |    Side: buy
+2025-11-27 03:59:47 | INFO     | monitor              |    Time: 2025-11-26 04:49:01
+2025-11-27 03:59:47 | INFO     | monitor              |    Capture delay: 83446s
+2025-11-27 03:59:47 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:48 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 03:59:48 | INFO     | monitor              | Processing blocks 79,513,792 to 79,513,841 (50 blocks, 41684 behind)
+2025-11-27 03:59:48 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 03:59:48 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 03:59:49 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 03:59:49 | INFO     | database             | ✓ Trade recorded: 8d96a39b1a...
+2025-11-27 03:59:49 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:49 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,838
+2025-11-27 03:59:49 | INFO     | monitor              |    Tx Hash: 8d96a39b1a638edf083d806702037705a010447bfcfb6bb738e29da8e04bb1bc
+2025-11-27 03:59:49 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 03:59:49 | INFO     | monitor              |    Side: buy
+2025-11-27 03:59:49 | INFO     | monitor              |    Time: 2025-11-26 04:51:51
+2025-11-27 03:59:49 | INFO     | monitor              |    Capture delay: 83278s
+2025-11-27 03:59:49 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:49 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 03:59:55 | INFO     | database             | ✓ Trade recorded: b175bcd9a2...
+2025-11-27 03:59:55 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:55 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,825
+2025-11-27 03:59:55 | INFO     | monitor              |    Tx Hash: b175bcd9a20fd65a9fc2687e709dae44a07152c4e0601bfd403cd9433b51ede4
+2025-11-27 03:59:55 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 03:59:55 | INFO     | monitor              |    Side: sell
+2025-11-27 03:59:55 | INFO     | monitor              |    Time: 2025-11-26 04:51:25
+2025-11-27 03:59:55 | INFO     | monitor              |    Capture delay: 83310s
+2025-11-27 03:59:55 | INFO     | monitor              | ================================================================================
+2025-11-27 03:59:55 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 03:59:55 | INFO     | monitor              | Processing blocks 79,513,842 to 79,513,891 (50 blocks, 41638 behind)
+2025-11-27 03:59:55 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:00:00 | INFO     | database             | ✓ Trade recorded: ebbf80505d...
+2025-11-27 04:00:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:00 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,889
+2025-11-27 04:00:00 | INFO     | monitor              |    Tx Hash: ebbf80505d22c760b46301423bab900003e1e958933937a79f4025ff6a0de238
+2025-11-27 04:00:00 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:00:00 | INFO     | monitor              |    Side: sell
+2025-11-27 04:00:00 | INFO     | monitor              |    Time: 2025-11-26 04:53:33
+2025-11-27 04:00:00 | INFO     | monitor              |    Capture delay: 83187s
+2025-11-27 04:00:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:01 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:00:01 | INFO     | monitor              | Processing blocks 79,513,892 to 79,513,941 (50 blocks, 41591 behind)
+2025-11-27 04:00:01 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:00:07 | INFO     | monitor              | Processing blocks 79,513,942 to 79,513,991 (50 blocks, 41544 behind)
+2025-11-27 04:00:08 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:00:08 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:00:08 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:00:08 | INFO     | database             | ✓ Trade recorded: f99868898b...
+2025-11-27 04:00:08 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:08 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,985
+2025-11-27 04:00:08 | INFO     | monitor              |    Tx Hash: f99868898b59b1d42ed1b5fc34431a2ac50e2bacdb1b1018748490867b0faff2
+2025-11-27 04:00:08 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:00:08 | INFO     | monitor              |    Side: sell
+2025-11-27 04:00:08 | INFO     | monitor              |    Time: 2025-11-26 04:56:45
+2025-11-27 04:00:08 | INFO     | monitor              |    Capture delay: 83003s
+2025-11-27 04:00:08 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:09 | INFO     | database             | ✓ Trade recorded: 5355aa3f56...
+2025-11-27 04:00:09 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:09 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,965
+2025-11-27 04:00:09 | INFO     | monitor              |    Tx Hash: 5355aa3f566668271aaf500856d80983e3c605534828caad4e9bd14f61a940ba
+2025-11-27 04:00:09 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:00:09 | INFO     | monitor              |    Side: sell
+2025-11-27 04:00:09 | INFO     | monitor              |    Time: 2025-11-26 04:56:05
+2025-11-27 04:00:09 | INFO     | monitor              |    Capture delay: 83043s
+2025-11-27 04:00:09 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:09 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:00:09 | INFO     | monitor              | Processing blocks 79,513,992 to 79,514,041 (50 blocks, 41496 behind)
+2025-11-27 04:00:10 | INFO     | monitor              | Processing blocks 79,514,042 to 79,514,091 (50 blocks, 41446 behind)
+2025-11-27 04:00:10 | INFO     | database             | ✓ Trade recorded: 64d7163f37...
+2025-11-27 04:00:10 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:10 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,051
+2025-11-27 04:00:10 | INFO     | monitor              |    Tx Hash: 64d7163f37cd9f59aad44fd0a906fc1a82bec4ff3be114734cb096678979dada
+2025-11-27 04:00:10 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:00:10 | INFO     | monitor              |    Side: sell
+2025-11-27 04:00:10 | INFO     | monitor              |    Time: 2025-11-26 04:58:57
+2025-11-27 04:00:10 | INFO     | monitor              |    Capture delay: 82873s
+2025-11-27 04:00:10 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:11 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:00:11 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:00:11 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:00:12 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:00:12 | INFO     | monitor              | Processing blocks 79,514,092 to 79,514,141 (50 blocks, 41396 behind)
+2025-11-27 04:00:12 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:00:12 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:00:12 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:00:12 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 04:00:12 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:00:12 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:00:12 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 04:00:12 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:00:13 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:00:13 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 04:00:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:00:13 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:00:13 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 04:00:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:00:13 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 04:00:15 | INFO     | database             | ✓ Trade recorded: 3e84ebf2bf...
+2025-11-27 04:00:15 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:15 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,113
+2025-11-27 04:00:15 | INFO     | monitor              |    Tx Hash: 3e84ebf2bffc501577e9a98b53b02a8324f3a6ce7d9a9431c0197d6d550010b2
+2025-11-27 04:00:15 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:00:15 | INFO     | monitor              |    Side: buy
+2025-11-27 04:00:15 | INFO     | monitor              |    Time: 2025-11-26 05:01:01
+2025-11-27 04:00:15 | INFO     | monitor              |    Capture delay: 82754s
+2025-11-27 04:00:15 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:15 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:00:15 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:00:15 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:00:15 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 04:00:15 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:00:15 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:00:15 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:00:21 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:00:21 | INFO     | monitor              | Processing blocks 79,514,142 to 79,514,191 (50 blocks, 41351 behind)
+2025-11-27 04:00:21 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:00:21 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:00:21 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:00:22 | INFO     | monitor              | Processing blocks 79,514,192 to 79,514,241 (50 blocks, 41301 behind)
+2025-11-27 04:00:22 | INFO     | database             | ✓ Trade recorded: ac7c08052d...
+2025-11-27 04:00:22 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:22 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,202
+2025-11-27 04:00:22 | INFO     | monitor              |    Tx Hash: ac7c08052d2fd71fb6d8b1f554a0c37561fb22ecce9177bb983cb1aa285a98fc
+2025-11-27 04:00:22 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:00:22 | INFO     | monitor              |    Side: sell
+2025-11-27 04:00:22 | INFO     | monitor              |    Time: 2025-11-26 05:03:59
+2025-11-27 04:00:22 | INFO     | monitor              |    Capture delay: 82583s
+2025-11-27 04:00:22 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:23 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:00:28 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:00:28 | INFO     | monitor              | Processing blocks 79,514,242 to 79,514,291 (50 blocks, 41253 behind)
+2025-11-27 04:00:29 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:00:34 | INFO     | database             | ✓ Trade recorded: 37bf63e97b...
+2025-11-27 04:00:34 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:34 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,259
+2025-11-27 04:00:34 | INFO     | monitor              |    Tx Hash: 37bf63e97bd1240d21c3e6328958c137984d1f96a5e0b772031f502a6c7f12c6
+2025-11-27 04:00:34 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:00:34 | INFO     | monitor              |    Side: buy
+2025-11-27 04:00:34 | INFO     | monitor              |    Time: 2025-11-26 05:05:53
+2025-11-27 04:00:34 | INFO     | monitor              |    Capture delay: 82481s
+2025-11-27 04:00:34 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:34 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:00:40 | INFO     | database             | ✓ Trade recorded: f5bd04e0d3...
+2025-11-27 04:00:40 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:40 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,274
+2025-11-27 04:00:40 | INFO     | monitor              |    Tx Hash: f5bd04e0d39bd5c93ea1039e057b31134b7607a87635a2c81f35f21c3ee9dc58
+2025-11-27 04:00:40 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:00:40 | INFO     | monitor              |    Side: buy
+2025-11-27 04:00:40 | INFO     | monitor              |    Time: 2025-11-26 05:06:23
+2025-11-27 04:00:40 | INFO     | monitor              |    Capture delay: 82457s
+2025-11-27 04:00:40 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:40 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:00:40 | INFO     | monitor              | Processing blocks 79,514,292 to 79,514,341 (50 blocks, 41210 behind)
+2025-11-27 04:00:40 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:00:46 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:00:51 | INFO     | database             | ✓ Trade recorded: a9b52d7239...
+2025-11-27 04:00:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:51 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,311
+2025-11-27 04:00:51 | INFO     | monitor              |    Tx Hash: a9b52d723985d5ad9879fe9ae9ad8441658b94a0899bbcc70f301402c3b7bf24
+2025-11-27 04:00:51 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:00:51 | INFO     | monitor              |    Side: buy
+2025-11-27 04:00:51 | INFO     | monitor              |    Time: 2025-11-26 05:07:37
+2025-11-27 04:00:51 | INFO     | monitor              |    Capture delay: 82394s
+2025-11-27 04:00:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:51 | INFO     | database             | ✓ Trade recorded: c7495cc526...
+2025-11-27 04:00:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:51 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,325
+2025-11-27 04:00:51 | INFO     | monitor              |    Tx Hash: c7495cc526f2b833f18644aa90555e96645232be7d1ab03c1e189c1e51f9ac8d
+2025-11-27 04:00:51 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:00:51 | INFO     | monitor              |    Side: sell
+2025-11-27 04:00:51 | INFO     | monitor              |    Time: 2025-11-26 05:08:05
+2025-11-27 04:00:51 | INFO     | monitor              |    Capture delay: 82366s
+2025-11-27 04:00:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:52 | INFO     | database             | ✓ Trade recorded: 9bf9cc59b0...
+2025-11-27 04:00:52 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:52 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,331
+2025-11-27 04:00:52 | INFO     | monitor              |    Tx Hash: 9bf9cc59b0c6f9450b65ef861df96de0e0854f4f9b4e2c8fd65bdf27a5d84874
+2025-11-27 04:00:52 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:00:52 | INFO     | monitor              |    Side: buy
+2025-11-27 04:00:52 | INFO     | monitor              |    Time: 2025-11-26 05:08:17
+2025-11-27 04:00:52 | INFO     | monitor              |    Capture delay: 82355s
+2025-11-27 04:00:52 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:52 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:00:57 | INFO     | database             | ✓ Trade recorded: a98c1e729a...
+2025-11-27 04:00:57 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:57 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,338
+2025-11-27 04:00:57 | INFO     | monitor              |    Tx Hash: a98c1e729aa03e02775d97dd8050859bd404cad20d41dfddca21f4f2a4b3c3ce
+2025-11-27 04:00:57 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:00:57 | INFO     | monitor              |    Side: buy
+2025-11-27 04:00:57 | INFO     | monitor              |    Time: 2025-11-26 05:08:31
+2025-11-27 04:00:57 | INFO     | monitor              |    Capture delay: 82346s
+2025-11-27 04:00:57 | INFO     | monitor              | ================================================================================
+2025-11-27 04:00:57 | INFO     | monitor              | ✅ Found 4 trades in this batch
+2025-11-27 04:00:57 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:00:57 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:00:58 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:00:58 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:01:03 | INFO     | monitor              | Processing blocks 79,514,342 to 79,514,391 (50 blocks, 41172 behind)
+2025-11-27 04:01:04 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:01:09 | INFO     | monitor              | Processing blocks 79,514,392 to 79,514,441 (50 blocks, 41125 behind)
+2025-11-27 04:01:09 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:01:14 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:01:14 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:01:15 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:01:15 | INFO     | database             | ✓ Trade recorded: e4ec53030a...
+2025-11-27 04:01:15 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:15 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,398
+2025-11-27 04:01:15 | INFO     | monitor              |    Tx Hash: e4ec53030a55eee147ebb2624d77dba3d7f6be4b8f5adb7cc190ad15beeeb70c
+2025-11-27 04:01:15 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:01:15 | INFO     | monitor              |    Side: buy
+2025-11-27 04:01:15 | INFO     | monitor              |    Time: 2025-11-26 05:10:31
+2025-11-27 04:01:15 | INFO     | monitor              |    Capture delay: 82244s
+2025-11-27 04:01:15 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:15 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:01:15 | INFO     | monitor              | Processing blocks 79,514,442 to 79,514,491 (50 blocks, 41079 behind)
+2025-11-27 04:01:17 | INFO     | monitor              | Processing blocks 79,514,492 to 79,514,541 (50 blocks, 41029 behind)
+2025-11-27 04:01:18 | INFO     | monitor              | Processing blocks 79,514,542 to 79,514,591 (50 blocks, 40979 behind)
+2025-11-27 04:01:19 | INFO     | monitor              | Processing blocks 79,514,592 to 79,514,641 (50 blocks, 40930 behind)
+2025-11-27 04:01:20 | INFO     | monitor              | Processing blocks 79,514,642 to 79,514,691 (50 blocks, 40880 behind)
+2025-11-27 04:01:21 | INFO     | database             | ✓ Trade recorded: 32f73a01e8...
+2025-11-27 04:01:21 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:21 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,653
+2025-11-27 04:01:21 | INFO     | monitor              |    Tx Hash: 32f73a01e8e10fff884edcd947c65e69315e15f4fa99448dab8357494276c394
+2025-11-27 04:01:21 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:01:21 | INFO     | monitor              |    Side: buy
+2025-11-27 04:01:21 | INFO     | monitor              |    Time: 2025-11-26 05:19:01
+2025-11-27 04:01:21 | INFO     | monitor              |    Capture delay: 81740s
+2025-11-27 04:01:21 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:22 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:01:22 | INFO     | monitor              | Processing blocks 79,514,692 to 79,514,741 (50 blocks, 40832 behind)
+2025-11-27 04:01:23 | INFO     | database             | ✓ Trade recorded: 7d6ae3b1ab...
+2025-11-27 04:01:23 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:23 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,729
+2025-11-27 04:01:23 | INFO     | monitor              |    Tx Hash: 7d6ae3b1ababb5f057e85f6eb8dc8b57e0fd0ff7f83d3271f4c6703abd51d3c5
+2025-11-27 04:01:23 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:01:23 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:23 | INFO     | monitor              |    Time: 2025-11-26 05:21:33
+2025-11-27 04:01:23 | INFO     | monitor              |    Capture delay: 81590s
+2025-11-27 04:01:23 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:24 | INFO     | database             | ✓ Trade recorded: d29271fdc1...
+2025-11-27 04:01:24 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:24 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,741
+2025-11-27 04:01:24 | INFO     | monitor              |    Tx Hash: d29271fdc17c3e849048abc1ef6d72f045da707e54326e5154aaad7474b108df
+2025-11-27 04:01:24 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:01:24 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:24 | INFO     | monitor              |    Time: 2025-11-26 05:21:57
+2025-11-27 04:01:24 | INFO     | monitor              |    Capture delay: 81567s
+2025-11-27 04:01:24 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:24 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:01:24 | INFO     | monitor              | Processing blocks 79,514,742 to 79,514,791 (50 blocks, 40782 behind)
+2025-11-27 04:01:26 | INFO     | database             | ✓ Trade recorded: 4cdaf84780...
+2025-11-27 04:01:26 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:26 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,757
+2025-11-27 04:01:26 | INFO     | monitor              |    Tx Hash: 4cdaf8478007ea1f9cf724c938a060e7273f5dcc0b0660f41681f58eadb040b2
+2025-11-27 04:01:26 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:01:26 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:26 | INFO     | monitor              |    Time: 2025-11-26 05:22:29
+2025-11-27 04:01:26 | INFO     | monitor              |    Capture delay: 81537s
+2025-11-27 04:01:26 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:27 | INFO     | database             | ✓ Trade recorded: a284bc0a9d...
+2025-11-27 04:01:27 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:27 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,761
+2025-11-27 04:01:27 | INFO     | monitor              |    Tx Hash: a284bc0a9d4871def3b701331dfe9c54e4857f425c18eb13fa9ec9729abf1e16
+2025-11-27 04:01:27 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:01:27 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:27 | INFO     | monitor              |    Time: 2025-11-26 05:22:37
+2025-11-27 04:01:27 | INFO     | monitor              |    Capture delay: 81530s
+2025-11-27 04:01:27 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:27 | INFO     | database             | ✓ Trade recorded: faa460232c...
+2025-11-27 04:01:27 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:27 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,765
+2025-11-27 04:01:27 | INFO     | monitor              |    Tx Hash: faa460232c4a267b6e311f9d6b901297790d8458e0f5e1b33d4dc28c7ab892b9
+2025-11-27 04:01:27 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:01:27 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:27 | INFO     | monitor              |    Time: 2025-11-26 05:22:45
+2025-11-27 04:01:27 | INFO     | monitor              |    Capture delay: 81522s
+2025-11-27 04:01:27 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:28 | INFO     | database             | ✓ Trade recorded: 55502e59c2...
+2025-11-27 04:01:28 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:28 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,769
+2025-11-27 04:01:28 | INFO     | monitor              |    Tx Hash: 55502e59c2c30d726b522229ad03d11eac6c0c39f0e9e540e80e125ce17eaa07
+2025-11-27 04:01:28 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:01:28 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:28 | INFO     | monitor              |    Time: 2025-11-26 05:22:53
+2025-11-27 04:01:28 | INFO     | monitor              |    Capture delay: 81515s
+2025-11-27 04:01:28 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:29 | INFO     | monitor              | ✅ Found 4 trades in this batch
+2025-11-27 04:01:29 | INFO     | monitor              | Processing blocks 79,514,792 to 79,514,841 (50 blocks, 40735 behind)
+2025-11-27 04:01:30 | INFO     | monitor              | Processing blocks 79,514,842 to 79,514,891 (50 blocks, 40685 behind)
+2025-11-27 04:01:30 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:01:35 | INFO     | database             | ✓ Trade recorded: f96511312e...
+2025-11-27 04:01:35 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:35 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,849
+2025-11-27 04:01:35 | INFO     | monitor              |    Tx Hash: f96511312e83d7e5dacbd198e72c33fc401679b83bdb9ff10ce71a7a4aab0ab8
+2025-11-27 04:01:35 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:01:35 | INFO     | monitor              |    Side: buy
+2025-11-27 04:01:35 | INFO     | monitor              |    Time: 2025-11-26 05:25:33
+2025-11-27 04:01:35 | INFO     | monitor              |    Capture delay: 81362s
+2025-11-27 04:01:35 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:36 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:01:41 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:01:41 | INFO     | monitor              | Processing blocks 79,514,892 to 79,514,941 (50 blocks, 40642 behind)
+2025-11-27 04:01:41 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:01:47 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:01:47 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:01:47 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:01:48 | INFO     | database             | ✓ Trade recorded: 4c1f26efd7...
+2025-11-27 04:01:48 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:48 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,898
+2025-11-27 04:01:48 | INFO     | monitor              |    Tx Hash: 4c1f26efd7b9c36766dc4995a45dead562a3cead5410ec16afac7c2888811e01
+2025-11-27 04:01:48 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:01:48 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:48 | INFO     | monitor              |    Time: 2025-11-26 05:27:11
+2025-11-27 04:01:48 | INFO     | monitor              |    Capture delay: 81277s
+2025-11-27 04:01:48 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:49 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:01:49 | INFO     | monitor              | Processing blocks 79,514,942 to 79,514,991 (50 blocks, 40594 behind)
+2025-11-27 04:01:50 | INFO     | database             | ✓ Trade recorded: dfaca791ba...
+2025-11-27 04:01:50 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:50 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,942
+2025-11-27 04:01:50 | INFO     | monitor              |    Tx Hash: dfaca791ba4ab82fe6d955a85d4510f449c357bee6a4f95f66f4f5415254f5aa
+2025-11-27 04:01:50 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:01:50 | INFO     | monitor              |    Side: buy
+2025-11-27 04:01:50 | INFO     | monitor              |    Time: 2025-11-26 05:28:39
+2025-11-27 04:01:50 | INFO     | monitor              |    Capture delay: 81191s
+2025-11-27 04:01:50 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:51 | INFO     | database             | ✓ Trade recorded: 0845a32aca...
+2025-11-27 04:01:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:51 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,962
+2025-11-27 04:01:51 | INFO     | monitor              |    Tx Hash: 0845a32aca65548f3f0b9f257918c1fc11b134e4843eafb0da9f5c5a31a9d4a6
+2025-11-27 04:01:51 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:01:51 | INFO     | monitor              |    Side: buy
+2025-11-27 04:01:51 | INFO     | monitor              |    Time: 2025-11-26 05:29:19
+2025-11-27 04:01:51 | INFO     | monitor              |    Capture delay: 81152s
+2025-11-27 04:01:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:52 | INFO     | database             | ✓ Trade recorded: 71fdcbb17c...
+2025-11-27 04:01:52 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:52 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,955
+2025-11-27 04:01:52 | INFO     | monitor              |    Tx Hash: 71fdcbb17c4d196f921201da89e224fa3a21e93d3fb79c8fd932b3d6d52ab6f0
+2025-11-27 04:01:52 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:01:52 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:52 | INFO     | monitor              |    Time: 2025-11-26 05:29:05
+2025-11-27 04:01:52 | INFO     | monitor              |    Capture delay: 81167s
+2025-11-27 04:01:52 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:52 | INFO     | monitor              | ✅ Found 3 trades in this batch
+2025-11-27 04:01:52 | INFO     | monitor              | Processing blocks 79,514,992 to 79,515,041 (50 blocks, 40545 behind)
+2025-11-27 04:01:53 | INFO     | database             | ✓ Trade recorded: ac18871092...
+2025-11-27 04:01:53 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:53 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,992
+2025-11-27 04:01:53 | INFO     | monitor              |    Tx Hash: ac18871092294ab7c5142e0b08ff36291449cec457272f832c3e8b93256e1515
+2025-11-27 04:01:53 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:01:53 | INFO     | monitor              |    Side: buy
+2025-11-27 04:01:53 | INFO     | monitor              |    Time: 2025-11-26 05:30:19
+2025-11-27 04:01:53 | INFO     | monitor              |    Capture delay: 81094s
+2025-11-27 04:01:53 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:54 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:01:54 | INFO     | monitor              | Processing blocks 79,515,042 to 79,515,091 (50 blocks, 40496 behind)
+2025-11-27 04:01:55 | INFO     | database             | ✓ Trade recorded: 74e0ae86a6...
+2025-11-27 04:01:55 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:55 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:01:55 | INFO     | monitor              |    Tx Hash: 74e0ae86a6f9902f2bf02a335c160398a5a85cddaece5f9f86a7c1336cd696d6
+2025-11-27 04:01:55 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:01:55 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:55 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:01:55 | INFO     | monitor              |    Capture delay: 80904s
+2025-11-27 04:01:55 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:56 | INFO     | database             | ✓ Trade recorded: 90243d94df...
+2025-11-27 04:01:56 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:56 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:01:56 | INFO     | monitor              |    Tx Hash: 90243d94df458492ade3d7a69fd2bce685028bb71a0dfd08b500384ad3ac7170
+2025-11-27 04:01:56 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:01:56 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:56 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:01:56 | INFO     | monitor              |    Capture delay: 80905s
+2025-11-27 04:01:56 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:56 | INFO     | database             | ✓ Trade recorded: 3356d3f011...
+2025-11-27 04:01:56 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:56 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:01:56 | INFO     | monitor              |    Tx Hash: 3356d3f011711d4de8f23af1a9ae00e870fe7d63d4b50be59191c447fbcf697c
+2025-11-27 04:01:56 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:01:56 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:56 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:01:56 | INFO     | monitor              |    Capture delay: 80905s
+2025-11-27 04:01:56 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:57 | INFO     | database             | ✓ Trade recorded: e0c53b0502...
+2025-11-27 04:01:57 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:57 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:01:57 | INFO     | monitor              |    Tx Hash: e0c53b0502382efae9f3968c1317745932168a076a7024cc8e644be58a045d8c
+2025-11-27 04:01:57 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:01:57 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:57 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:01:57 | INFO     | monitor              |    Capture delay: 80906s
+2025-11-27 04:01:57 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:57 | INFO     | database             | ✓ Trade recorded: d2c2c738d6...
+2025-11-27 04:01:57 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:57 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:01:57 | INFO     | monitor              |    Tx Hash: d2c2c738d64fe9401fe4753a8c2ff27bd19acb9a4d53137a1fe4365137059e7a
+2025-11-27 04:01:57 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:01:57 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:57 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:01:57 | INFO     | monitor              |    Capture delay: 80906s
+2025-11-27 04:01:57 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:58 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:01:58 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:01:58 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:01:58 | INFO     | database             | ✓ Trade recorded: 4f7331219d...
+2025-11-27 04:01:58 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:58 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:01:58 | INFO     | monitor              |    Tx Hash: 4f7331219d063514d5a72bda8c61bf2a2308753d020561754184f13e142987c7
+2025-11-27 04:01:58 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:01:58 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:58 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:01:58 | INFO     | monitor              |    Capture delay: 80907s
+2025-11-27 04:01:58 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:59 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:01:59 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:01:59 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:01:59 | INFO     | database             | ✓ Trade recorded: 3375c5db9c...
+2025-11-27 04:01:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:59 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:01:59 | INFO     | monitor              |    Tx Hash: 3375c5db9cfb25abecab9bc3f080e27ca9dba2a51a08dadff32c7e79447f65fe
+2025-11-27 04:01:59 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:01:59 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:59 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:01:59 | INFO     | monitor              |    Capture delay: 80908s
+2025-11-27 04:01:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:59 | INFO     | database             | ✓ Trade recorded: 063af5e142...
+2025-11-27 04:01:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:01:59 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:01:59 | INFO     | monitor              |    Tx Hash: 063af5e1421f1f4df8f0b7dc93d69422250827fb656829821f0106b07dfe4515
+2025-11-27 04:01:59 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:01:59 | INFO     | monitor              |    Side: sell
+2025-11-27 04:01:59 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:01:59 | INFO     | monitor              |    Capture delay: 80908s
+2025-11-27 04:01:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:00 | INFO     | database             | ✓ Trade recorded: 806515626f...
+2025-11-27 04:02:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:00 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:02:00 | INFO     | monitor              |    Tx Hash: 806515626f3b81b77a375e95cf37fa3a8247b900a49f8ca749c050781eda404e
+2025-11-27 04:02:00 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:02:00 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:00 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:02:00 | INFO     | monitor              |    Capture delay: 80909s
+2025-11-27 04:02:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:00 | INFO     | database             | ✓ Trade recorded: 90e5872ebf...
+2025-11-27 04:02:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:00 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:02:00 | INFO     | monitor              |    Tx Hash: 90e5872ebf05de247a90ee3c785a24f644c3ac44f6cfda4effc88e532ac7d522
+2025-11-27 04:02:00 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:02:00 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:00 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:02:00 | INFO     | monitor              |    Capture delay: 80909s
+2025-11-27 04:02:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:01 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:01 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:01 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:02:01 | INFO     | database             | ✓ Trade recorded: 6520a25c6a...
+2025-11-27 04:02:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:01 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:02:01 | INFO     | monitor              |    Tx Hash: 6520a25c6a1eef761f612e4c0198ede058e81791f01689c3858ffec56af11a75
+2025-11-27 04:02:01 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:02:01 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:01 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:02:01 | INFO     | monitor              |    Capture delay: 80910s
+2025-11-27 04:02:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:01 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:01 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:01 | WARNING  | rpc_manager          | ✗ Error connecting to RPC https://polygon-rpc.com: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 'data': {'trace_id': '25492c58407f0e1cb0f264bce161aacf'}}
+2025-11-27 04:02:01 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 04:02:01 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:02:01 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:02:01 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 04:02:01 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:02:01 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:02:01 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 04:02:01 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:02:02 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:02:02 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 04:02:02 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:02 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 04:02:02 | INFO     | database             | ✓ Trade recorded: e4fe08870e...
+2025-11-27 04:02:02 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:02 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:02:02 | INFO     | monitor              |    Tx Hash: e4fe08870e66693ef19148753542caf93736935fe16b4802becc986670de94f2
+2025-11-27 04:02:02 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:02:02 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:02 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:02:02 | INFO     | monitor              |    Capture delay: 80911s
+2025-11-27 04:02:02 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:03 | INFO     | database             | ✓ Trade recorded: 8769771a39...
+2025-11-27 04:02:03 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:03 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:02:03 | INFO     | monitor              |    Tx Hash: 8769771a39bc9b2dcae40fcfe05d0c65a73308be8c8a0be8c91e481cf29d3b55
+2025-11-27 04:02:03 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:02:03 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:03 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:02:03 | INFO     | monitor              |    Capture delay: 80912s
+2025-11-27 04:02:03 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:03 | INFO     | database             | ✓ Trade recorded: e903eecd93...
+2025-11-27 04:02:03 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:03 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:02:03 | INFO     | monitor              |    Tx Hash: e903eecd937f7f317ba8da8fd4eebd6892a8ba2ba179574fe03c5f1d0b238618
+2025-11-27 04:02:03 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:02:03 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:03 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:02:03 | INFO     | monitor              |    Capture delay: 80912s
+2025-11-27 04:02:03 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:04 | INFO     | database             | ✓ Trade recorded: 726085ec19...
+2025-11-27 04:02:04 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:04 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,089
+2025-11-27 04:02:04 | INFO     | monitor              |    Tx Hash: 726085ec1932b2bc01a6c707d47f9cc7cb16916bb5cb066d08e54957efc05384
+2025-11-27 04:02:04 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:02:04 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:04 | INFO     | monitor              |    Time: 2025-11-26 05:33:33
+2025-11-27 04:02:04 | INFO     | monitor              |    Capture delay: 80911s
+2025-11-27 04:02:04 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:07 | INFO     | monitor              | ✅ Found 15 trades in this batch
+2025-11-27 04:02:07 | INFO     | monitor              | Processing blocks 79,515,092 to 79,515,191 (100 blocks, 40455 behind)
+2025-11-27 04:02:07 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:07 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:07 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:07 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 04:02:07 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:08 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:02:09 | INFO     | monitor              | Processing blocks 79,515,192 to 79,515,241 (50 blocks, 40356 behind)
+2025-11-27 04:02:10 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:10 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:10 | WARNING  | rpc_manager          | ✗ Error connecting to RPC https://polygon-rpc.com: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 'data': {'trace_id': '3d449031740c6257ccf3451ef90050dd'}}
+2025-11-27 04:02:10 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 04:02:10 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:02:10 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:02:10 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 04:02:10 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:02:11 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:02:11 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 04:02:11 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:02:11 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:02:11 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 04:02:11 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:11 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 04:02:12 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:12 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:12 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 04:02:12 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:12 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:12 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 04:02:13 | INFO     | monitor              | Processing blocks 79,515,242 to 79,515,341 (100 blocks, 40307 behind)
+2025-11-27 04:02:13 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:13 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:13 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 04:02:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:13 | WARNING  | rpc_manager          | ✗ Error connecting to RPC https://polygon-rpc.com: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 'data': {'trace_id': '5bd8ec7fdb98b01b1b3f6b5645eddae6'}}
+2025-11-27 04:02:13 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 04:02:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:02:13 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:02:13 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 04:02:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:02:13 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:02:13 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 04:02:13 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:02:14 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:02:14 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 04:02:14 | ERROR    | rpc_manager          | Failed to connect to any RPC endpoint
+2025-11-27 04:02:14 | WARNING  | rpc_manager          | Attempt 1/3 failed: Failed to reconnect to RPC
+2025-11-27 04:02:19 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:19 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:19 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:19 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 04:02:19 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:19 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:02:19 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:19 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:20 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:02:20 | INFO     | monitor              | Processing blocks 79,515,342 to 79,515,391 (50 blocks, 40210 behind)
+2025-11-27 04:02:21 | INFO     | database             | ✓ Trade recorded: ad356009bc...
+2025-11-27 04:02:21 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:21 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,371
+2025-11-27 04:02:21 | INFO     | monitor              |    Tx Hash: ad356009bc9e040b0033685fd6496a9876ebcf2d93d4257a7b5f17e0db510b56
+2025-11-27 04:02:21 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:02:21 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:21 | INFO     | monitor              |    Time: 2025-11-26 05:42:57
+2025-11-27 04:02:21 | INFO     | monitor              |    Capture delay: 80364s
+2025-11-27 04:02:21 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:22 | INFO     | database             | ✓ Trade recorded: b9aca3a5ca...
+2025-11-27 04:02:22 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:22 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,385
+2025-11-27 04:02:22 | INFO     | monitor              |    Tx Hash: b9aca3a5cab49853111888d2c6998ba97e4ec9a9c42dc9b598d90765ca0a6e2d
+2025-11-27 04:02:22 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:02:22 | INFO     | monitor              |    Side: buy
+2025-11-27 04:02:22 | INFO     | monitor              |    Time: 2025-11-26 05:43:25
+2025-11-27 04:02:22 | INFO     | monitor              |    Capture delay: 80337s
+2025-11-27 04:02:22 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:22 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:02:22 | INFO     | monitor              | Processing blocks 79,515,392 to 79,515,441 (50 blocks, 40161 behind)
+2025-11-27 04:02:23 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:02:28 | INFO     | database             | ✓ Trade recorded: 8f2dbc9e77...
+2025-11-27 04:02:28 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:28 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,430
+2025-11-27 04:02:28 | INFO     | monitor              |    Tx Hash: 8f2dbc9e77b3f9b7b50f7497e3691048522951a6bc45939026cbe76391a3db28
+2025-11-27 04:02:28 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:02:28 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:28 | INFO     | monitor              |    Time: 2025-11-26 05:44:55
+2025-11-27 04:02:28 | INFO     | monitor              |    Capture delay: 80253s
+2025-11-27 04:02:28 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:28 | INFO     | database             | ✓ Trade recorded: cd44cbe2c6...
+2025-11-27 04:02:28 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:28 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,434
+2025-11-27 04:02:28 | INFO     | monitor              |    Tx Hash: cd44cbe2c62d20eccc16265dd9ff999a8127b3a7ac251f7055d9bbc96f0c11e8
+2025-11-27 04:02:28 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:02:28 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:28 | INFO     | monitor              |    Time: 2025-11-26 05:45:03
+2025-11-27 04:02:28 | INFO     | monitor              |    Capture delay: 80245s
+2025-11-27 04:02:28 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:29 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:29 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:29 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:29 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 04:02:29 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:02:29 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:02:29 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 04:02:29 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:02:29 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:02:29 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 04:02:29 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:02:29 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:02:29 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 04:02:29 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:29 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:02:29 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 04:02:29 | ERROR    | rpc_manager          | Failed to connect to any RPC endpoint
+2025-11-27 04:02:29 | WARNING  | rpc_manager          | Attempt 1/3 failed: Failed to reconnect to RPC
+2025-11-27 04:02:34 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:34 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:35 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:02:35 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:02:35 | INFO     | monitor              | Processing blocks 79,515,442 to 79,515,491 (50 blocks, 40118 behind)
+2025-11-27 04:02:36 | INFO     | monitor              | Processing blocks 79,515,492 to 79,515,541 (50 blocks, 40069 behind)
+2025-11-27 04:02:37 | INFO     | database             | ✓ Trade recorded: edc95471e7...
+2025-11-27 04:02:37 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:37 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,500
+2025-11-27 04:02:37 | INFO     | monitor              |    Tx Hash: edc95471e7b2262b7257de0cd6e25e25d119b7e4df4567e29b1bb50d6457a3fa
+2025-11-27 04:02:37 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:02:37 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:37 | INFO     | monitor              |    Time: 2025-11-26 05:47:15
+2025-11-27 04:02:37 | INFO     | monitor              |    Capture delay: 80121s
+2025-11-27 04:02:37 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:37 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:02:42 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:02:42 | INFO     | monitor              | Processing blocks 79,515,542 to 79,515,591 (50 blocks, 40021 behind)
+2025-11-27 04:02:43 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:43 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:43 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:02:44 | INFO     | monitor              | Processing blocks 79,515,592 to 79,515,641 (50 blocks, 39972 behind)
+2025-11-27 04:02:45 | INFO     | monitor              | Processing blocks 79,515,642 to 79,515,691 (50 blocks, 39923 behind)
+2025-11-27 04:02:45 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:02:50 | INFO     | database             | ✓ Trade recorded: ee2769a7fa...
+2025-11-27 04:02:50 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:50 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,663
+2025-11-27 04:02:50 | INFO     | monitor              |    Tx Hash: ee2769a7fa95d8e70ea8030ee034433b65821d794ba9e8ffd08ce885601de25d
+2025-11-27 04:02:50 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:02:50 | INFO     | monitor              |    Side: sell
+2025-11-27 04:02:50 | INFO     | monitor              |    Time: 2025-11-26 05:52:41
+2025-11-27 04:02:50 | INFO     | monitor              |    Capture delay: 79809s
+2025-11-27 04:02:50 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:51 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:02:56 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:02:56 | INFO     | monitor              | Processing blocks 79,515,692 to 79,515,741 (50 blocks, 39878 behind)
+2025-11-27 04:02:56 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:02:56 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:02:57 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:02:57 | INFO     | database             | ✓ Trade recorded: ebc4e32575...
+2025-11-27 04:02:57 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:57 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,700
+2025-11-27 04:02:57 | INFO     | monitor              |    Tx Hash: ebc4e32575268f5c2e08d1ca15aa3e1bd416ffce03c9869d1d8db1891946016c
+2025-11-27 04:02:57 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:02:57 | INFO     | monitor              |    Side: buy
+2025-11-27 04:02:57 | INFO     | monitor              |    Time: 2025-11-26 05:53:55
+2025-11-27 04:02:57 | INFO     | monitor              |    Capture delay: 79742s
+2025-11-27 04:02:57 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:57 | INFO     | database             | ✓ Trade recorded: f642750f14...
+2025-11-27 04:02:57 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:57 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,733
+2025-11-27 04:02:57 | INFO     | monitor              |    Tx Hash: f642750f14f213c33bfad2f2adf0954a96e57b2078838da0b40fdb1cc55ec76a
+2025-11-27 04:02:57 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:02:57 | INFO     | monitor              |    Side: buy
+2025-11-27 04:02:57 | INFO     | monitor              |    Time: 2025-11-26 05:55:01
+2025-11-27 04:02:57 | INFO     | monitor              |    Capture delay: 79676s
+2025-11-27 04:02:57 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:58 | INFO     | database             | ✓ Trade recorded: 8376f09260...
+2025-11-27 04:02:58 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:58 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,740
+2025-11-27 04:02:58 | INFO     | monitor              |    Tx Hash: 8376f092607010d74ef123dcdc6ba99c6707c215a89b8aed48adbf41601df93c
+2025-11-27 04:02:58 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:02:58 | INFO     | monitor              |    Side: buy
+2025-11-27 04:02:58 | INFO     | monitor              |    Time: 2025-11-26 05:55:15
+2025-11-27 04:02:58 | INFO     | monitor              |    Capture delay: 79663s
+2025-11-27 04:02:58 | INFO     | monitor              | ================================================================================
+2025-11-27 04:02:58 | INFO     | monitor              | ✅ Found 3 trades in this batch
+2025-11-27 04:02:58 | INFO     | monitor              | Processing blocks 79,515,742 to 79,515,791 (50 blocks, 39829 behind)
+2025-11-27 04:02:58 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:03:04 | INFO     | monitor              | Processing blocks 79,515,792 to 79,515,841 (50 blocks, 39782 behind)
+2025-11-27 04:03:04 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:03:04 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:03:04 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:03:05 | INFO     | database             | ✓ Trade recorded: ab2e996385...
+2025-11-27 04:03:05 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:05 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,813
+2025-11-27 04:03:05 | INFO     | monitor              |    Tx Hash: ab2e996385fccca4d81a7ddc802984a87a71c6a56e7e425d991cd079aeb7c10b
+2025-11-27 04:03:05 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:03:05 | INFO     | monitor              |    Side: sell
+2025-11-27 04:03:05 | INFO     | monitor              |    Time: 2025-11-26 05:57:41
+2025-11-27 04:03:05 | INFO     | monitor              |    Capture delay: 79524s
+2025-11-27 04:03:05 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:06 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:03:06 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:03:11 | INFO     | monitor              | Processing blocks 79,515,842 to 79,515,891 (50 blocks, 39736 behind)
+2025-11-27 04:03:11 | INFO     | database             | ✓ Trade recorded: cb97ce79f1...
+2025-11-27 04:03:11 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:11 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,872
+2025-11-27 04:03:11 | INFO     | monitor              |    Tx Hash: cb97ce79f1b254f5a49c6aca634f96f15a90f35f1593690221642a2e0598e8c3
+2025-11-27 04:03:11 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:03:11 | INFO     | monitor              |    Side: sell
+2025-11-27 04:03:11 | INFO     | monitor              |    Time: 2025-11-26 05:59:39
+2025-11-27 04:03:11 | INFO     | monitor              |    Capture delay: 79412s
+2025-11-27 04:03:11 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:11 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:03:17 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:03:17 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:03:17 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:03:17 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:03:17 | INFO     | monitor              | Processing blocks 79,515,892 to 79,515,941 (50 blocks, 39690 behind)
+2025-11-27 04:03:18 | INFO     | database             | ✓ Trade recorded: 4a338722f7...
+2025-11-27 04:03:18 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:18 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,895
+2025-11-27 04:03:18 | INFO     | monitor              |    Tx Hash: 4a338722f7ca394b80b5d16221559bc744329003124a2028b72f1a893dd947bc
+2025-11-27 04:03:18 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:03:18 | INFO     | monitor              |    Side: sell
+2025-11-27 04:03:18 | INFO     | monitor              |    Time: 2025-11-26 06:00:25
+2025-11-27 04:03:18 | INFO     | monitor              |    Capture delay: 79373s
+2025-11-27 04:03:18 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:18 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:03:18 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:03:19 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:03:19 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 04:03:19 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:03:19 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:03:19 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 04:03:19 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:03:19 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:03:19 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 04:03:19 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:03:19 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:03:19 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 04:03:19 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:03:19 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 04:03:20 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:03:20 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:03:20 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:03:20 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:03:20 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 04:03:20 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:03:21 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:03:21 | INFO     | monitor              | Processing blocks 79,515,942 to 79,515,991 (50 blocks, 39641 behind)
+2025-11-27 04:03:21 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:03:21 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:03:21 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:03:21 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:03:21 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:03:21 | WARNING  | rpc_manager          | ✗ Error connecting to RPC https://polygon-rpc.com: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 'data': {'trace_id': '93bf7b1556598e8d88dbf5483d2493b0'}}
+2025-11-27 04:03:21 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 04:03:21 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:03:21 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:03:21 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 04:03:21 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:03:21 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:03:21 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 04:03:21 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:03:22 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:03:22 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 04:03:22 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:03:22 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:03:22 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 04:03:22 | ERROR    | rpc_manager          | Failed to connect to any RPC endpoint
+2025-11-27 04:03:22 | WARNING  | rpc_manager          | Attempt 1/3 failed: Failed to reconnect to RPC
+2025-11-27 04:03:27 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:03:27 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:03:27 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:03:28 | INFO     | monitor              | Processing blocks 79,515,992 to 79,516,041 (50 blocks, 39593 behind)
+2025-11-27 04:03:28 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:03:34 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:03:39 | INFO     | database             | ✓ Trade recorded: 0414c250a9...
+2025-11-27 04:03:39 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:39 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,007
+2025-11-27 04:03:39 | INFO     | monitor              |    Tx Hash: 0414c250a9e0b0d57c7ced7e96fc13d6cf11dd7f974256168f9d1de84d7c0ef9
+2025-11-27 04:03:39 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:03:39 | INFO     | monitor              |    Side: sell
+2025-11-27 04:03:39 | INFO     | monitor              |    Time: 2025-11-26 06:04:09
+2025-11-27 04:03:39 | INFO     | monitor              |    Capture delay: 79170s
+2025-11-27 04:03:39 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:39 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:03:40 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:03:45 | INFO     | monitor              | Processing blocks 79,516,042 to 79,516,091 (50 blocks, 39553 behind)
+2025-11-27 04:03:45 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:03:45 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:03:46 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:03:46 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:03:51 | INFO     | monitor              | Processing blocks 79,516,092 to 79,516,141 (50 blocks, 39506 behind)
+2025-11-27 04:03:52 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:03:57 | INFO     | monitor              | Processing blocks 79,516,142 to 79,516,191 (50 blocks, 39459 behind)
+2025-11-27 04:03:57 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:03:57 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:03:57 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:03:58 | INFO     | database             | ✓ Trade recorded: 3ed4ddccc0...
+2025-11-27 04:03:58 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:58 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,188
+2025-11-27 04:03:58 | INFO     | monitor              |    Tx Hash: 3ed4ddccc0a139bd5b8ce9a8fb31154a6f1d8fae10f1667d6ad729844735bfbb
+2025-11-27 04:03:58 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:03:58 | INFO     | monitor              |    Side: buy
+2025-11-27 04:03:58 | INFO     | monitor              |    Time: 2025-11-26 06:10:11
+2025-11-27 04:03:58 | INFO     | monitor              |    Capture delay: 78827s
+2025-11-27 04:03:58 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:58 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:03:58 | INFO     | monitor              | Processing blocks 79,516,192 to 79,516,241 (50 blocks, 39410 behind)
+2025-11-27 04:03:59 | INFO     | database             | ✓ Trade recorded: 8a46ca3238...
+2025-11-27 04:03:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:59 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,205
+2025-11-27 04:03:59 | INFO     | monitor              |    Tx Hash: 8a46ca323808bff452577d99dd0f5fde61dc894ca50ad765cfd73e49479e910c
+2025-11-27 04:03:59 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:03:59 | INFO     | monitor              |    Side: buy
+2025-11-27 04:03:59 | INFO     | monitor              |    Time: 2025-11-26 06:10:45
+2025-11-27 04:03:59 | INFO     | monitor              |    Capture delay: 78794s
+2025-11-27 04:03:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:59 | INFO     | database             | ✓ Trade recorded: 5541300341...
+2025-11-27 04:03:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:03:59 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,240
+2025-11-27 04:03:59 | INFO     | monitor              |    Tx Hash: 5541300341c4eaec1b4c8afaf95d016e1d9eb71b9e816825ce60447e97cbe7b9
+2025-11-27 04:03:59 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:03:59 | INFO     | monitor              |    Side: sell
+2025-11-27 04:03:59 | INFO     | monitor              |    Time: 2025-11-26 06:11:55
+2025-11-27 04:03:59 | INFO     | monitor              |    Capture delay: 78724s
+2025-11-27 04:03:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:00 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:04:00 | INFO     | monitor              | Processing blocks 79,516,242 to 79,516,291 (50 blocks, 39360 behind)
+2025-11-27 04:04:01 | INFO     | database             | ✓ Trade recorded: 418df37157...
+2025-11-27 04:04:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:01 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,250
+2025-11-27 04:04:01 | INFO     | monitor              |    Tx Hash: 418df37157dd9108a0b3de49345b9bef12e4de78372526279b1a5f20951f6243
+2025-11-27 04:04:01 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:01 | INFO     | monitor              |    Side: buy
+2025-11-27 04:04:01 | INFO     | monitor              |    Time: 2025-11-26 06:12:15
+2025-11-27 04:04:01 | INFO     | monitor              |    Capture delay: 78706s
+2025-11-27 04:04:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:01 | INFO     | database             | ✓ Trade recorded: 5f85d6b6c2...
+2025-11-27 04:04:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:01 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,265
+2025-11-27 04:04:01 | INFO     | monitor              |    Tx Hash: 5f85d6b6c225bc3c3c0bc5f2170d500281600cda9b1aab6114d000dd34ea2b39
+2025-11-27 04:04:01 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:01 | INFO     | monitor              |    Side: buy
+2025-11-27 04:04:01 | INFO     | monitor              |    Time: 2025-11-26 06:12:45
+2025-11-27 04:04:01 | INFO     | monitor              |    Capture delay: 78676s
+2025-11-27 04:04:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:01 | INFO     | database             | ✓ Trade recorded: 564bdd0ce0...
+2025-11-27 04:04:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:01 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,266
+2025-11-27 04:04:01 | INFO     | monitor              |    Tx Hash: 564bdd0ce0e218a2718906d52c89c99aff134eab68b8cd1914b62d4b8e19c31e
+2025-11-27 04:04:01 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:01 | INFO     | monitor              |    Side: buy
+2025-11-27 04:04:01 | INFO     | monitor              |    Time: 2025-11-26 06:12:47
+2025-11-27 04:04:01 | INFO     | monitor              |    Capture delay: 78674s
+2025-11-27 04:04:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:01 | INFO     | database             | ✓ Trade recorded: 925c1f1809...
+2025-11-27 04:04:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:01 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,272
+2025-11-27 04:04:01 | INFO     | monitor              |    Tx Hash: 925c1f18097d49b813dad8926d79f01d3ff7c506aa4bd125c30566e863bdfced
+2025-11-27 04:04:01 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:01 | INFO     | monitor              |    Side: buy
+2025-11-27 04:04:01 | INFO     | monitor              |    Time: 2025-11-26 06:12:59
+2025-11-27 04:04:01 | INFO     | monitor              |    Capture delay: 78662s
+2025-11-27 04:04:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:02 | INFO     | monitor              | ✅ Found 4 trades in this batch
+2025-11-27 04:04:02 | INFO     | monitor              | Processing blocks 79,516,292 to 79,516,341 (50 blocks, 39311 behind)
+2025-11-27 04:04:03 | INFO     | monitor              | Processing blocks 79,516,342 to 79,516,391 (50 blocks, 39262 behind)
+2025-11-27 04:04:04 | INFO     | database             | ✓ Trade recorded: 6217871bb8...
+2025-11-27 04:04:04 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:04 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,360
+2025-11-27 04:04:04 | INFO     | monitor              |    Tx Hash: 6217871bb8d074a28982813f593353eccb970ea8b77e915e2cd2ec46ed5f6a66
+2025-11-27 04:04:04 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:04 | INFO     | monitor              |    Side: buy
+2025-11-27 04:04:04 | INFO     | monitor              |    Time: 2025-11-26 06:15:55
+2025-11-27 04:04:04 | INFO     | monitor              |    Capture delay: 78489s
+2025-11-27 04:04:04 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:05 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:04:05 | INFO     | monitor              | Processing blocks 79,516,392 to 79,516,441 (50 blocks, 39213 behind)
+2025-11-27 04:04:05 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:04:05 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:04:05 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:04:05 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 04:04:05 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:04:05 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:04:05 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 04:04:05 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:04:05 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:04:05 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 04:04:05 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:04:06 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:04:06 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 04:04:06 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:04:06 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 04:04:06 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:04:06 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:04:06 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:04:06 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 04:04:06 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:04:06 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:04:06 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:04:12 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:04:17 | INFO     | monitor              | Processing blocks 79,516,442 to 79,516,491 (50 blocks, 39169 behind)
+2025-11-27 04:04:17 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:04:17 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:04:17 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:04:18 | INFO     | monitor              | Processing blocks 79,516,492 to 79,516,541 (50 blocks, 39119 behind)
+2025-11-27 04:04:19 | INFO     | database             | ✓ Trade recorded: e4ab028b1c...
+2025-11-27 04:04:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:19 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,502
+2025-11-27 04:04:19 | INFO     | monitor              |    Tx Hash: e4ab028b1c2d576a8a5e3c3338995e62bda7fcd77d6bf765c57e84cf87031972
+2025-11-27 04:04:19 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:19 | INFO     | monitor              |    Side: sell
+2025-11-27 04:04:19 | INFO     | monitor              |    Time: 2025-11-26 06:20:39
+2025-11-27 04:04:19 | INFO     | monitor              |    Capture delay: 78220s
+2025-11-27 04:04:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:19 | INFO     | database             | ✓ Trade recorded: db5bc04834...
+2025-11-27 04:04:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:19 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,512
+2025-11-27 04:04:19 | INFO     | monitor              |    Tx Hash: db5bc048343bc8e61d33b86141a5d0aa1cdecd1bddfd0d2676108380f5321e33
+2025-11-27 04:04:19 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:19 | INFO     | monitor              |    Side: sell
+2025-11-27 04:04:19 | INFO     | monitor              |    Time: 2025-11-26 06:20:59
+2025-11-27 04:04:19 | INFO     | monitor              |    Capture delay: 78200s
+2025-11-27 04:04:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:20 | INFO     | database             | ✓ Trade recorded: 2163b5807a...
+2025-11-27 04:04:20 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:20 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,512
+2025-11-27 04:04:20 | INFO     | monitor              |    Tx Hash: 2163b5807aab29b23ac305ac299d3279c675db0eabe33050726cc27f0217210c
+2025-11-27 04:04:20 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:04:20 | INFO     | monitor              |    Side: buy
+2025-11-27 04:04:20 | INFO     | monitor              |    Time: 2025-11-26 06:20:59
+2025-11-27 04:04:20 | INFO     | monitor              |    Capture delay: 78201s
+2025-11-27 04:04:20 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:20 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:04:25 | INFO     | monitor              | ✅ Found 3 trades in this batch
+2025-11-27 04:04:25 | INFO     | monitor              | Processing blocks 79,516,542 to 79,516,591 (50 blocks, 39073 behind)
+2025-11-27 04:04:25 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:04:31 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:04:36 | INFO     | database             | ✓ Trade recorded: 33319b5790...
+2025-11-27 04:04:36 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:36 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,578
+2025-11-27 04:04:36 | INFO     | monitor              |    Tx Hash: 33319b5790a484e4a0f5924d603bb5b745e2c4d6a69e482d79b8a986c6babd4d
+2025-11-27 04:04:36 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:04:36 | INFO     | monitor              |    Side: buy
+2025-11-27 04:04:36 | INFO     | monitor              |    Time: 2025-11-26 06:23:11
+2025-11-27 04:04:36 | INFO     | monitor              |    Capture delay: 78085s
+2025-11-27 04:04:36 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:37 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:04:37 | INFO     | monitor              | Processing blocks 79,516,592 to 79,516,641 (50 blocks, 39029 behind)
+2025-11-27 04:04:37 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:04:43 | INFO     | monitor              | Processing blocks 79,516,642 to 79,516,691 (50 blocks, 38982 behind)
+2025-11-27 04:04:43 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:04:49 | INFO     | database             | ✓ Trade recorded: 23dbff8b2a...
+2025-11-27 04:04:49 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:49 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,683
+2025-11-27 04:04:49 | INFO     | monitor              |    Tx Hash: 23dbff8b2a276608068c94cd1547aa2702e2825cd1fde471d499878d4bb685b6
+2025-11-27 04:04:49 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:49 | INFO     | monitor              |    Side: sell
+2025-11-27 04:04:49 | INFO     | monitor              |    Time: 2025-11-26 06:26:41
+2025-11-27 04:04:49 | INFO     | monitor              |    Capture delay: 77888s
+2025-11-27 04:04:49 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:49 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:04:49 | INFO     | monitor              | Processing blocks 79,516,692 to 79,516,741 (50 blocks, 38935 behind)
+2025-11-27 04:04:49 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:04:49 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:04:50 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:04:50 | INFO     | monitor              | Processing blocks 79,516,742 to 79,516,791 (50 blocks, 38885 behind)
+2025-11-27 04:04:51 | INFO     | database             | ✓ Trade recorded: 308b1b9191...
+2025-11-27 04:04:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:51 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,752
+2025-11-27 04:04:51 | INFO     | monitor              |    Tx Hash: 308b1b9191638f8385d9baabd90970b9bc2d8e1fd5ecf1ae57583e651d1144e8
+2025-11-27 04:04:51 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:51 | INFO     | monitor              |    Side: sell
+2025-11-27 04:04:51 | INFO     | monitor              |    Time: 2025-11-26 06:28:59
+2025-11-27 04:04:51 | INFO     | monitor              |    Capture delay: 77752s
+2025-11-27 04:04:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:51 | INFO     | database             | ✓ Trade recorded: 8e1e6f6a68...
+2025-11-27 04:04:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:51 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,780
+2025-11-27 04:04:51 | INFO     | monitor              |    Tx Hash: 8e1e6f6a680954294015b47b8b275e1451f61b10768a9b610f571d908a59488f
+2025-11-27 04:04:51 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:51 | INFO     | monitor              |    Side: sell
+2025-11-27 04:04:51 | INFO     | monitor              |    Time: 2025-11-26 06:29:55
+2025-11-27 04:04:51 | INFO     | monitor              |    Capture delay: 77696s
+2025-11-27 04:04:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:51 | INFO     | database             | ✓ Trade recorded: 442cde090c...
+2025-11-27 04:04:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:51 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,784
+2025-11-27 04:04:51 | INFO     | monitor              |    Tx Hash: 442cde090c85063eea42a0de1d7234d64da3f08f087af7b9030d2f50943035e5
+2025-11-27 04:04:51 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:51 | INFO     | monitor              |    Side: sell
+2025-11-27 04:04:51 | INFO     | monitor              |    Time: 2025-11-26 06:30:03
+2025-11-27 04:04:51 | INFO     | monitor              |    Capture delay: 77688s
+2025-11-27 04:04:51 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:52 | INFO     | database             | ✓ Trade recorded: d3a5e37367...
+2025-11-27 04:04:52 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:52 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,789
+2025-11-27 04:04:52 | INFO     | monitor              |    Tx Hash: d3a5e37367aed8acc86ef5680d0646b124aa1533175863c6f5d0f0315708c841
+2025-11-27 04:04:52 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:52 | INFO     | monitor              |    Side: sell
+2025-11-27 04:04:52 | INFO     | monitor              |    Time: 2025-11-26 06:30:13
+2025-11-27 04:04:52 | INFO     | monitor              |    Capture delay: 77679s
+2025-11-27 04:04:52 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:52 | INFO     | monitor              | ✅ Found 4 trades in this batch
+2025-11-27 04:04:52 | INFO     | monitor              | Processing blocks 79,516,792 to 79,516,841 (50 blocks, 38836 behind)
+2025-11-27 04:04:53 | INFO     | database             | ✓ Trade recorded: e44fae3ab6...
+2025-11-27 04:04:53 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:53 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,795
+2025-11-27 04:04:53 | INFO     | monitor              |    Tx Hash: e44fae3ab6aa8ffba094644bb1eeace2d112fcf4c162f8cb326b718555e8b4c5
+2025-11-27 04:04:53 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:53 | INFO     | monitor              |    Side: sell
+2025-11-27 04:04:53 | INFO     | monitor              |    Time: 2025-11-26 06:30:25
+2025-11-27 04:04:53 | INFO     | monitor              |    Capture delay: 77668s
+2025-11-27 04:04:53 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:53 | WARNING  | rpc_manager          | Attempt 1/3 failed: {'code': -32090, 'message': 'Too many requests, reason: call rate limit exhausted, retry in 10m0s', 
+2025-11-27 04:04:58 | WARNING  | rpc_manager          | Connection lost, attempting to reconnect...
+2025-11-27 04:04:58 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:04:58 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:04:58 | INFO     | rpc_manager          | Rotating to RPC endpoint 3/5
+2025-11-27 04:04:58 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:04:58 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.matic.network
+2025-11-27 04:04:58 | INFO     | rpc_manager          | Rotating to RPC endpoint 4/5
+2025-11-27 04:04:58 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:04:58 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.public.blastapi.io
+2025-11-27 04:04:58 | INFO     | rpc_manager          | Rotating to RPC endpoint 5/5
+2025-11-27 04:04:58 | INFO     | rpc_manager          | Attempting to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:04:59 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://rpc-mainnet.maticvigil.com
+2025-11-27 04:04:59 | INFO     | rpc_manager          | Rotating to RPC endpoint 1/5
+2025-11-27 04:04:59 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:04:59 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 04:04:59 | INFO     | database             | ✓ Trade recorded: 71d4e3ca28...
+2025-11-27 04:04:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:59 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,800
+2025-11-27 04:04:59 | INFO     | monitor              |    Tx Hash: 71d4e3ca288e50ee3db91cc53f8a7744590344735d201697a1394494c0264378
+2025-11-27 04:04:59 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:59 | INFO     | monitor              |    Side: sell
+2025-11-27 04:04:59 | INFO     | monitor              |    Time: 2025-11-26 06:30:35
+2025-11-27 04:04:59 | INFO     | monitor              |    Capture delay: 77664s
+2025-11-27 04:04:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:59 | INFO     | database             | ✓ Trade recorded: c810fcc72f...
+2025-11-27 04:04:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:04:59 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,805
+2025-11-27 04:04:59 | INFO     | monitor              |    Tx Hash: c810fcc72f61b0cd83d1a5c7bad9d12a546bc34d523751c3ac46649f8dba631b
+2025-11-27 04:04:59 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:04:59 | INFO     | monitor              |    Side: sell
+2025-11-27 04:04:59 | INFO     | monitor              |    Time: 2025-11-26 06:30:45
+2025-11-27 04:04:59 | INFO     | monitor              |    Capture delay: 77654s
+2025-11-27 04:04:59 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:00 | INFO     | database             | ✓ Trade recorded: 14c12471f9...
+2025-11-27 04:05:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:00 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,809
+2025-11-27 04:05:00 | INFO     | monitor              |    Tx Hash: 14c12471f9c35ada520e70a3cc9dae1a5f6ae1ea260a19f2a06b02b0ec674c1d
+2025-11-27 04:05:00 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:05:00 | INFO     | monitor              |    Side: sell
+2025-11-27 04:05:00 | INFO     | monitor              |    Time: 2025-11-26 06:30:53
+2025-11-27 04:05:00 | INFO     | monitor              |    Capture delay: 77647s
+2025-11-27 04:05:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:00 | INFO     | database             | ✓ Trade recorded: a29f615e82...
+2025-11-27 04:05:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:00 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,813
+2025-11-27 04:05:00 | INFO     | monitor              |    Tx Hash: a29f615e82d7d35db8861c9910f62e64fd2209c6948a583a7099138c40638af4
+2025-11-27 04:05:00 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:05:00 | INFO     | monitor              |    Side: sell
+2025-11-27 04:05:00 | INFO     | monitor              |    Time: 2025-11-26 06:31:01
+2025-11-27 04:05:00 | INFO     | monitor              |    Capture delay: 77639s
+2025-11-27 04:05:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:00 | INFO     | database             | ✓ Trade recorded: dd3c4ac8f9...
+2025-11-27 04:05:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:00 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,817
+2025-11-27 04:05:00 | INFO     | monitor              |    Tx Hash: dd3c4ac8f931870b5fe45c2976cd62420633c5d3724515f1e3ff97c1d4e3c54f
+2025-11-27 04:05:00 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:05:00 | INFO     | monitor              |    Side: sell
+2025-11-27 04:05:00 | INFO     | monitor              |    Time: 2025-11-26 06:31:09
+2025-11-27 04:05:00 | INFO     | monitor              |    Capture delay: 77631s
+2025-11-27 04:05:00 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:01 | INFO     | database             | ✓ Trade recorded: 2a6c2cab8c...
+2025-11-27 04:05:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:01 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,821
+2025-11-27 04:05:01 | INFO     | monitor              |    Tx Hash: 2a6c2cab8cd87a01ee3d81f04ebb41347701c0639b8286aa2042a80c74cb0422
+2025-11-27 04:05:01 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:05:01 | INFO     | monitor              |    Side: sell
+2025-11-27 04:05:01 | INFO     | monitor              |    Time: 2025-11-26 06:31:17
+2025-11-27 04:05:01 | INFO     | monitor              |    Capture delay: 77624s
+2025-11-27 04:05:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:02 | INFO     | database             | ✓ Trade recorded: 7d049e48bb...
+2025-11-27 04:05:02 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:02 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,825
+2025-11-27 04:05:02 | INFO     | monitor              |    Tx Hash: 7d049e48bb98b5fd45cee9ca00a1839514af7d93217337c40f3be347b3423206
+2025-11-27 04:05:02 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:05:02 | INFO     | monitor              |    Side: sell
+2025-11-27 04:05:02 | INFO     | monitor              |    Time: 2025-11-26 06:31:25
+2025-11-27 04:05:02 | INFO     | monitor              |    Capture delay: 77616s
+2025-11-27 04:05:02 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:02 | INFO     | database             | ✓ Trade recorded: c42399e34e...
+2025-11-27 04:05:02 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:02 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,830
+2025-11-27 04:05:02 | INFO     | monitor              |    Tx Hash: c42399e34e6a5b5d0a109a20b58b7efc0f03404a2defe3498e28f800e2428a64
+2025-11-27 04:05:02 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:05:02 | INFO     | monitor              |    Side: sell
+2025-11-27 04:05:02 | INFO     | monitor              |    Time: 2025-11-26 06:31:35
+2025-11-27 04:05:02 | INFO     | monitor              |    Capture delay: 77607s
+2025-11-27 04:05:02 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:03 | INFO     | database             | ✓ Trade recorded: c785cdef88...
+2025-11-27 04:05:03 | INFO     | monitor              | ================================================================================
+2025-11-27 04:05:03 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,516,836
+2025-11-27 04:05:03 | INFO     | monitor              |    Tx Hash: c785cdef88b5be42c5353a84b90d7d35c846a7ea261a2e2adff0b62547a2ece7
+2025-11-27 04:05:03 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:05:03 | INFO     | monitor              |    Side: sell
+2025-11-27 04:05:03 | INFO     | monitor              |    Time: 2025-11-26 06:31:47
+2025-11-27 04:05:03 | INFO     | monitor              |    Capture delay: 77596s
+2025-11-27 04:05:03 | INFO     | monitor              | ================================================================================

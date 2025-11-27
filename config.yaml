@@ -1,0 +1,59 @@
+# Polymarket Copy Trading System Configuration - Optimized Version
+
+# Polygon addresses to monitor (checksum format)
+monitored_addresses:
+  - "0x0f37Cb80DEe49D55B5F6d9E595D52591D6371410"
+  - "0xCA8F0374E3Fc79b485499CC0b038D4F7e783D963"
+  - "0x7C3Db723F1D4d8cB9C550095203b686cB11E5C6B"
+
+# Polygon RPC endpoints (Infura as primary, others as fallback)
+# Infura URL will be constructed from INFURA_API_KEY in .env file
+rpc_endpoints:
+  - "infura"  # Will use INFURA_API_KEY from .env
+  - "https://polygon-rpc.com"
+  - "https://rpc-mainnet.matic.network"
+  - "https://polygon-mainnet.public.blastapi.io"
+  - "https://rpc-mainnet.maticvigil.com"
+
+# Polymarket contract addresses on Polygon
+# IMPORTANT: Monitor BOTH contracts to avoid missing trades!
+polymarket_contracts:
+  - "0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E"  # CTF Exchange
+  - "0xC5d563A36AE78145C45a50134d48A1215220f80a"  # Neg Risk CTF Exchange
+
+# Database settings
+database:
+  path: "data/trades.db"
+
+# CSV export settings
+csv:
+  path: "data/trades.csv"
+  auto_export: true  # Auto export to CSV on every new trade
+
+# Monitoring settings - Optimized for eth_getLogs
+monitoring:
+  method: "eth_getLogs"  # Use eth_getLogs instead of block scanning
+  poll_interval: 60      # seconds - check every minute
+  batch_size: 100        # blocks per query (Infura supports up to 100)
+  request_delay: 0.5     # seconds between eth_getLogs requests (Infura rate limit: ~2 req/s)
+
+  # 24-hour rolling window strategy
+  # Only monitor trades within 24 hours from when the system starts
+  # This ensures we capture all recent trades without historical sync complexity
+  window_hours: 24       # Monitor trades within last 24 hours
+  use_rolling_window: true  # Enable 24-hour rolling window mode
+
+  # Fallback: if rolling window disabled, use start_block
+  start_block: "latest"  # "latest" or specific block number
+
+  # Error handling
+  max_retry: 3
+  retry_delay: 5  # seconds
+  max_consecutive_errors: 5
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/polycopy.log"
+  max_size_mb: 10
+  backup_count: 5

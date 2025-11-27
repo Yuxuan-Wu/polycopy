@@ -1,0 +1,693 @@
+2025-11-27 04:07:28 | INFO     | __main__             | Configuration loaded and validated
+2025-11-27 04:07:28 | INFO     | __main__             | Initializing RPC Manager...
+2025-11-27 04:07:28 | INFO     | rpc_manager          | Using Infura RPC (from INFURA_API_KEY)
+2025-11-27 04:07:28 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:07:28 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-mainnet.infura.io/v3/***053e (Chain ID: 137)
+2025-11-27 04:07:28 | INFO     | __main__             | Initializing Database Manager...
+2025-11-27 04:07:28 | INFO     | database             | ✓ Database initialized: data/trades.db
+2025-11-27 04:07:28 | INFO     | __main__             | Initializing Polymarket Monitor...
+2025-11-27 04:07:28 | INFO     | monitor              | ============================================================
+2025-11-27 04:07:28 | INFO     | monitor              | 🚀 Polymarket Monitor Initialized (Optimized)
+2025-11-27 04:07:28 | INFO     | monitor              | ============================================================
+2025-11-27 04:07:28 | INFO     | monitor              | Monitoring method: eth_getLogs
+2025-11-27 04:07:28 | INFO     | monitor              | Monitored addresses: 3
+2025-11-27 04:07:28 | INFO     | monitor              |   1. 0x0f37Cb80DEe49D55B5F6d9E595D52591D6371410
+2025-11-27 04:07:28 | INFO     | monitor              |   2. 0xCA8F0374E3Fc79b485499CC0b038D4F7e783D963
+2025-11-27 04:07:28 | INFO     | monitor              |   3. 0x7C3Db723F1D4d8cB9C550095203b686cB11E5C6B
+2025-11-27 04:07:28 | INFO     | monitor              | Polymarket contracts: 2
+2025-11-27 04:07:28 | INFO     | monitor              |   - CTF Exchange: 0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E
+2025-11-27 04:07:28 | INFO     | monitor              |   - Neg Risk CTF: 0xC5d563A36AE78145C45a50134d48A1215220f80a
+2025-11-27 04:07:28 | INFO     | monitor              | Batch size: 100 blocks
+2025-11-27 04:07:28 | INFO     | monitor              | Poll interval: 60s
+2025-11-27 04:07:28 | INFO     | monitor              | Request delay: 0.2s
+2025-11-27 04:07:28 | INFO     | monitor              | Rolling window: True (24h)
+2025-11-27 04:07:28 | INFO     | monitor              | ============================================================
+2025-11-27 04:07:28 | INFO     | __main__             | Starting monitor...
+2025-11-27 04:07:28 | INFO     | monitor              | ============================================================
+2025-11-27 04:07:28 | INFO     | monitor              | 🕐 24-HOUR ROLLING WINDOW MODE
+2025-11-27 04:07:28 | INFO     | monitor              | ============================================================
+2025-11-27 04:07:28 | INFO     | monitor              | Current block: 79555706
+2025-11-27 04:07:28 | INFO     | monitor              | Window: 24 hours (43,200 blocks)
+2025-11-27 04:07:28 | INFO     | monitor              | Start block: 79,512,506
+2025-11-27 04:07:28 | INFO     | monitor              | Blocks to sync: 43,200
+2025-11-27 04:07:28 | INFO     | monitor              | ============================================================
+2025-11-27 04:07:28 | INFO     | monitor              | 🔍 POLYMARKET MONITOR STARTED
+2025-11-27 04:07:28 | INFO     | monitor              | Ready to process from block 79512506
+2025-11-27 04:07:28 | INFO     | monitor              | Processing blocks 79,512,506 to 79,512,605 (100 blocks, 43201 behind)
+2025-11-27 04:07:30 | WARNING  | rpc_manager          | ⚠️ Rate limit detected on attempt 1/3: 429 Client Error: Too Many Requests for url: https://polygon-mainnet.infura.io/v3/ccd5bbbeb4f94ed99256b551402b053e
+2025-11-27 04:07:30 | WARNING  | rpc_manager          | Rate limit on Infura, waiting...
+2025-11-27 04:07:47 | WARNING  | rpc_manager          | ⚠️ Rate limit detected on attempt 2/3: 429 Client Error: Too Many Requests for url: https://polygon-mainnet.infura.io/v3/ccd5bbbeb4f94ed99256b551402b053e
+2025-11-27 04:07:47 | WARNING  | rpc_manager          | Rate limit on Infura, waiting...
+2025-11-27 04:08:04 | WARNING  | rpc_manager          | ⚠️ Rate limit detected on attempt 3/3: 429 Client Error: Too Many Requests for url: https://polygon-mainnet.infura.io/v3/ccd5bbbeb4f94ed99256b551402b053e
+2025-11-27 04:08:04 | WARNING  | rpc_manager          | Rate limit on Infura, waiting...
+2025-11-27 04:08:10 | INFO     | __main__             | Received shutdown signal...
+2025-11-27 04:08:10 | INFO     | monitor              | Monitor stopped
+2025-11-27 04:08:15 | INFO     | __main__             | Configuration loaded and validated
+2025-11-27 04:08:15 | INFO     | __main__             | Initializing RPC Manager...
+2025-11-27 04:08:15 | INFO     | rpc_manager          | Using Infura RPC (from INFURA_API_KEY)
+2025-11-27 04:08:15 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:08:15 | WARNING  | rpc_manager          | ✗ Failed to connect to RPC: https://polygon-mainnet.infura.io/v3/***053e
+2025-11-27 04:08:15 | INFO     | rpc_manager          | Rotating to RPC endpoint 2/5
+2025-11-27 04:08:15 | INFO     | rpc_manager          | Attempting to connect to RPC: https://polygon-rpc.com
+2025-11-27 04:08:15 | INFO     | rpc_manager          | ✓ Connected to RPC: https://polygon-rpc.com (Chain ID: 137)
+2025-11-27 04:08:15 | INFO     | __main__             | Initializing Database Manager...
+2025-11-27 04:08:15 | INFO     | database             | ✓ Database initialized: data/trades.db
+2025-11-27 04:08:15 | INFO     | __main__             | Initializing Polymarket Monitor...
+2025-11-27 04:08:15 | INFO     | monitor              | ============================================================
+2025-11-27 04:08:15 | INFO     | monitor              | 🚀 Polymarket Monitor Initialized (Optimized)
+2025-11-27 04:08:15 | INFO     | monitor              | ============================================================
+2025-11-27 04:08:15 | INFO     | monitor              | Monitoring method: eth_getLogs
+2025-11-27 04:08:15 | INFO     | monitor              | Monitored addresses: 3
+2025-11-27 04:08:15 | INFO     | monitor              |   1. 0x0f37Cb80DEe49D55B5F6d9E595D52591D6371410
+2025-11-27 04:08:15 | INFO     | monitor              |   2. 0xCA8F0374E3Fc79b485499CC0b038D4F7e783D963
+2025-11-27 04:08:15 | INFO     | monitor              |   3. 0x7C3Db723F1D4d8cB9C550095203b686cB11E5C6B
+2025-11-27 04:08:15 | INFO     | monitor              | Polymarket contracts: 2
+2025-11-27 04:08:15 | INFO     | monitor              |   - CTF Exchange: 0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E
+2025-11-27 04:08:15 | INFO     | monitor              |   - Neg Risk CTF: 0xC5d563A36AE78145C45a50134d48A1215220f80a
+2025-11-27 04:08:15 | INFO     | monitor              | Batch size: 100 blocks
+2025-11-27 04:08:15 | INFO     | monitor              | Poll interval: 60s
+2025-11-27 04:08:15 | INFO     | monitor              | Request delay: 0.5s
+2025-11-27 04:08:15 | INFO     | monitor              | Rolling window: True (24h)
+2025-11-27 04:08:15 | INFO     | monitor              | ============================================================
+2025-11-27 04:08:15 | INFO     | __main__             | Starting monitor...
+2025-11-27 04:08:15 | INFO     | monitor              | ============================================================
+2025-11-27 04:08:15 | INFO     | monitor              | 🕐 24-HOUR ROLLING WINDOW MODE
+2025-11-27 04:08:15 | INFO     | monitor              | ============================================================
+2025-11-27 04:08:15 | INFO     | monitor              | Current block: 79555730
+2025-11-27 04:08:15 | INFO     | monitor              | Window: 24 hours (43,200 blocks)
+2025-11-27 04:08:15 | INFO     | monitor              | Start block: 79,512,530
+2025-11-27 04:08:15 | INFO     | monitor              | Blocks to sync: 43,200
+2025-11-27 04:08:15 | INFO     | monitor              | ============================================================
+2025-11-27 04:08:15 | INFO     | monitor              | 🔍 POLYMARKET MONITOR STARTED
+2025-11-27 04:08:15 | INFO     | monitor              | Ready to process from block 79512530
+2025-11-27 04:08:15 | INFO     | monitor              | Processing blocks 79,512,530 to 79,512,579 (50 blocks, 43201 behind)
+2025-11-27 04:08:18 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:18 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,566
+2025-11-27 04:08:18 | INFO     | monitor              |    Tx Hash: 91bea50f2ed01a45dd76a5b4ab2fa5ce0684be47d883d199707a28dd4b6576a7
+2025-11-27 04:08:18 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:08:18 | INFO     | monitor              |    Side: sell
+2025-11-27 04:08:18 | INFO     | monitor              |    Time: 2025-11-26 04:09:27
+2025-11-27 04:08:18 | INFO     | monitor              |    Capture delay: 86331s
+2025-11-27 04:08:18 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:19 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:08:19 | INFO     | monitor              | Processing blocks 79,512,580 to 79,512,629 (50 blocks, 43153 behind)
+2025-11-27 04:08:22 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:22 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,618
+2025-11-27 04:08:22 | INFO     | monitor              |    Tx Hash: 288d8f16d565f6217c193a030c1de468d89a0127c67e01c672695d9537b90bfb
+2025-11-27 04:08:22 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:08:22 | INFO     | monitor              |    Side: sell
+2025-11-27 04:08:22 | INFO     | monitor              |    Time: 2025-11-26 04:11:11
+2025-11-27 04:08:22 | INFO     | monitor              |    Capture delay: 86231s
+2025-11-27 04:08:22 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:23 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:08:23 | INFO     | monitor              | Processing blocks 79,512,630 to 79,512,679 (50 blocks, 43105 behind)
+2025-11-27 04:08:27 | INFO     | monitor              | Processing blocks 79,512,680 to 79,512,729 (50 blocks, 43057 behind)
+2025-11-27 04:08:28 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:28 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,700
+2025-11-27 04:08:28 | INFO     | monitor              |    Tx Hash: 42ddf78a847a1202efbc37855de188511a07891ce7f37836390be203cbb28b67
+2025-11-27 04:08:28 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:28 | INFO     | monitor              |    Side: sell
+2025-11-27 04:08:28 | INFO     | monitor              |    Time: 2025-11-26 04:13:55
+2025-11-27 04:08:28 | INFO     | monitor              |    Capture delay: 86073s
+2025-11-27 04:08:28 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:30 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:30 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,727
+2025-11-27 04:08:30 | INFO     | monitor              |    Tx Hash: 675b5efc71d7efd8c0227a87e71af542295bee240781fff848ad2b8ce47e3ece
+2025-11-27 04:08:30 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:08:30 | INFO     | monitor              |    Side: sell
+2025-11-27 04:08:30 | INFO     | monitor              |    Time: 2025-11-26 04:14:49
+2025-11-27 04:08:30 | INFO     | monitor              |    Capture delay: 86021s
+2025-11-27 04:08:30 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:31 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:08:31 | INFO     | monitor              | Processing blocks 79,512,730 to 79,512,779 (50 blocks, 43009 behind)
+2025-11-27 04:08:33 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:33 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,748
+2025-11-27 04:08:33 | INFO     | monitor              |    Tx Hash: 93e0cc3e104e6187d8fdde4893a47dc34c19c19da4843fb25a7b46a433d562d7
+2025-11-27 04:08:33 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:33 | INFO     | monitor              |    Side: buy
+2025-11-27 04:08:33 | INFO     | monitor              |    Time: 2025-11-26 04:15:31
+2025-11-27 04:08:33 | INFO     | monitor              |    Capture delay: 85982s
+2025-11-27 04:08:33 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:33 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:33 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,748
+2025-11-27 04:08:33 | INFO     | monitor              |    Tx Hash: fa5d6d24d1ad4111ee1c27d7c5d09a5ffda5e358ee6d79b9aea5940abe15f6da
+2025-11-27 04:08:33 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:33 | INFO     | monitor              |    Side: sell
+2025-11-27 04:08:33 | INFO     | monitor              |    Time: 2025-11-26 04:15:31
+2025-11-27 04:08:33 | INFO     | monitor              |    Capture delay: 85982s
+2025-11-27 04:08:33 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:36 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:08:36 | INFO     | monitor              | Processing blocks 79,512,780 to 79,512,829 (50 blocks, 42961 behind)
+2025-11-27 04:08:38 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:38 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,790
+2025-11-27 04:08:38 | INFO     | monitor              |    Tx Hash: 2f22fd9976dab48113e92465bd927ed1e7e8af30defccb993bc1379e1600fd00
+2025-11-27 04:08:38 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:38 | INFO     | monitor              |    Side: sell
+2025-11-27 04:08:38 | INFO     | monitor              |    Time: 2025-11-26 04:16:55
+2025-11-27 04:08:38 | INFO     | monitor              |    Capture delay: 85903s
+2025-11-27 04:08:38 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:40 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:08:40 | INFO     | monitor              | Processing blocks 79,512,830 to 79,512,879 (50 blocks, 42913 behind)
+2025-11-27 04:08:41 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:41 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,836
+2025-11-27 04:08:41 | INFO     | monitor              |    Tx Hash: 8dfa1533c04b8c4b87bf7f681044b575eb02e3e2a4522e19942ed090c3d675ed
+2025-11-27 04:08:41 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:41 | INFO     | monitor              |    Side: sell
+2025-11-27 04:08:41 | INFO     | monitor              |    Time: 2025-11-26 04:18:27
+2025-11-27 04:08:41 | INFO     | monitor              |    Capture delay: 85814s
+2025-11-27 04:08:41 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:42 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:42 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,848
+2025-11-27 04:08:42 | INFO     | monitor              |    Tx Hash: e3a20f5fa7d419f7b4e0c43265aa881c2638ce49392542a89b5a833008c0c0f8
+2025-11-27 04:08:42 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:42 | INFO     | monitor              |    Side: sell
+2025-11-27 04:08:42 | INFO     | monitor              |    Time: 2025-11-26 04:18:51
+2025-11-27 04:08:42 | INFO     | monitor              |    Capture delay: 85791s
+2025-11-27 04:08:42 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:42 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:42 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,848
+2025-11-27 04:08:42 | INFO     | monitor              |    Tx Hash: dd2ddcfc19b98a6979d4948f38e24e6caf1211b9b5ee89c0a06bd8dba85da301
+2025-11-27 04:08:42 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:42 | INFO     | monitor              |    Side: buy
+2025-11-27 04:08:42 | INFO     | monitor              |    Time: 2025-11-26 04:18:51
+2025-11-27 04:08:42 | INFO     | monitor              |    Capture delay: 85791s
+2025-11-27 04:08:42 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:42 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:42 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,851
+2025-11-27 04:08:42 | INFO     | monitor              |    Tx Hash: f3734ea1de4eea54b925a929d98f20b0d91900e8fa265da49af125a2a2a795d3
+2025-11-27 04:08:42 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:42 | INFO     | monitor              |    Side: buy
+2025-11-27 04:08:42 | INFO     | monitor              |    Time: 2025-11-26 04:18:57
+2025-11-27 04:08:42 | INFO     | monitor              |    Capture delay: 85785s
+2025-11-27 04:08:42 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:42 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:42 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,864
+2025-11-27 04:08:42 | INFO     | monitor              |    Tx Hash: 277e9f069823aadf1ea65bb64af5f8707273e481ab8bb25bb71fc1e959809f3a
+2025-11-27 04:08:42 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:42 | INFO     | monitor              |    Side: buy
+2025-11-27 04:08:42 | INFO     | monitor              |    Time: 2025-11-26 04:19:23
+2025-11-27 04:08:42 | INFO     | monitor              |    Capture delay: 85759s
+2025-11-27 04:08:42 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:42 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:42 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,865
+2025-11-27 04:08:42 | INFO     | monitor              |    Tx Hash: 31cc36612ffda86ad49eff6cf03fdb68682b5bd4001daa10663c9979e69d490c
+2025-11-27 04:08:42 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:42 | INFO     | monitor              |    Side: buy
+2025-11-27 04:08:42 | INFO     | monitor              |    Time: 2025-11-26 04:19:25
+2025-11-27 04:08:42 | INFO     | monitor              |    Capture delay: 85757s
+2025-11-27 04:08:42 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:43 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:43 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,875
+2025-11-27 04:08:43 | INFO     | monitor              |    Tx Hash: c137ef07b6babc792bfb0ef746c26995d17a1319631a49643cae1ea9a2db6663
+2025-11-27 04:08:43 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:43 | INFO     | monitor              |    Side: buy
+2025-11-27 04:08:43 | INFO     | monitor              |    Time: 2025-11-26 04:19:45
+2025-11-27 04:08:43 | INFO     | monitor              |    Capture delay: 85738s
+2025-11-27 04:08:43 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:43 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:43 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,875
+2025-11-27 04:08:43 | INFO     | monitor              |    Tx Hash: be14f3039fb63b4eb6e749108be323506f4a7fcfecb30c211bf5dda5a92fe796
+2025-11-27 04:08:43 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:08:43 | INFO     | monitor              |    Side: buy
+2025-11-27 04:08:43 | INFO     | monitor              |    Time: 2025-11-26 04:19:45
+2025-11-27 04:08:43 | INFO     | monitor              |    Capture delay: 85738s
+2025-11-27 04:08:43 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:44 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:44 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,512,864
+2025-11-27 04:08:44 | INFO     | monitor              |    Tx Hash: 6017941b448e3dfd1d10dfbf01c13d7191abf5ec348c6c37ee3505749e2ec10a
+2025-11-27 04:08:44 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:08:44 | INFO     | monitor              |    Side: sell
+2025-11-27 04:08:44 | INFO     | monitor              |    Time: 2025-11-26 04:19:23
+2025-11-27 04:08:44 | INFO     | monitor              |    Capture delay: 85761s
+2025-11-27 04:08:44 | INFO     | monitor              | ================================================================================
+2025-11-27 04:08:45 | INFO     | monitor              | ✅ Found 9 trades in this batch
+2025-11-27 04:08:45 | INFO     | monitor              | Processing blocks 79,512,880 to 79,512,929 (50 blocks, 42866 behind)
+2025-11-27 04:08:49 | INFO     | monitor              | Processing blocks 79,512,930 to 79,512,979 (50 blocks, 42817 behind)
+2025-11-27 04:08:53 | INFO     | monitor              | Processing blocks 79,512,980 to 79,513,029 (50 blocks, 42770 behind)
+2025-11-27 04:08:57 | INFO     | monitor              | Processing blocks 79,513,030 to 79,513,079 (50 blocks, 42721 behind)
+2025-11-27 04:09:01 | INFO     | monitor              | Processing blocks 79,513,080 to 79,513,129 (50 blocks, 42673 behind)
+2025-11-27 04:09:04 | INFO     | monitor              | Processing blocks 79,513,130 to 79,513,179 (50 blocks, 42625 behind)
+2025-11-27 04:09:09 | INFO     | monitor              | Processing blocks 79,513,180 to 79,513,229 (50 blocks, 42578 behind)
+2025-11-27 04:09:13 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:13 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,222
+2025-11-27 04:09:13 | INFO     | monitor              |    Tx Hash: c618ea9e84b0de12a81135c5f08a658f07a35e9343084c97d122e9b543817171
+2025-11-27 04:09:13 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:09:13 | INFO     | monitor              |    Side: sell
+2025-11-27 04:09:13 | INFO     | monitor              |    Time: 2025-11-26 04:31:19
+2025-11-27 04:09:13 | INFO     | monitor              |    Capture delay: 85074s
+2025-11-27 04:09:13 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:14 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:09:14 | INFO     | monitor              | Processing blocks 79,513,230 to 79,513,279 (50 blocks, 42530 behind)
+2025-11-27 04:09:18 | INFO     | monitor              | Processing blocks 79,513,280 to 79,513,329 (50 blocks, 42482 behind)
+2025-11-27 04:09:21 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:21 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,304
+2025-11-27 04:09:21 | INFO     | monitor              |    Tx Hash: 52c7e088a03be852667a468e7a66b4f08adb15556e511904b3a065e634c047c4
+2025-11-27 04:09:21 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:09:21 | INFO     | monitor              |    Side: sell
+2025-11-27 04:09:21 | INFO     | monitor              |    Time: 2025-11-26 04:34:03
+2025-11-27 04:09:21 | INFO     | monitor              |    Capture delay: 84918s
+2025-11-27 04:09:21 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:22 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:09:22 | INFO     | monitor              | Processing blocks 79,513,330 to 79,513,379 (50 blocks, 42434 behind)
+2025-11-27 04:09:26 | INFO     | monitor              | Processing blocks 79,513,380 to 79,513,429 (50 blocks, 42386 behind)
+2025-11-27 04:09:29 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:29 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,393
+2025-11-27 04:09:29 | INFO     | monitor              |    Tx Hash: 5bf994af30d1f276127edc4d5e2f3dccf9e90d23394f1d8da69fbe7f14cc8a33
+2025-11-27 04:09:29 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:09:29 | INFO     | monitor              |    Side: sell
+2025-11-27 04:09:29 | INFO     | monitor              |    Time: 2025-11-26 04:37:01
+2025-11-27 04:09:29 | INFO     | monitor              |    Capture delay: 84748s
+2025-11-27 04:09:29 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:30 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:09:30 | INFO     | monitor              | Processing blocks 79,513,430 to 79,513,479 (50 blocks, 42338 behind)
+2025-11-27 04:09:34 | INFO     | monitor              | Processing blocks 79,513,480 to 79,513,529 (50 blocks, 42290 behind)
+2025-11-27 04:09:38 | INFO     | monitor              | Processing blocks 79,513,530 to 79,513,579 (50 blocks, 42242 behind)
+2025-11-27 04:09:40 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:40 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,543
+2025-11-27 04:09:40 | INFO     | monitor              |    Tx Hash: 3a718d4039ec1718348f6f8eff068e3c676fa98c408062a4571735ea4d3ee0b8
+2025-11-27 04:09:40 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:09:40 | INFO     | monitor              |    Side: sell
+2025-11-27 04:09:40 | INFO     | monitor              |    Time: 2025-11-26 04:42:01
+2025-11-27 04:09:40 | INFO     | monitor              |    Capture delay: 84459s
+2025-11-27 04:09:40 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:42 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:09:42 | INFO     | monitor              | Processing blocks 79,513,580 to 79,513,629 (50 blocks, 42194 behind)
+2025-11-27 04:09:45 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:45 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,623
+2025-11-27 04:09:45 | INFO     | monitor              |    Tx Hash: e312b6858899a686717a8c8362190546011b12596f0ad8c6826c7a0e2cbf9245
+2025-11-27 04:09:45 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:09:45 | INFO     | monitor              |    Side: sell
+2025-11-27 04:09:45 | INFO     | monitor              |    Time: 2025-11-26 04:44:41
+2025-11-27 04:09:45 | INFO     | monitor              |    Capture delay: 84304s
+2025-11-27 04:09:45 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:46 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:09:47 | INFO     | monitor              | Processing blocks 79,513,630 to 79,513,679 (50 blocks, 42146 behind)
+2025-11-27 04:09:50 | INFO     | monitor              | Processing blocks 79,513,680 to 79,513,729 (50 blocks, 42098 behind)
+2025-11-27 04:09:54 | INFO     | monitor              | Processing blocks 79,513,730 to 79,513,779 (50 blocks, 42049 behind)
+2025-11-27 04:09:56 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:56 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,753
+2025-11-27 04:09:56 | INFO     | monitor              |    Tx Hash: 92bed46f989a1cc6769ab6256fadf11ec90f60e21e82f3383e44b553c860488c
+2025-11-27 04:09:56 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:09:56 | INFO     | monitor              |    Side: buy
+2025-11-27 04:09:56 | INFO     | monitor              |    Time: 2025-11-26 04:49:01
+2025-11-27 04:09:56 | INFO     | monitor              |    Capture delay: 84055s
+2025-11-27 04:09:56 | INFO     | monitor              | ================================================================================
+2025-11-27 04:09:58 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:09:58 | INFO     | monitor              | Processing blocks 79,513,780 to 79,513,829 (50 blocks, 42002 behind)
+2025-11-27 04:10:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:01 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,825
+2025-11-27 04:10:01 | INFO     | monitor              |    Tx Hash: b175bcd9a20fd65a9fc2687e709dae44a07152c4e0601bfd403cd9433b51ede4
+2025-11-27 04:10:01 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:10:01 | INFO     | monitor              |    Side: sell
+2025-11-27 04:10:01 | INFO     | monitor              |    Time: 2025-11-26 04:51:25
+2025-11-27 04:10:01 | INFO     | monitor              |    Capture delay: 83916s
+2025-11-27 04:10:01 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:03 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:10:03 | INFO     | monitor              | Processing blocks 79,513,830 to 79,513,879 (50 blocks, 41954 behind)
+2025-11-27 04:10:04 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:04 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,838
+2025-11-27 04:10:04 | INFO     | monitor              |    Tx Hash: 8d96a39b1a638edf083d806702037705a010447bfcfb6bb738e29da8e04bb1bc
+2025-11-27 04:10:04 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:10:04 | INFO     | monitor              |    Side: buy
+2025-11-27 04:10:04 | INFO     | monitor              |    Time: 2025-11-26 04:51:51
+2025-11-27 04:10:04 | INFO     | monitor              |    Capture delay: 83893s
+2025-11-27 04:10:04 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:07 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:10:07 | INFO     | monitor              | Processing blocks 79,513,880 to 79,513,929 (50 blocks, 41906 behind)
+2025-11-27 04:10:07 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:07 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,889
+2025-11-27 04:10:07 | INFO     | monitor              |    Tx Hash: ebbf80505d22c760b46301423bab900003e1e958933937a79f4025ff6a0de238
+2025-11-27 04:10:07 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:10:07 | INFO     | monitor              |    Side: sell
+2025-11-27 04:10:07 | INFO     | monitor              |    Time: 2025-11-26 04:53:33
+2025-11-27 04:10:07 | INFO     | monitor              |    Capture delay: 83794s
+2025-11-27 04:10:07 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:11 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:10:11 | INFO     | monitor              | Processing blocks 79,513,930 to 79,513,979 (50 blocks, 41859 behind)
+2025-11-27 04:10:13 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:13 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,965
+2025-11-27 04:10:13 | INFO     | monitor              |    Tx Hash: 5355aa3f566668271aaf500856d80983e3c605534828caad4e9bd14f61a940ba
+2025-11-27 04:10:13 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:10:13 | INFO     | monitor              |    Side: sell
+2025-11-27 04:10:13 | INFO     | monitor              |    Time: 2025-11-26 04:56:05
+2025-11-27 04:10:13 | INFO     | monitor              |    Capture delay: 83648s
+2025-11-27 04:10:13 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:15 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:10:15 | INFO     | monitor              | Processing blocks 79,513,980 to 79,514,029 (50 blocks, 41811 behind)
+2025-11-27 04:10:15 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:15 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,513,985
+2025-11-27 04:10:15 | INFO     | monitor              |    Tx Hash: f99868898b59b1d42ed1b5fc34431a2ac50e2bacdb1b1018748490867b0faff2
+2025-11-27 04:10:15 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:10:15 | INFO     | monitor              |    Side: sell
+2025-11-27 04:10:15 | INFO     | monitor              |    Time: 2025-11-26 04:56:45
+2025-11-27 04:10:15 | INFO     | monitor              |    Capture delay: 83610s
+2025-11-27 04:10:15 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:19 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:10:19 | INFO     | monitor              | Processing blocks 79,514,030 to 79,514,079 (50 blocks, 41763 behind)
+2025-11-27 04:10:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:19 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,051
+2025-11-27 04:10:19 | INFO     | monitor              |    Tx Hash: 64d7163f37cd9f59aad44fd0a906fc1a82bec4ff3be114734cb096678979dada
+2025-11-27 04:10:19 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:10:19 | INFO     | monitor              |    Side: sell
+2025-11-27 04:10:19 | INFO     | monitor              |    Time: 2025-11-26 04:58:57
+2025-11-27 04:10:19 | INFO     | monitor              |    Capture delay: 83482s
+2025-11-27 04:10:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:23 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:10:23 | INFO     | monitor              | Processing blocks 79,514,080 to 79,514,129 (50 blocks, 41715 behind)
+2025-11-27 04:10:25 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:25 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,113
+2025-11-27 04:10:25 | INFO     | monitor              |    Tx Hash: 3e84ebf2bffc501577e9a98b53b02a8324f3a6ce7d9a9431c0197d6d550010b2
+2025-11-27 04:10:25 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:10:25 | INFO     | monitor              |    Side: buy
+2025-11-27 04:10:25 | INFO     | monitor              |    Time: 2025-11-26 05:01:01
+2025-11-27 04:10:25 | INFO     | monitor              |    Capture delay: 83364s
+2025-11-27 04:10:25 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:27 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:10:27 | INFO     | monitor              | Processing blocks 79,514,130 to 79,514,179 (50 blocks, 41667 behind)
+2025-11-27 04:10:31 | INFO     | monitor              | Processing blocks 79,514,180 to 79,514,229 (50 blocks, 41619 behind)
+2025-11-27 04:10:31 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:31 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,202
+2025-11-27 04:10:31 | INFO     | monitor              |    Tx Hash: ac7c08052d2fd71fb6d8b1f554a0c37561fb22ecce9177bb983cb1aa285a98fc
+2025-11-27 04:10:31 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:10:31 | INFO     | monitor              |    Side: sell
+2025-11-27 04:10:31 | INFO     | monitor              |    Time: 2025-11-26 05:03:59
+2025-11-27 04:10:31 | INFO     | monitor              |    Capture delay: 83192s
+2025-11-27 04:10:31 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:35 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:10:35 | INFO     | monitor              | Processing blocks 79,514,230 to 79,514,279 (50 blocks, 41571 behind)
+2025-11-27 04:10:37 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:37 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,259
+2025-11-27 04:10:37 | INFO     | monitor              |    Tx Hash: 37bf63e97bd1240d21c3e6328958c137984d1f96a5e0b772031f502a6c7f12c6
+2025-11-27 04:10:37 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:10:37 | INFO     | monitor              |    Side: buy
+2025-11-27 04:10:37 | INFO     | monitor              |    Time: 2025-11-26 05:05:53
+2025-11-27 04:10:37 | INFO     | monitor              |    Capture delay: 83084s
+2025-11-27 04:10:37 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:37 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:37 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,274
+2025-11-27 04:10:37 | INFO     | monitor              |    Tx Hash: f5bd04e0d39bd5c93ea1039e057b31134b7607a87635a2c81f35f21c3ee9dc58
+2025-11-27 04:10:37 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:10:37 | INFO     | monitor              |    Side: buy
+2025-11-27 04:10:37 | INFO     | monitor              |    Time: 2025-11-26 05:06:23
+2025-11-27 04:10:37 | INFO     | monitor              |    Capture delay: 83054s
+2025-11-27 04:10:37 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:40 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:10:40 | INFO     | monitor              | Processing blocks 79,514,280 to 79,514,329 (50 blocks, 41523 behind)
+2025-11-27 04:10:41 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:41 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,311
+2025-11-27 04:10:41 | INFO     | monitor              |    Tx Hash: a9b52d723985d5ad9879fe9ae9ad8441658b94a0899bbcc70f301402c3b7bf24
+2025-11-27 04:10:41 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:10:41 | INFO     | monitor              |    Side: buy
+2025-11-27 04:10:41 | INFO     | monitor              |    Time: 2025-11-26 05:07:37
+2025-11-27 04:10:41 | INFO     | monitor              |    Capture delay: 82984s
+2025-11-27 04:10:41 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:41 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:41 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,325
+2025-11-27 04:10:41 | INFO     | monitor              |    Tx Hash: c7495cc526f2b833f18644aa90555e96645232be7d1ab03c1e189c1e51f9ac8d
+2025-11-27 04:10:41 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:10:41 | INFO     | monitor              |    Side: sell
+2025-11-27 04:10:41 | INFO     | monitor              |    Time: 2025-11-26 05:08:05
+2025-11-27 04:10:41 | INFO     | monitor              |    Capture delay: 82956s
+2025-11-27 04:10:41 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:44 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:10:44 | INFO     | monitor              | Processing blocks 79,514,330 to 79,514,379 (50 blocks, 41474 behind)
+2025-11-27 04:10:45 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:45 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,331
+2025-11-27 04:10:45 | INFO     | monitor              |    Tx Hash: 9bf9cc59b0c6f9450b65ef861df96de0e0854f4f9b4e2c8fd65bdf27a5d84874
+2025-11-27 04:10:45 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:10:45 | INFO     | monitor              |    Side: buy
+2025-11-27 04:10:45 | INFO     | monitor              |    Time: 2025-11-26 05:08:17
+2025-11-27 04:10:45 | INFO     | monitor              |    Capture delay: 82948s
+2025-11-27 04:10:45 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:46 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:46 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,338
+2025-11-27 04:10:46 | INFO     | monitor              |    Tx Hash: a98c1e729aa03e02775d97dd8050859bd404cad20d41dfddca21f4f2a4b3c3ce
+2025-11-27 04:10:46 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:10:46 | INFO     | monitor              |    Side: buy
+2025-11-27 04:10:46 | INFO     | monitor              |    Time: 2025-11-26 05:08:31
+2025-11-27 04:10:46 | INFO     | monitor              |    Capture delay: 82935s
+2025-11-27 04:10:46 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:48 | INFO     | monitor              | ✅ Found 2 trades in this batch
+2025-11-27 04:10:48 | INFO     | monitor              | Processing blocks 79,514,380 to 79,514,429 (50 blocks, 41427 behind)
+2025-11-27 04:10:50 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:50 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,398
+2025-11-27 04:10:50 | INFO     | monitor              |    Tx Hash: e4ec53030a55eee147ebb2624d77dba3d7f6be4b8f5adb7cc190ad15beeeb70c
+2025-11-27 04:10:50 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:10:50 | INFO     | monitor              |    Side: buy
+2025-11-27 04:10:50 | INFO     | monitor              |    Time: 2025-11-26 05:10:31
+2025-11-27 04:10:50 | INFO     | monitor              |    Capture delay: 82819s
+2025-11-27 04:10:50 | INFO     | monitor              | ================================================================================
+2025-11-27 04:10:52 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:10:52 | INFO     | monitor              | Processing blocks 79,514,430 to 79,514,479 (50 blocks, 41378 behind)
+2025-11-27 04:10:56 | INFO     | monitor              | Processing blocks 79,514,480 to 79,514,529 (50 blocks, 41331 behind)
+2025-11-27 04:11:00 | INFO     | monitor              | Processing blocks 79,514,530 to 79,514,579 (50 blocks, 41283 behind)
+2025-11-27 04:11:03 | INFO     | monitor              | Processing blocks 79,514,580 to 79,514,629 (50 blocks, 41235 behind)
+2025-11-27 04:11:07 | INFO     | monitor              | Processing blocks 79,514,630 to 79,514,679 (50 blocks, 41187 behind)
+2025-11-27 04:11:07 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:07 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,653
+2025-11-27 04:11:07 | INFO     | monitor              |    Tx Hash: 32f73a01e8e10fff884edcd947c65e69315e15f4fa99448dab8357494276c394
+2025-11-27 04:11:07 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:07 | INFO     | monitor              |    Side: buy
+2025-11-27 04:11:07 | INFO     | monitor              |    Time: 2025-11-26 05:19:01
+2025-11-27 04:11:07 | INFO     | monitor              |    Capture delay: 82326s
+2025-11-27 04:11:07 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:11 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:11:11 | INFO     | monitor              | Processing blocks 79,514,680 to 79,514,729 (50 blocks, 41139 behind)
+2025-11-27 04:11:13 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:13 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,729
+2025-11-27 04:11:13 | INFO     | monitor              |    Tx Hash: 7d6ae3b1ababb5f057e85f6eb8dc8b57e0fd0ff7f83d3271f4c6703abd51d3c5
+2025-11-27 04:11:13 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:11:13 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:13 | INFO     | monitor              |    Time: 2025-11-26 05:21:33
+2025-11-27 04:11:13 | INFO     | monitor              |    Capture delay: 82180s
+2025-11-27 04:11:13 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:15 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:11:15 | INFO     | monitor              | Processing blocks 79,514,730 to 79,514,779 (50 blocks, 41091 behind)
+2025-11-27 04:11:18 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:18 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,741
+2025-11-27 04:11:18 | INFO     | monitor              |    Tx Hash: d29271fdc17c3e849048abc1ef6d72f045da707e54326e5154aaad7474b108df
+2025-11-27 04:11:18 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:11:18 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:18 | INFO     | monitor              |    Time: 2025-11-26 05:21:57
+2025-11-27 04:11:18 | INFO     | monitor              |    Capture delay: 82161s
+2025-11-27 04:11:18 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:18 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:18 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,757
+2025-11-27 04:11:18 | INFO     | monitor              |    Tx Hash: 4cdaf8478007ea1f9cf724c938a060e7273f5dcc0b0660f41681f58eadb040b2
+2025-11-27 04:11:18 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:11:18 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:18 | INFO     | monitor              |    Time: 2025-11-26 05:22:29
+2025-11-27 04:11:18 | INFO     | monitor              |    Capture delay: 82129s
+2025-11-27 04:11:18 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:19 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,761
+2025-11-27 04:11:19 | INFO     | monitor              |    Tx Hash: a284bc0a9d4871def3b701331dfe9c54e4857f425c18eb13fa9ec9729abf1e16
+2025-11-27 04:11:19 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:11:19 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:19 | INFO     | monitor              |    Time: 2025-11-26 05:22:37
+2025-11-27 04:11:19 | INFO     | monitor              |    Capture delay: 82122s
+2025-11-27 04:11:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:19 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,765
+2025-11-27 04:11:19 | INFO     | monitor              |    Tx Hash: faa460232c4a267b6e311f9d6b901297790d8458e0f5e1b33d4dc28c7ab892b9
+2025-11-27 04:11:19 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:11:19 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:19 | INFO     | monitor              |    Time: 2025-11-26 05:22:45
+2025-11-27 04:11:19 | INFO     | monitor              |    Capture delay: 82114s
+2025-11-27 04:11:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:19 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,769
+2025-11-27 04:11:19 | INFO     | monitor              |    Tx Hash: 55502e59c2c30d726b522229ad03d11eac6c0c39f0e9e540e80e125ce17eaa07
+2025-11-27 04:11:19 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:11:19 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:19 | INFO     | monitor              |    Time: 2025-11-26 05:22:53
+2025-11-27 04:11:19 | INFO     | monitor              |    Capture delay: 82106s
+2025-11-27 04:11:19 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:20 | INFO     | monitor              | ✅ Found 5 trades in this batch
+2025-11-27 04:11:20 | INFO     | monitor              | Processing blocks 79,514,780 to 79,514,829 (50 blocks, 41043 behind)
+2025-11-27 04:11:24 | INFO     | monitor              | Processing blocks 79,514,830 to 79,514,879 (50 blocks, 40995 behind)
+2025-11-27 04:11:26 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:26 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,849
+2025-11-27 04:11:26 | INFO     | monitor              |    Tx Hash: f96511312e83d7e5dacbd198e72c33fc401679b83bdb9ff10ce71a7a4aab0ab8
+2025-11-27 04:11:26 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:11:26 | INFO     | monitor              |    Side: buy
+2025-11-27 04:11:26 | INFO     | monitor              |    Time: 2025-11-26 05:25:33
+2025-11-27 04:11:26 | INFO     | monitor              |    Capture delay: 81953s
+2025-11-27 04:11:26 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:28 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:11:28 | INFO     | monitor              | Processing blocks 79,514,880 to 79,514,929 (50 blocks, 40947 behind)
+2025-11-27 04:11:30 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:30 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,898
+2025-11-27 04:11:30 | INFO     | monitor              |    Tx Hash: 4c1f26efd7b9c36766dc4995a45dead562a3cead5410ec16afac7c2888811e01
+2025-11-27 04:11:30 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:11:30 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:30 | INFO     | monitor              |    Time: 2025-11-26 05:27:11
+2025-11-27 04:11:30 | INFO     | monitor              |    Capture delay: 81859s
+2025-11-27 04:11:30 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:32 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:11:32 | INFO     | monitor              | Processing blocks 79,514,930 to 79,514,979 (50 blocks, 40898 behind)
+2025-11-27 04:11:34 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:34 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,942
+2025-11-27 04:11:34 | INFO     | monitor              |    Tx Hash: dfaca791ba4ab82fe6d955a85d4510f449c357bee6a4f95f66f4f5415254f5aa
+2025-11-27 04:11:34 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:11:34 | INFO     | monitor              |    Side: buy
+2025-11-27 04:11:34 | INFO     | monitor              |    Time: 2025-11-26 05:28:39
+2025-11-27 04:11:34 | INFO     | monitor              |    Capture delay: 81775s
+2025-11-27 04:11:34 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:34 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:34 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,962
+2025-11-27 04:11:34 | INFO     | monitor              |    Tx Hash: 0845a32aca65548f3f0b9f257918c1fc11b134e4843eafb0da9f5c5a31a9d4a6
+2025-11-27 04:11:34 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:11:34 | INFO     | monitor              |    Side: buy
+2025-11-27 04:11:34 | INFO     | monitor              |    Time: 2025-11-26 05:29:19
+2025-11-27 04:11:34 | INFO     | monitor              |    Capture delay: 81735s
+2025-11-27 04:11:34 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:36 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:36 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,955
+2025-11-27 04:11:36 | INFO     | monitor              |    Tx Hash: 71fdcbb17c4d196f921201da89e224fa3a21e93d3fb79c8fd932b3d6d52ab6f0
+2025-11-27 04:11:36 | INFO     | monitor              |    Address: 0x7C3Db723... (maker)
+2025-11-27 04:11:36 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:36 | INFO     | monitor              |    Time: 2025-11-26 05:29:05
+2025-11-27 04:11:36 | INFO     | monitor              |    Capture delay: 81751s
+2025-11-27 04:11:36 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:37 | INFO     | monitor              | ✅ Found 3 trades in this batch
+2025-11-27 04:11:37 | INFO     | monitor              | Processing blocks 79,514,980 to 79,515,029 (50 blocks, 40851 behind)
+2025-11-27 04:11:38 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:38 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,514,992
+2025-11-27 04:11:38 | INFO     | monitor              |    Tx Hash: ac18871092294ab7c5142e0b08ff36291449cec457272f832c3e8b93256e1515
+2025-11-27 04:11:38 | INFO     | monitor              |    Address: 0xCA8F0374... (maker)
+2025-11-27 04:11:38 | INFO     | monitor              |    Side: buy
+2025-11-27 04:11:38 | INFO     | monitor              |    Time: 2025-11-26 05:30:19
+2025-11-27 04:11:38 | INFO     | monitor              |    Capture delay: 81679s
+2025-11-27 04:11:38 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:41 | INFO     | monitor              | ✅ Found 1 trades in this batch
+2025-11-27 04:11:41 | INFO     | monitor              | Processing blocks 79,515,030 to 79,515,079 (50 blocks, 40803 behind)
+2025-11-27 04:11:44 | INFO     | monitor              | Processing blocks 79,515,080 to 79,515,129 (50 blocks, 40755 behind)
+2025-11-27 04:11:45 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:45 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:45 | INFO     | monitor              |    Tx Hash: 74e0ae86a6f9902f2bf02a335c160398a5a85cddaece5f9f86a7c1336cd696d6
+2025-11-27 04:11:45 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:45 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:45 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:45 | INFO     | monitor              |    Capture delay: 81494s
+2025-11-27 04:11:45 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:45 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:45 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:45 | INFO     | monitor              |    Tx Hash: 90243d94df458492ade3d7a69fd2bce685028bb71a0dfd08b500384ad3ac7170
+2025-11-27 04:11:45 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:45 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:45 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:45 | INFO     | monitor              |    Capture delay: 81494s
+2025-11-27 04:11:45 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:45 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:45 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:45 | INFO     | monitor              |    Tx Hash: 3356d3f011711d4de8f23af1a9ae00e870fe7d63d4b50be59191c447fbcf697c
+2025-11-27 04:11:45 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:45 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:45 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:45 | INFO     | monitor              |    Capture delay: 81494s
+2025-11-27 04:11:45 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:46 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:46 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:46 | INFO     | monitor              |    Tx Hash: e0c53b0502382efae9f3968c1317745932168a076a7024cc8e644be58a045d8c
+2025-11-27 04:11:46 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:46 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:46 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:46 | INFO     | monitor              |    Capture delay: 81495s
+2025-11-27 04:11:46 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:46 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:46 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:46 | INFO     | monitor              |    Tx Hash: d2c2c738d64fe9401fe4753a8c2ff27bd19acb9a4d53137a1fe4365137059e7a
+2025-11-27 04:11:46 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:46 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:46 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:46 | INFO     | monitor              |    Capture delay: 81495s
+2025-11-27 04:11:46 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:46 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:46 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:46 | INFO     | monitor              |    Tx Hash: 4f7331219d063514d5a72bda8c61bf2a2308753d020561754184f13e142987c7
+2025-11-27 04:11:46 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:46 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:46 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:46 | INFO     | monitor              |    Capture delay: 81495s
+2025-11-27 04:11:46 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:47 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:47 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:47 | INFO     | monitor              |    Tx Hash: 3375c5db9cfb25abecab9bc3f080e27ca9dba2a51a08dadff32c7e79447f65fe
+2025-11-27 04:11:47 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:47 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:47 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:47 | INFO     | monitor              |    Capture delay: 81496s
+2025-11-27 04:11:47 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:47 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:47 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:47 | INFO     | monitor              |    Tx Hash: 063af5e1421f1f4df8f0b7dc93d69422250827fb656829821f0106b07dfe4515
+2025-11-27 04:11:47 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:47 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:47 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:47 | INFO     | monitor              |    Capture delay: 81496s
+2025-11-27 04:11:47 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:48 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:48 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:48 | INFO     | monitor              |    Tx Hash: 806515626f3b81b77a375e95cf37fa3a8247b900a49f8ca749c050781eda404e
+2025-11-27 04:11:48 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:48 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:48 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:48 | INFO     | monitor              |    Capture delay: 81497s
+2025-11-27 04:11:48 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:48 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:48 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:48 | INFO     | monitor              |    Tx Hash: 90e5872ebf05de247a90ee3c785a24f644c3ac44f6cfda4effc88e532ac7d522
+2025-11-27 04:11:48 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:48 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:48 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:48 | INFO     | monitor              |    Capture delay: 81497s
+2025-11-27 04:11:48 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:48 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:48 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:48 | INFO     | monitor              |    Tx Hash: 6520a25c6a1eef761f612e4c0198ede058e81791f01689c3858ffec56af11a75
+2025-11-27 04:11:48 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:48 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:48 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:48 | INFO     | monitor              |    Capture delay: 81497s
+2025-11-27 04:11:48 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:48 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:48 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:48 | INFO     | monitor              |    Tx Hash: e4fe08870e66693ef19148753542caf93736935fe16b4802becc986670de94f2
+2025-11-27 04:11:48 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:48 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:48 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:48 | INFO     | monitor              |    Capture delay: 81497s
+2025-11-27 04:11:48 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:49 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:49 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:49 | INFO     | monitor              |    Tx Hash: 8769771a39bc9b2dcae40fcfe05d0c65a73308be8c8a0be8c91e481cf29d3b55
+2025-11-27 04:11:49 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:49 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:49 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:49 | INFO     | monitor              |    Capture delay: 81498s
+2025-11-27 04:11:49 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:49 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:49 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,088
+2025-11-27 04:11:49 | INFO     | monitor              |    Tx Hash: e903eecd937f7f317ba8da8fd4eebd6892a8ba2ba179574fe03c5f1d0b238618
+2025-11-27 04:11:49 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:49 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:49 | INFO     | monitor              |    Time: 2025-11-26 05:33:31
+2025-11-27 04:11:49 | INFO     | monitor              |    Capture delay: 81498s
+2025-11-27 04:11:49 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:49 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:49 | INFO     | monitor              | 📊 TRADE DETECTED | Block: 79,515,089
+2025-11-27 04:11:49 | INFO     | monitor              |    Tx Hash: 726085ec1932b2bc01a6c707d47f9cc7cb16916bb5cb066d08e54957efc05384
+2025-11-27 04:11:49 | INFO     | monitor              |    Address: 0x0f37Cb80... (maker)
+2025-11-27 04:11:49 | INFO     | monitor              |    Side: sell
+2025-11-27 04:11:49 | INFO     | monitor              |    Time: 2025-11-26 05:33:33
+2025-11-27 04:11:49 | INFO     | monitor              |    Capture delay: 81496s
+2025-11-27 04:11:49 | INFO     | monitor              | ================================================================================
+2025-11-27 04:11:53 | INFO     | monitor              | ✅ Found 15 trades in this batch
+2025-11-27 04:11:53 | INFO     | monitor              | Processing blocks 79,515,130 to 79,515,179 (50 blocks, 40709 behind)
+2025-11-27 04:11:57 | INFO     | monitor              | Processing blocks 79,515,180 to 79,515,229 (50 blocks, 40662 behind)
+2025-11-27 04:12:01 | INFO     | monitor              | Processing blocks 79,515,230 to 79,515,279 (50 blocks, 40614 behind)
+2025-11-27 04:12:05 | INFO     | monitor              | Processing blocks 79,515,280 to 79,515,329 (50 blocks, 40566 behind)
+2025-11-27 04:12:09 | INFO     | monitor              | Processing blocks 79,515,330 to 79,515,379 (50 blocks, 40518 behind)
+2025-11-27 04:12:10 | INFO     | __main__             | Received shutdown signal...
+2025-11-27 04:12:10 | INFO     | monitor              | Monitor stopped

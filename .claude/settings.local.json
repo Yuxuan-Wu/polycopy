@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rustc:*)",
+      "Bash(mkdir:*)",
+      "Bash(chmod:*)",
+      "Bash(./setup.sh)",
+      "Bash(python3:*)",
+      "Bash(cat:*)",
+      "Bash(sqlite3:*)",
+      "Bash(./status.sh:*)",
+      "Bash(timeout 15 ./watch.sh:*)",
+      "Bash(pkill:*)",
+      "WebSearch",
+      "WebFetch(domain:polygonscan.com)",
+      "WebFetch(domain:api.polygonscan.com)",
+      "Bash(curl:*)",
+      "Bash(tree:*)",
+      "Bash(sed:*)",
+      "Bash(xargs ls:*)",
+      "Bash(pgrep:*)",
+      "Bash(lsof:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(timeout 30 python3:*)",
+      "Bash(timeout 15 ./Scripts/watch.sh:*)",
+      "Bash(timeout 10 bash:*)",
+      "Bash(timeout 3 bash:*)",
+      "Bash(kill:*)",
+      "Bash(timeout:*)",
+      "Bash(bash -c 'source watch.sh && format_time \"\"3661s\"\" && format_time \"\"125s\"\" && format_time \"\"45s\"\"')",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
