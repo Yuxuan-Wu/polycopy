@@ -25,6 +25,12 @@ format_time() {
     # Remove 's' suffix if present
     seconds=${seconds%s}
 
+    # Validate that seconds is a number
+    if ! [[ "$seconds" =~ ^[0-9]+$ ]]; then
+        echo "N/A"
+        return
+    fi
+
     local hours=$((seconds / 3600))
     local minutes=$(( (seconds % 3600) / 60 ))
     local secs=$((seconds % 60))
@@ -103,11 +109,11 @@ while true; do
     echo -e "${BLUE}📈 Recent Activity:${NC}"
     if [ -f "$LOG_FILE" ]; then
         # Last trade detected with delay
-        LAST_TRADE_LINE=$(tail -200 "$LOG_FILE" 2>/dev/null | grep -B 6 "Capture delay" | tail -7)
+        LAST_TRADE_LINE=$(tail -200 "$LOG_FILE" 2>/dev/null | grep -B 7 "Capture delay" | tail -8)
         if [ -n "$LAST_TRADE_LINE" ]; then
             TRADE_BLOCK=$(echo "$LAST_TRADE_LINE" | grep "TRADE DETECTED" | grep -o "Block: [0-9,]*" | cut -d' ' -f2)
             TRADE_TIME=$(echo "$LAST_TRADE_LINE" | grep "Time:" | grep -o "Time: [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} [0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}" | cut -d' ' -f2-)
-            DELAY_RAW=$(echo "$LAST_TRADE_LINE" | grep "Capture delay" | grep -o "[0-9]*s")
+            DELAY_RAW=$(echo "$LAST_TRADE_LINE" | grep "Capture delay" | grep -o "[0-9]*s" | head -1)
             DELAY_FORMATTED=$(format_time "$DELAY_RAW")
 
             if [ -n "$TRADE_BLOCK" ] && [ -n "$TRADE_TIME" ]; then

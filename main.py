@@ -117,7 +117,7 @@ def main():
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
 ║     POLYMARKET COPY TRADING SYSTEM - OPTIMIZED           ║
-║     Using eth_getLogs with 24-hour rolling window       ║
+║     Using eth_getLogs with 3-hour rolling window        ║
 ║                                                           ║
 ╚═══════════════════════════════════════════════════════════╝
     """)

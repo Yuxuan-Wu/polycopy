@@ -23,6 +23,12 @@ class PolymarketMonitor:
         Web3.to_checksum_address("0xc5d563a36ae78145c45a50134d48a1215220f80a"),  # Neg Risk CTF Exchange
     ]
 
+    # Data validation thresholds
+    MAX_REASONABLE_PRICE = 1.0  # Polymarket prices should be 0-1 (probability)
+    MIN_REASONABLE_PRICE = 0.0001  # Minimum reasonable price
+    MAX_REASONABLE_AMOUNT = 1000000.0  # Maximum reasonable token amount (after decimals)
+    MIN_REASONABLE_AMOUNT = 0.000001  # Minimum reasonable token amount
+
     def __init__(
         self,
         rpc_manager,
@@ -94,15 +100,15 @@ class PolymarketMonitor:
         current_block = self.rpc_manager.get_latest_block()
 
         if self.use_rolling_window:
-            # Calculate block number from 24 hours ago
-            # Polygon: ~2 seconds per block = ~43,200 blocks per day
+            # Calculate block number from configured hours ago
+            # Polygon: ~2 seconds per block = ~1,800 blocks per hour
             blocks_per_hour = 1800  # 3600 / 2
             blocks_to_subtract = blocks_per_hour * self.window_hours
             self.start_block = current_block - blocks_to_subtract
             self.last_block_processed = self.start_block - 1
 
             logger.info("=" * 60)
-            logger.info(f"🕐 24-HOUR ROLLING WINDOW MODE")
+            logger.info(f"🕐 {self.window_hours}-HOUR ROLLING WINDOW MODE")
             logger.info("=" * 60)
             logger.info(f"Current block: {current_block}")
             logger.info(f"Window: {self.window_hours} hours ({blocks_to_subtract:,} blocks)")
@@ -133,6 +139,56 @@ class PolymarketMonitor:
         """Stop monitoring"""
         self.is_running = False
         logger.info("Monitor stopped")
+
+    def _validate_trade_data(self, trade_data: Dict) -> tuple[bool, List[str]]:
+        """
+        Validate trade data before saving
+
+        Args:
+            trade_data: Trade data dictionary
+
+        Returns:
+            Tuple of (is_valid, list of warnings)
+        """
+        warnings = []
+        is_valid = True
+
+        # Validate price
+        try:
+            price = float(trade_data.get('price', 0))
+            if price > self.MAX_REASONABLE_PRICE:
+                warnings.append(f"Unusually high price: {price:.6f} (max expected: {self.MAX_REASONABLE_PRICE})")
+            elif price < self.MIN_REASONABLE_PRICE and price > 0:
+                warnings.append(f"Unusually low price: {price:.6f} (min expected: {self.MIN_REASONABLE_PRICE})")
+            elif price <= 0:
+                warnings.append(f"Invalid price: {price}")
+                is_valid = False
+        except (ValueError, TypeError):
+            warnings.append(f"Price is not a valid number: {trade_data.get('price')}")
+            is_valid = False
+
+        # Validate amount
+        try:
+            amount = float(trade_data.get('amount', 0))
+            if amount > self.MAX_REASONABLE_AMOUNT:
+                warnings.append(f"Unusually large amount: {amount:.6f} (max expected: {self.MAX_REASONABLE_AMOUNT})")
+            elif amount < self.MIN_REASONABLE_AMOUNT and amount > 0:
+                warnings.append(f"Unusually small amount: {amount:.6f} (min expected: {self.MIN_REASONABLE_AMOUNT})")
+            elif amount <= 0:
+                warnings.append(f"Invalid amount: {amount}")
+                is_valid = False
+        except (ValueError, TypeError):
+            warnings.append(f"Amount is not a valid number: {trade_data.get('amount')}")
+            is_valid = False
+
+        # Validate required fields
+        required_fields = ['token_id', 'side']
+        for field in required_fields:
+            if not trade_data.get(field):
+                warnings.append(f"Missing required field: {field}")
+                is_valid = False
+
+        return is_valid, warnings
 
     def _monitor_loop(self):
         """Main monitoring loop using eth_getLogs"""
@@ -309,6 +365,16 @@ class PolymarketMonitor:
                 logger.warning(f"Failed to decode event for {tx_hash[:10]}...: {e}")
                 trade_data = {}
 
+            # Validate trade data
+            is_valid, validation_warnings = self._validate_trade_data(trade_data)
+            if not is_valid:
+                logger.error(f"Invalid trade data for {tx_hash[:10]}...: {', '.join(validation_warnings)}")
+                logger.error(f"Trade data: {trade_data}")
+                return False  # Skip invalid trades
+
+            if validation_warnings:
+                logger.warning(f"Trade data warnings for {tx_hash[:10]}...: {', '.join(validation_warnings)}")
+
             # Get block timestamp
             block = self.rpc_manager.get_block(log['blockNumber'])
             timestamp = block['timestamp']
@@ -342,14 +408,31 @@ class PolymarketMonitor:
             # Mark as processed
             self.processed_txs.add(tx_hash)
 
-            # Log the trade
+            # Log the trade with delay classification
+            delay_emoji = ""
+            delay_note = ""
+            if capture_delay > 3600:  # > 1 hour (historical data)
+                delay_emoji = "⏰"
+                delay_note = f" ({capture_delay/3600:.1f}h - HISTORICAL DATA)"
+            elif capture_delay > 300:  # > 5 minutes (delayed)
+                delay_emoji = "⚠️"
+                delay_note = f" ({capture_delay/60:.1f}m - DELAYED)"
+            elif capture_delay > 60:  # > 1 minute (slow)
+                delay_emoji = "⏱️"
+                delay_note = f" ({capture_delay}s - SLOW)"
+            else:  # < 1 minute (real-time)
+                delay_emoji = "⚡"
+                delay_note = f" ({capture_delay}s - REAL-TIME)"
+
             logger.info("=" * 80)
             logger.info(f"📊 TRADE DETECTED | Block: {log['blockNumber']:,}")
             logger.info(f"   Tx Hash: {tx_hash}")
             logger.info(f"   Address: {monitored_address[:10]}... ({role})")
             logger.info(f"   Side: {trade_data.get('side', 'unknown')}")
+            logger.info(f"   Price: {trade_data.get('price', 'N/A')} USDC")
+            logger.info(f"   Amount: {trade_data.get('amount', 'N/A')} tokens")
             logger.info(f"   Time: {datetime.fromtimestamp(timestamp)}")
-            logger.info(f"   Capture delay: {capture_delay}s")
+            logger.info(f"   {delay_emoji} Capture delay: {capture_delay}s{delay_note}")
             logger.info("=" * 80)
 
             return True

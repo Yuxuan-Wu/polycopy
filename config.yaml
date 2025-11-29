@@ -3,8 +3,7 @@
 # Polygon addresses to monitor (checksum format)
 monitored_addresses:
   - "0x0f37Cb80DEe49D55B5F6d9E595D52591D6371410"
-  - "0xCA8F0374E3Fc79b485499CC0b038D4F7e783D963"
-  - "0x7C3Db723F1D4d8cB9C550095203b686cB11E5C6B"
+  - "0xc9b6227a295985591fe576ff2e054267a78a9b6a"
 
 # Polygon RPC endpoints (Infura as primary, others as fallback)
 # Infura URL will be constructed from INFURA_API_KEY in .env file
@@ -37,11 +36,11 @@ monitoring:
   batch_size: 100        # blocks per query (Infura supports up to 100)
   request_delay: 0.5     # seconds between eth_getLogs requests (Infura rate limit: ~2 req/s)
 
-  # 24-hour rolling window strategy
-  # Only monitor trades within 24 hours from when the system starts
-  # This ensures we capture all recent trades without historical sync complexity
-  window_hours: 24       # Monitor trades within last 24 hours
-  use_rolling_window: true  # Enable 24-hour rolling window mode
+  # 3-hour rolling window strategy
+  # Only monitor trades within 3 hours from when the system starts
+  # This ensures we capture the freshest data without too much historical sync
+  window_hours: 3        # Monitor trades within last 3 hours
+  use_rolling_window: true  # Enable 3-hour rolling window mode
 
   # Fallback: if rolling window disabled, use start_block
   start_block: "latest"  # "latest" or specific block number
