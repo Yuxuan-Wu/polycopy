@@ -172,6 +172,20 @@ def main():
         signal.signal(signal.SIGINT, signal_handler)
         signal.signal(signal.SIGTERM, signal_handler)
 
+        # Backfill incomplete positions (if enabled)
+        backfill_config = config.get('backfill', {})
+        if backfill_config.get('enabled', True):
+            logger.info("Checking for incomplete positions...")
+            try:
+                stats = monitor.backfill_incomplete_positions()
+
+                if stats['total'] > 0:
+                    logger.info(f"Backfill summary: {stats['backfilled']} complete, "
+                              f"{stats['marked_incomplete']} incomplete (>7 days old)")
+            except Exception as e:
+                logger.error(f"Error during backfill: {e}")
+                logger.warning("Continuing with monitoring despite backfill error...")
+
         # Determine start block (ignored if rolling window is enabled)
         start_block_config = config['monitoring'].get('start_block', 'latest')
         start_block = None if start_block_config == 'latest' else int(start_block_config)

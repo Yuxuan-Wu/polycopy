@@ -7,6 +7,8 @@ from datetime import datetime, timedelta
 from typing import List, Set, Dict, Optional
 from web3 import Web3
 from monitor_events import EventDecoder
+from metadata_manager import MetadataManager
+from gamma_client import GammaClient
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +36,8 @@ class PolymarketMonitor:
         rpc_manager,
         database_manager,
         monitored_addresses: List[str],
-        config: Dict
+        config: Dict,
+        metadata_manager: Optional[MetadataManager] = None
     ):
         """
         Initialize Polymarket Monitor
@@ -44,10 +47,19 @@ class PolymarketMonitor:
             database_manager: Database Manager instance
             monitored_addresses: List of addresses to monitor
             config: Configuration dictionary
+            metadata_manager: Optional MetadataManager instance (creates new if None)
         """
         self.rpc_manager = rpc_manager
         self.db_manager = database_manager
         self.w3 = rpc_manager.get_web3()
+
+        # Initialize metadata manager
+        if metadata_manager:
+            self.metadata_manager = metadata_manager
+        else:
+            gamma_client = GammaClient(timeout=30)
+            db_path = database_manager.db_path
+            self.metadata_manager = MetadataManager(db_path, gamma_client)
 
         # Convert addresses to checksum format
         self.monitored_addresses = [
@@ -408,6 +420,64 @@ class PolymarketMonitor:
             # Mark as processed
             self.processed_txs.add(tx_hash)
 
+            # Fetch and save market metadata asynchronously
+            token_id = trade_data.get('token_id')
+            market_id = None
+            if token_id:
+                try:
+                    # Check if metadata already exists
+                    existing_metadata = self.metadata_manager.get_market_for_token(token_id)
+                    if not existing_metadata:
+                        logger.debug(f"Fetching metadata for new token_id: {token_id[:10]}...")
+                        market_data = self.metadata_manager.gamma_client.get_market_by_token_id(token_id)
+                        if market_data:
+                            self.metadata_manager.save_market_metadata(market_data, token_id)
+                            logger.debug(f"✓ Metadata saved: {market_data.get('question', 'N/A')[:50]}")
+                            market_id = market_data.get('condition_id')
+                    else:
+                        market_id = existing_metadata.get('condition_id')
+                except Exception as e:
+                    logger.warning(f"Failed to fetch metadata for {token_id[:10]}: {e}")
+
+            # Update position tracking
+            try:
+                amount_float = float(trade_data.get('amount', 0))
+                price_float = float(trade_data.get('price', 0))
+                side = trade_data.get('side', '')
+
+                if amount_float > 0 and price_float > 0 and token_id:
+                    # Update position
+                    self.db_manager.update_position(
+                        address=monitored_address,
+                        token_id=token_id,
+                        side=side,
+                        amount=amount_float,
+                        price=price_float,
+                        timestamp=timestamp,
+                        market_id=market_id
+                    )
+
+                    # Check for settlement on sell transactions
+                    if side == 'sell':
+                        settlement_type = self.db_manager.check_settlement(
+                            address=monitored_address,
+                            token_id=token_id,
+                            price=price_float,
+                            timestamp=timestamp
+                        )
+                        if settlement_type:
+                            logger.info(f"🎯 SETTLEMENT DETECTED: {settlement_type.upper()} - Price: ${price_float:.3f}")
+
+                    # Get updated position for logging
+                    position = self.db_manager.get_position(monitored_address, token_id)
+                    if position:
+                        avg_price = position['avg_buy_price'] if position['avg_buy_price'] is not None else 0.0
+                        logger.info(f"💼 Position Update: {position['current_position']:.2f} tokens "
+                                  f"(Avg: ${avg_price:.3f}, PnL: ${position['realized_pnl']:.2f})")
+
+            except Exception as e:
+                logger.warning(f"Failed to update position: {e}")
+
             # Log the trade with delay classification
             delay_emoji = ""
             delay_note = ""
@@ -424,10 +494,17 @@ class PolymarketMonitor:
                 delay_emoji = "⚡"
                 delay_note = f" ({capture_delay}s - REAL-TIME)"
 
+            # Get market info for logging
+            market_info = self.metadata_manager.get_market_for_token(token_id) if token_id else None
+            market_question = market_info.get('question', 'N/A') if market_info else 'Fetching...'
+            outcome_name = market_info.get('outcome_name', 'N/A') if market_info else 'N/A'
+
             logger.info("=" * 80)
             logger.info(f"📊 TRADE DETECTED | Block: {log['blockNumber']:,}")
             logger.info(f"   Tx Hash: {tx_hash}")
             logger.info(f"   Address: {monitored_address[:10]}... ({role})")
+            logger.info(f"   Market: {market_question[:60]}")
+            logger.info(f"   Outcome: {outcome_name}")
             logger.info(f"   Side: {trade_data.get('side', 'unknown')}")
             logger.info(f"   Price: {trade_data.get('price', 'N/A')} USDC")
             logger.info(f"   Amount: {trade_data.get('amount', 'N/A')} tokens")
@@ -440,3 +517,156 @@ class PolymarketMonitor:
         except Exception as e:
             logger.error(f"Error processing trade log: {e}")
             return False
+
+    def backfill_incomplete_positions(self) -> Dict[str, int]:
+        """
+        Detect and backfill incomplete positions (where sold > bought)
+        Only searches back 7 days from first recorded trade
+        Positions older than 7 days are marked as incomplete
+
+        Returns:
+            dict: Statistics about backfill process
+        """
+        logger.info("=" * 80)
+        logger.info("🔍 CHECKING FOR INCOMPLETE POSITIONS")
+        logger.info("=" * 80)
+
+        # Get incomplete positions for monitored addresses
+        incomplete_positions = self.db_manager.get_incomplete_positions(self.monitored_addresses)
+
+        if not incomplete_positions:
+            logger.info("✓ No incomplete positions found. All positions are complete!")
+            return {'total': 0, 'backfilled': 0, 'marked_incomplete': 0}
+
+        logger.info(f"Found {len(incomplete_positions)} incomplete positions to backfill")
+        logger.info("-" * 80)
+
+        # Show summary
+        for idx, pos in enumerate(incomplete_positions, 1):
+            gap = pos['total_sold'] - pos['total_bought']
+            logger.info(f"{idx}. Token: {pos['token_id'][:16]}...")
+            logger.info(f"   Gap: {gap:.2f} tokens (Bought: {pos['total_bought']:.2f}, Sold: {pos['total_sold']:.2f})")
+
+        logger.info("-" * 80)
+        logger.info(f"Starting backfill process (7-day limit)...")
+        logger.info("-" * 80)
+
+        # Backfill each position
+        stats = {
+            'total': len(incomplete_positions),
+            'backfilled': 0,
+            'marked_incomplete': 0,
+            'trades_found': 0
+        }
+
+        for idx, position in enumerate(incomplete_positions, 1):
+            logger.info(f"\n[{idx}/{len(incomplete_positions)}] Processing position...")
+
+            success, trades_found = self._backfill_single_position(position)
+
+            if success:
+                stats['backfilled'] += 1
+                stats['trades_found'] += trades_found
+            else:
+                stats['marked_incomplete'] += 1
+
+            # Brief pause between positions
+            if idx < len(incomplete_positions):
+                time.sleep(1)
+
+        logger.info("\n" + "=" * 80)
+        logger.info("BACKFILL COMPLETE")
+        logger.info("=" * 80)
+        logger.info(f"Positions processed: {stats['total']}")
+        logger.info(f"Successfully backfilled: {stats['backfilled']}")
+        logger.info(f"Total trades found: {stats['trades_found']}")
+        logger.info(f"Marked as incomplete (>7 days): {stats['marked_incomplete']}")
+        logger.info("=" * 80 + "\n")
+
+        return stats
+
+    def _backfill_single_position(self, position: Dict) -> tuple[bool, int]:
+        """
+        Backfill a single position by querying historical blockchain data
+        Searches back up to 7 days from the first recorded trade
+
+        Args:
+            position: Position dictionary from database
+
+        Returns:
+            (success: bool, trades_found: int)
+        """
+        address = position['address']
+        token_id = position['token_id']
+        first_trade_ts = position.get('first_trade_ts')
+
+        logger.info(f"Backfilling: {address[:10]}.../{token_id[:16]}...")
+        logger.info(f"  Current: bought={position['total_bought']:.2f}, sold={position['total_sold']:.2f}")
+
+        # Check if first_trade_ts exists
+        if not first_trade_ts:
+            logger.warning(f"  No first trade timestamp found, cannot backfill")
+            self.db_manager.mark_position_backfill(address, token_id, success=False)
+            return False, 0
+
+        # Calculate 7-day lookback window
+        MAX_LOOKBACK_DAYS = 7
+        BLOCKS_PER_DAY = 43200  # Polygon: ~2 seconds per block
+
+        current_block = self.rpc_manager.get_latest_block()
+        current_ts = int(time.time())
+
+        # Calculate block number at first_trade_ts
+        seconds_since_first_trade = current_ts - first_trade_ts
+        blocks_since_first_trade = int(seconds_since_first_trade / 2)
+        first_trade_block = current_block - blocks_since_first_trade
+
+        # Go back 7 days from first trade
+        from_block = max(0, first_trade_block - (MAX_LOOKBACK_DAYS * BLOCKS_PER_DAY))
+        to_block = first_trade_block
+
+        # Check if first trade is older than 7 days
+        age_days = seconds_since_first_trade / 86400
+        if age_days > MAX_LOOKBACK_DAYS:
+            logger.warning(f"  First trade is {age_days:.1f} days old (>7 days limit)")
+            logger.warning(f"  Cannot fully backfill, marking as incomplete")
+            self.db_manager.mark_position_backfill(address, token_id, success=False)
+            return False, 0
+
+        first_trade_dt = datetime.fromtimestamp(first_trade_ts)
+        lookback_dt = datetime.fromtimestamp(first_trade_ts - (MAX_LOOKBACK_DAYS * 86400))
+
+        logger.info(f"  Searching blocks {from_block:,} to {to_block:,} ({to_block - from_block:,} blocks)")
+        logger.info(f"  Time range: {lookback_dt.strftime('%Y-%m-%d %H:%M')} to {first_trade_dt.strftime('%Y-%m-%d %H:%M')}")
+
+        # Query trades in batches
+        batch_size = 100
+        total_trades_found = 0
+        current_from = from_block
+
+        while current_from < to_block:
+            current_to = min(current_from + batch_size - 1, to_block)
+
+            # Query this batch
+            try:
+                trades = self._query_trades(current_from, current_to)
+                total_trades_found += trades
+
+                if trades > 0:
+                    logger.info(f"    Found {trades} trades in blocks {current_from:,}-{current_to:,}")
+
+                current_from = current_to + 1
+                time.sleep(self.request_delay)
+
+            except Exception as e:
+                logger.warning(f"    Error querying blocks {current_from:,}-{current_to:,}: {e}")
+                current_from = current_to + 1
+                continue
+
+        logger.info(f"  Backfill complete: found {total_trades_found} historical trades")
+
+        # Mark position as backfill attempted
+        success = total_trades_found > 0
+        self.db_manager.mark_position_backfill(address, token_id, success=success)
+
+        return success, total_trades_found

@@ -3,7 +3,6 @@
 # Polygon addresses to monitor (checksum format)
 monitored_addresses:
   - "0x0f37Cb80DEe49D55B5F6d9E595D52591D6371410"
-  - "0xc9b6227a295985591fe576ff2e054267a78a9b6a"
 
 # Polygon RPC endpoints (Infura as primary, others as fallback)
 # Infura URL will be constructed from INFURA_API_KEY in .env file
@@ -56,3 +55,10 @@ logging:
   file: "logs/polycopy.log"
   max_size_mb: 10
   backup_count: 5
+
+# Position Backfill Settings
+# Automatically detects and backfills incomplete positions on startup
+backfill:
+  enabled: true  # Enable automatic backfill on startup
+  max_lookback_days: 7  # Only search back 7 days from first recorded trade
+  # Positions with first trade older than 7 days will be marked as incomplete

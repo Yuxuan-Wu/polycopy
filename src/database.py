@@ -74,6 +74,43 @@ class DatabaseManager:
                 CREATE INDEX IF NOT EXISTS idx_timestamp ON trades(timestamp)
             """)
 
+            # Create positions table for tracking holdings
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS positions (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    address TEXT NOT NULL,
+                    token_id TEXT NOT NULL,
+                    market_id TEXT,
+                    current_position REAL NOT NULL DEFAULT 0,
+                    total_bought REAL NOT NULL DEFAULT 0,
+                    total_sold REAL NOT NULL DEFAULT 0,
+                    avg_buy_price REAL,
+                    total_buy_value REAL NOT NULL DEFAULT 0,
+                    total_sell_value REAL NOT NULL DEFAULT 0,
+                    realized_pnl REAL NOT NULL DEFAULT 0,
+                    first_trade_at INTEGER,
+                    last_trade_at INTEGER,
+                    status TEXT NOT NULL DEFAULT 'active',
+                    settled_at INTEGER,
+                    settlement_price REAL,
+                    settlement_type TEXT,
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL,
+                    UNIQUE(address, token_id)
+                )
+            """)
+
+            # Create index for positions
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_positions_address ON positions(address)
+            """)
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_positions_status ON positions(status)
+            """)
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_positions_token ON positions(token_id)
+            """)
+
             # Add capture_delay_seconds column if it doesn't exist (migration)
             try:
                 cursor.execute("""
@@ -275,3 +312,362 @@ class DatabaseManager:
         except Exception as e:
             logger.error(f"Failed to get latest block: {e}")
             return None
+
+    def update_position(self, address: str, token_id: str, side: str,
+                       amount: float, price: float, timestamp: int, market_id: str = None) -> bool:
+        """
+        Update position for an address and token based on a trade
+
+        Args:
+            address: Trader address
+            token_id: Token ID
+            side: 'buy' or 'sell'
+            amount: Trade amount
+            price: Trade price
+            timestamp: Trade timestamp
+            market_id: Market ID (optional)
+
+        Returns:
+            bool: True if update successful
+        """
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            # Get current position
+            cursor.execute("""
+                SELECT current_position, total_bought, total_sold, avg_buy_price,
+                       total_buy_value, total_sell_value, realized_pnl, first_trade_at
+                FROM positions
+                WHERE address = ? AND token_id = ?
+            """, (address, token_id))
+
+            row = cursor.fetchone()
+            now = datetime.utcnow().isoformat()
+
+            if row:
+                # Update existing position
+                current_pos, total_bought, total_sold, avg_buy_price, \
+                total_buy_value, total_sell_value, realized_pnl, first_trade_at = row
+
+                if side == 'buy':
+                    new_position = current_pos + amount
+                    new_total_bought = total_bought + amount
+                    new_total_buy_value = total_buy_value + (amount * price)
+                    new_avg_buy_price = new_total_buy_value / new_total_bought if new_total_bought > 0 else 0
+                    new_total_sold = total_sold
+                    new_total_sell_value = total_sell_value
+                    new_realized_pnl = realized_pnl
+                else:  # sell
+                    new_position = current_pos - amount
+                    new_total_sold = total_sold + amount
+                    new_total_sell_value = total_sell_value + (amount * price)
+                    # Calculate realized PnL for this sale
+                    if avg_buy_price:
+                        new_realized_pnl = realized_pnl + (amount * (price - avg_buy_price))
+                    else:
+                        new_realized_pnl = realized_pnl
+                    new_total_bought = total_bought
+                    new_total_buy_value = total_buy_value
+                    new_avg_buy_price = avg_buy_price
+
+                # Determine status
+                if new_position <= 0.0001:  # Close enough to zero (accounting for floating point)
+                    new_position = 0
+                    status = 'closed'
+                else:
+                    status = 'active'
+
+                cursor.execute("""
+                    UPDATE positions
+                    SET current_position = ?,
+                        total_bought = ?,
+                        total_sold = ?,
+                        avg_buy_price = ?,
+                        total_buy_value = ?,
+                        total_sell_value = ?,
+                        realized_pnl = ?,
+                        last_trade_at = ?,
+                        status = ?,
+                        updated_at = ?,
+                        market_id = COALESCE(?, market_id)
+                    WHERE address = ? AND token_id = ?
+                """, (new_position, new_total_bought, new_total_sold, new_avg_buy_price,
+                      new_total_buy_value, new_total_sell_value, new_realized_pnl,
+                      timestamp, status, now, market_id, address, token_id))
+
+            else:
+                # Create new position
+                if side == 'buy':
+                    current_pos = amount
+                    total_bought = amount
+                    total_sold = 0
+                    avg_buy_price = price
+                    total_buy_value = amount * price
+                    total_sell_value = 0
+                    realized_pnl = 0
+                else:  # sell (unusual to start with a sell, but handle it)
+                    current_pos = -amount
+                    total_bought = 0
+                    total_sold = amount
+                    avg_buy_price = None
+                    total_buy_value = 0
+                    total_sell_value = amount * price
+                    realized_pnl = 0
+
+                cursor.execute("""
+                    INSERT INTO positions (
+                        address, token_id, market_id, current_position,
+                        total_bought, total_sold, avg_buy_price,
+                        total_buy_value, total_sell_value, realized_pnl,
+                        first_trade_at, last_trade_at, status,
+                        created_at, updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (address, token_id, market_id, current_pos,
+                      total_bought, total_sold, avg_buy_price,
+                      total_buy_value, total_sell_value, realized_pnl,
+                      timestamp, timestamp, 'active', now, now))
+
+            conn.commit()
+            conn.close()
+            return True
+
+        except Exception as e:
+            logger.error(f"Failed to update position: {e}")
+            return False
+
+    def check_settlement(self, address: str, token_id: str, price: float, timestamp: int) -> Optional[str]:
+        """
+        Check if a sell transaction appears to be a settlement and update position accordingly
+
+        Settlement detection:
+        - Price >= 0.95: Winning settlement (market resolved in favor)
+        - Price <= 0.05: Losing settlement (market resolved against)
+
+        Args:
+            address: Trader address
+            token_id: Token ID
+            price: Sale price
+            timestamp: Settlement timestamp
+
+        Returns:
+            Optional[str]: Settlement type ('win', 'loss', None if not a settlement)
+        """
+        settlement_type = None
+
+        # Detect settlement based on price
+        if price >= 0.95:
+            settlement_type = 'win'
+            settlement_price = 1.0
+        elif price <= 0.05:
+            settlement_type = 'loss'
+            settlement_price = 0.0
+        else:
+            return None  # Not a settlement
+
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            now = datetime.utcnow().isoformat()
+
+            cursor.execute("""
+                UPDATE positions
+                SET status = ?,
+                    settled_at = ?,
+                    settlement_price = ?,
+                    settlement_type = ?,
+                    updated_at = ?
+                WHERE address = ? AND token_id = ?
+            """, (f'settled_{settlement_type}', timestamp, settlement_price,
+                  settlement_type, now, address, token_id))
+
+            conn.commit()
+            conn.close()
+
+            logger.info(f"📊 Position settled ({settlement_type.upper()}): {token_id[:10]}... at ${settlement_price}")
+            return settlement_type
+
+        except Exception as e:
+            logger.error(f"Failed to mark settlement: {e}")
+            return None
+
+    def get_active_positions(self, address: str = None) -> List[Dict]:
+        """
+        Get all active positions (current_position > 0)
+
+        Args:
+            address: Optional address filter
+
+        Returns:
+            List of position dictionaries
+        """
+        try:
+            conn = sqlite3.connect(self.db_path)
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+
+            if address:
+                cursor.execute("""
+                    SELECT * FROM positions
+                    WHERE address = ? AND current_position > 0
+                    ORDER BY last_trade_at DESC
+                """, (address,))
+            else:
+                cursor.execute("""
+                    SELECT * FROM positions
+                    WHERE current_position > 0
+                    ORDER BY last_trade_at DESC
+                """)
+
+            rows = cursor.fetchall()
+            conn.close()
+
+            return [dict(row) for row in rows]
+
+        except Exception as e:
+            logger.error(f"Failed to get active positions: {e}")
+            return []
+
+    def get_position(self, address: str, token_id: str) -> Optional[Dict]:
+        """
+        Get a specific position
+
+        Args:
+            address: Trader address
+            token_id: Token ID
+
+        Returns:
+            Position dictionary or None
+        """
+        try:
+            conn = sqlite3.connect(self.db_path)
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+
+            cursor.execute("""
+                SELECT * FROM positions
+                WHERE address = ? AND token_id = ?
+            """, (address, token_id))
+
+            row = cursor.fetchone()
+            conn.close()
+
+            return dict(row) if row else None
+
+        except Exception as e:
+            logger.error(f"Failed to get position: {e}")
+            return None
+
+    def get_all_positions(self, address: str = None) -> List[Dict]:
+        """
+        Get all positions (active and closed)
+
+        Args:
+            address: Optional address filter
+
+        Returns:
+            List of position dictionaries
+        """
+        try:
+            conn = sqlite3.connect(self.db_path)
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+
+            if address:
+                cursor.execute("""
+                    SELECT * FROM positions
+                    WHERE address = ?
+                    ORDER BY last_trade_at DESC
+                """, (address,))
+            else:
+                cursor.execute("""
+                    SELECT * FROM positions
+                    ORDER BY last_trade_at DESC
+                """)
+
+            rows = cursor.fetchall()
+            conn.close()
+
+            return [dict(row) for row in rows]
+
+        except Exception as e:
+            logger.error(f"Failed to get all positions: {e}")
+            return []
+
+    def get_incomplete_positions(self, addresses: List[str] = None) -> List[Dict]:
+        """
+        Detect positions that are incomplete (sold > bought)
+        These positions need backfilling from blockchain history
+
+        Args:
+            addresses: Optional list of addresses to filter
+
+        Returns:
+            List of incomplete position dictionaries with trade metadata
+        """
+        try:
+            conn = sqlite3.connect(self.db_path)
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+
+            # Build query
+            query = """
+                SELECT p.*,
+                       (SELECT COUNT(*) FROM trades t
+                        WHERE t.from_address = p.address
+                        AND t.token_id = p.token_id) as trade_count,
+                       (SELECT MIN(timestamp) FROM trades t
+                        WHERE t.from_address = p.address
+                        AND t.token_id = p.token_id) as first_trade_ts
+                FROM positions p
+                WHERE (p.total_sold > p.total_bought + 0.01
+                       OR (p.total_bought = 0 AND p.total_sold > 0))
+                  AND (p.is_complete IS NULL OR p.is_complete = 0)
+                  AND (p.backfill_attempted = 0 OR p.backfill_attempted IS NULL)
+            """
+
+            if addresses:
+                placeholders = ','.join('?' * len(addresses))
+                query += f" AND p.address IN ({placeholders})"
+                cursor.execute(query + " ORDER BY p.updated_at DESC", addresses)
+            else:
+                cursor.execute(query + " ORDER BY p.updated_at DESC")
+
+            positions = [dict(row) for row in cursor.fetchall()]
+            conn.close()
+
+            return positions
+
+        except Exception as e:
+            logger.error(f"Failed to get incomplete positions: {e}")
+            return []
+
+    def mark_position_backfill(self, address: str, token_id: str, success: bool):
+        """
+        Mark a position as backfill attempted
+
+        Args:
+            address: Trader address
+            token_id: Token ID
+            success: True if backfill found missing trades, False if not found after 7 days
+        """
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            cursor.execute("""
+                UPDATE positions
+                SET backfill_attempted = 1,
+                    backfill_date = ?,
+                    is_complete = ?
+                WHERE address = ? AND token_id = ?
+            """, (datetime.utcnow().isoformat(), 1 if success else 0, address, token_id))
+
+            conn.commit()
+            conn.close()
+
+            status = "COMPLETE" if success else "INCOMPLETE (>7 days old)"
+            logger.info(f"✓ Position marked as {status}: {address[:10]}.../{token_id[:16]}...")
+
+        except Exception as e:
+            logger.error(f"Failed to mark backfill status: {e}")
