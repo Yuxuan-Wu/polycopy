@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Real-time Monitoring Dashboard - Shows process status, recent trades, and current positions
-Combines functionality from watch.sh and view_positions.py
+Includes Clash proxy status and connectivity monitoring
 """
 import sys
 import os
@@ -18,10 +18,58 @@ from database import DatabaseManager
 from metadata_manager import MetadataManager
 from gamma_client import GammaClient
 
+# Try to import clash proxy manager
+try:
+    from clash_proxy_manager import get_proxy_manager
+    CLASH_AVAILABLE = True
+except ImportError:
+    CLASH_AVAILABLE = False
+
 
 def clear_screen():
     """Clear terminal screen"""
     os.system('clear' if os.name != 'nt' else 'cls')
+
+
+def get_clash_status():
+    """Get Clash proxy status"""
+    status = {
+        'running': False,
+        'pid': None,
+        'region': None,
+        'connected': None,
+        'error': None
+    }
+
+    # Check if Clash process is running
+    try:
+        result = subprocess.run(
+            ['pgrep', '-f', 'clash'],
+            capture_output=True,
+            text=True,
+            timeout=3
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            status['running'] = True
+            status['pid'] = result.stdout.strip().split('\n')[0]
+    except:
+        pass
+
+    # Get proxy details if available
+    if CLASH_AVAILABLE and status['running']:
+        try:
+            pm = get_proxy_manager()
+            status['region'] = pm.get_current_proxy()
+
+            # Quick connectivity test (with short timeout)
+            connected, error = pm.test_connectivity(timeout=5)
+            status['connected'] = connected
+            if not connected:
+                status['error'] = error
+        except Exception as e:
+            status['error'] = str(e)
+
+    return status
 
 
 def get_process_info():
@@ -123,6 +171,74 @@ def get_database_stats(db_path):
         return {'error': str(e)}
 
 
+def get_copy_order_stats(db_path):
+    """Get copy trading statistics"""
+    try:
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+
+        # Check if copy_orders table exists
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='copy_orders'")
+        if not cursor.fetchone():
+            conn.close()
+            return None
+
+        cursor.execute("""
+            SELECT
+                COUNT(*) as total,
+                SUM(CASE WHEN status = 'success' THEN 1 ELSE 0 END) as success,
+                SUM(CASE WHEN status = 'failed' THEN 1 ELSE 0 END) as failed,
+                SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) as pending
+            FROM copy_orders
+        """)
+
+        row = cursor.fetchone()
+        conn.close()
+
+        total = row[0] or 0
+        success = row[1] or 0
+        failed = row[2] or 0
+        pending = row[3] or 0
+
+        return {
+            'total': total,
+            'success': success,
+            'failed': failed,
+            'pending': pending,
+            'success_rate': (success / total * 100) if total > 0 else 0
+        }
+    except Exception as e:
+        return None
+
+
+def get_recent_copy_orders(db_path, limit=5):
+    """Get recent copy orders"""
+    try:
+        conn = sqlite3.connect(db_path)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+
+        # Check if copy_orders table exists
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='copy_orders'")
+        if not cursor.fetchone():
+            conn.close()
+            return []
+
+        cursor.execute(f"""
+            SELECT token_id, side, amount, price, status, error_message, created_at
+            FROM copy_orders
+            ORDER BY created_at DESC
+            LIMIT {limit}
+        """)
+
+        orders = [dict(row) for row in cursor.fetchall()]
+        conn.close()
+
+        return orders
+    except Exception as e:
+        return []
+
+
 def get_recent_trades(db_path, limit=5):
     """Get recent trades with metadata"""
     try:
@@ -160,16 +276,32 @@ def display_dashboard(db_path, metadata_manager, db_manager, refresh_interval=5,
 
         # Process Status
         proc_info = get_process_info()
-        print("📊 PROCESS STATUS")
+        clash_info = get_clash_status()
+
+        print("📊 SYSTEM STATUS")
         print("-" * 100)
 
+        # Monitor process
         if proc_info['running']:
-            print(f"Status: 🟢 RUNNING")
-            print(f"Details: {proc_info['info']}")
+            print(f"Monitor:     🟢 RUNNING (PID {proc_info['info'].split()[0]})")
         else:
-            print(f"Status: 🔴 STOPPED")
-            if 'error' in proc_info:
-                print(f"Error: {proc_info['error']}")
+            print(f"Monitor:     🔴 STOPPED")
+
+        # Clash proxy
+        if clash_info['running']:
+            region_text = clash_info['region'] or 'Unknown'
+            if clash_info['connected']:
+                print(f"Proxy:       🟢 CONNECTED via {region_text}")
+            elif clash_info['connected'] is False:
+                print(f"Proxy:       🟡 RUNNING but NOT CONNECTED - {clash_info['error'] or 'Unknown error'}")
+            else:
+                print(f"Proxy:       🟡 RUNNING ({region_text}) - connectivity unknown")
+        else:
+            print(f"Proxy:       ⚪ NOT RUNNING (copy trading may fail)")
+
+        # RPC status (inferred from process running)
+        if proc_info['running']:
+            print(f"RPC:         🟢 DIRECT (Infura)")
         print()
 
         # Database Statistics
@@ -195,8 +327,23 @@ def display_dashboard(db_path, metadata_manager, db_manager, refresh_interval=5,
             print(f"Error: {db_stats['error']}")
         print()
 
-        # Recent Trades
-        print("📋 RECENT TRADES (Last 5)")
+        # Copy Trading Statistics
+        copy_stats = get_copy_order_stats(db_path)
+        if copy_stats is not None:
+            print("🤖 COPY TRADING STATUS")
+            print("-" * 100)
+            if copy_stats['total'] > 0:
+                print(f"Total Orders: {copy_stats['total']} | "
+                      f"✅ Success: {copy_stats['success']} | "
+                      f"❌ Failed: {copy_stats['failed']} | "
+                      f"⏳ Pending: {copy_stats['pending']} | "
+                      f"Success Rate: {copy_stats['success_rate']:.1f}%")
+            else:
+                print("No copy orders yet (waiting for target trades...)")
+            print()
+
+        # Recent Trades (Target Address)
+        print("📋 TARGET TRADES (Last 5)")
         print("-" * 100)
 
         recent = get_recent_trades(db_path, limit=5)
@@ -220,11 +367,45 @@ def display_dashboard(db_path, metadata_manager, db_manager, refresh_interval=5,
                              "⚠️" if trade['capture_delay_seconds'] and trade['capture_delay_seconds'] < 3600 else "⏰"
 
                 print(f"{delay_emoji} {format_datetime(trade['timestamp'])} | {trade['side'].upper():4} | "
-                      f"{trade['amount']:>10} @ ${trade['price']:<6} | {outcome:8}")
+                      f"{float(trade['amount']):>10.2f} @ ${float(trade['price']):<6.4f} | {outcome:8}")
                 print(f"   Market: {market_question}")
         else:
             print("No trades found")
         print()
+
+        # Recent Copy Orders (My Trades)
+        if copy_stats is not None:
+            print("🔄 MY COPY ORDERS (Last 5)")
+            print("-" * 100)
+
+            copy_orders = get_recent_copy_orders(db_path, limit=5)
+
+            if copy_orders:
+                for order in copy_orders:
+                    token_id = order['token_id']
+                    market_info = metadata_manager.get_market_for_token(token_id) if token_id else None
+
+                    if market_info:
+                        full_question = market_info.get('question', 'N/A')
+                        market_question = full_question if len(full_question) <= 60 else full_question[:57] + '...'
+                    else:
+                        market_question = f"Token {token_id[:20]}..."
+
+                    status_emoji = "✅" if order['status'] == 'success' else \
+                                  "❌" if order['status'] == 'failed' else "⏳"
+
+                    amount = order['amount'] or 0
+                    price = order['price'] or 0
+
+                    print(f"{status_emoji} {order['created_at'][:19]} | {order['side'].upper():4} | "
+                          f"{amount:>8.2f} shares @ ${price:<6.4f} | {order['status'].upper()}")
+                    if order['status'] == 'failed' and order['error_message']:
+                        print(f"   Error: {order['error_message'][:70]}")
+                    else:
+                        print(f"   Market: {market_question}")
+            else:
+                print("No copy orders yet")
+            print()
 
         # Current Positions
         if show_positions:

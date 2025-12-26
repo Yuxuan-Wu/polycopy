@@ -2,6 +2,7 @@
 Transaction monitor for Polymarket trades - Optimized with eth_getLogs
 """
 import logging
+import os
 import time
 from datetime import datetime, timedelta
 from typing import List, Set, Dict, Optional
@@ -9,6 +10,8 @@ from web3 import Web3
 from monitor_events import EventDecoder
 from metadata_manager import MetadataManager
 from gamma_client import GammaClient
+from trading_executor import TradingExecutor
+from clash_proxy_manager import get_proxy_manager
 
 logger = logging.getLogger(__name__)
 
@@ -83,6 +86,11 @@ class PolymarketMonitor:
         self.is_running = False
         self.processed_txs: Set[str] = set()  # Track processed transactions to avoid duplicates
 
+        # Initialize copy trading executor
+        self.copy_trading_enabled = False
+        self.trading_executor = None
+        self._init_copy_trading(config)
+
         logger.info("=" * 60)
         logger.info("🚀 Polymarket Monitor Initialized (Optimized)")
         logger.info("=" * 60)
@@ -97,6 +105,96 @@ class PolymarketMonitor:
         logger.info(f"Poll interval: {self.poll_interval}s")
         logger.info(f"Request delay: {self.request_delay}s")
         logger.info(f"Rolling window: {self.use_rolling_window} ({self.window_hours}h)")
+        logger.info(f"Copy trading: {'ENABLED' if self.copy_trading_enabled else 'DISABLED'}")
+        logger.info("=" * 60)
+
+    def _init_copy_trading(self, config: Dict):
+        """
+        Initialize copy trading executor from config and environment
+
+        Args:
+            config: Configuration dictionary
+        """
+        copy_config = config.get('copy_trading', {})
+
+        if not copy_config.get('enabled', False):
+            logger.info("Copy trading is DISABLED in config")
+            return
+
+        # Get wallet credentials from environment
+        private_key = os.environ.get('POLYGON_PRIVATE_KEY', '')
+        funder_address = os.environ.get('FUNDER_ADDRESS', '')
+
+        if not private_key or not funder_address:
+            logger.warning("Copy trading enabled but wallet not configured!")
+            logger.warning("Set POLYGON_PRIVATE_KEY and FUNDER_ADDRESS in .env")
+            return
+
+        try:
+            self.trading_executor = TradingExecutor(
+                private_key=private_key,
+                funder_address=funder_address,
+                database=self.db_manager,
+                min_shares=copy_config.get('min_shares', 5.0),
+                min_usd=copy_config.get('min_usd', 1.0),
+                retry_count=copy_config.get('retry_count', 3),
+                retry_delay=copy_config.get('retry_delay', 2.0)
+            )
+
+            # Initialize the client
+            if self.trading_executor.initialize():
+                self.copy_trading_enabled = True
+                logger.info("Copy trading executor initialized successfully")
+            else:
+                logger.error("Failed to initialize copy trading executor")
+
+        except Exception as e:
+            logger.error(f"Error initializing copy trading: {e}")
+
+    def _execute_copy_trade(self, trade_data: Dict, tx_hash: str, trade_type: str = 'TAKER'):
+        """
+        Execute copy trade for a detected trade
+
+        Args:
+            trade_data: Decoded trade data
+            tx_hash: Original transaction hash
+            trade_type: 'TAKER' (主动交易) or 'MAKER' (挂单被执行)
+        """
+        if not self.copy_trading_enabled or not self.trading_executor:
+            logger.debug("[COPY] Copy trading disabled or executor not initialized")
+            return
+
+        token_id = trade_data.get('token_id')
+        side = trade_data.get('side')
+
+        if not token_id or not side:
+            logger.warning("[COPY] Cannot copy trade: missing token_id or side")
+            return
+
+        # Trade type label
+        type_label = "挂单被执行" if trade_type == 'MAKER' else "主动交易"
+        type_emoji = "🏷️" if trade_type == 'MAKER' else "🎯"
+
+        logger.info("=" * 60)
+        logger.info(f"[COPY] 🔄 INITIATING COPY TRADE")
+        logger.info(f"[COPY] {type_emoji} Type: {trade_type} ({type_label})")
+        logger.info(f"[COPY] Original TX: {tx_hash[:20]}...")
+        logger.info(f"[COPY] Token: {token_id[:20]}...")
+        logger.info(f"[COPY] Side: {side}")
+        logger.info("=" * 60)
+
+        result = self.trading_executor.execute_copy_trade(
+            token_id=token_id,
+            side=side,
+            original_tx_hash=tx_hash
+        )
+
+        if result['success']:
+            logger.info(f"[COPY] ✅ COPY SUCCESS: {result['amount']} shares @ ${result['price']:.4f}")
+            logger.info(f"[COPY] Order ID: {result.get('order_id', 'N/A')}")
+        else:
+            logger.error(f"[COPY] ❌ COPY FAILED: {result['error']}")
+
         logger.info("=" * 60)
 
     def start(self, start_block: Optional[int] = None):
@@ -205,8 +303,12 @@ class PolymarketMonitor:
     def _monitor_loop(self):
         """Main monitoring loop using eth_getLogs"""
         consecutive_errors = 0
+        loop_count = 0
+
+        logger.info("[MONITOR] Starting monitor loop...")
 
         while self.is_running:
+            loop_count += 1
             try:
                 latest_block = self.rpc_manager.get_latest_block()
 
@@ -236,6 +338,19 @@ class PolymarketMonitor:
                     # Reset error counter on success
                     consecutive_errors = 0
 
+                    # Periodic status log and health check (every 50 loops)
+                    if loop_count % 50 == 0:
+                        logger.info(f"[MONITOR] Status: loop={loop_count}, last_block={to_block:,}, behind={blocks_behind}")
+
+                        # Clash health check if copy trading is enabled
+                        if self.copy_trading_enabled:
+                            try:
+                                proxy_manager = get_proxy_manager()
+                                if not proxy_manager.health_check():
+                                    logger.warning("[MONITOR] Clash health check failed, copy trading may be affected")
+                            except Exception as hc_err:
+                                logger.warning(f"[MONITOR] Clash health check error: {hc_err}")
+
                     # If we're caught up, wait for next poll interval
                     if to_block >= latest_block:
                         logger.debug(f"Caught up to latest block. Waiting {self.poll_interval}s...")
@@ -246,20 +361,36 @@ class PolymarketMonitor:
                     time.sleep(self.poll_interval)
 
             except KeyboardInterrupt:
-                logger.info("Received interrupt signal, shutting down...")
+                logger.info("[MONITOR] Received interrupt signal, shutting down...")
                 self.stop()
                 break
 
             except Exception as e:
                 consecutive_errors += 1
-                logger.error(f"Error in monitor loop (attempt {consecutive_errors}/{self.max_consecutive_errors}): {e}")
+                logger.error(f"[MONITOR] ❌ Error in loop (attempt {consecutive_errors}/{self.max_consecutive_errors}): {e}")
+                logger.error(f"[MONITOR] Error type: {type(e).__name__}")
+
+                # If copy trading is enabled and this looks like a proxy/connection error,
+                # run Clash health check to try to recover
+                error_lower = str(e).lower()
+                is_connection_error = any(x in error_lower for x in ['proxy', 'connection', 'ssl', 'timeout', 'refused'])
+                if self.copy_trading_enabled and is_connection_error:
+                    try:
+                        logger.info("[MONITOR] Connection error detected, running Clash health check...")
+                        proxy_manager = get_proxy_manager()
+                        proxy_manager.health_check()
+                    except Exception as hc_err:
+                        logger.warning(f"[MONITOR] Clash health check error: {hc_err}")
 
                 if consecutive_errors >= self.max_consecutive_errors:
-                    logger.critical(f"Too many consecutive errors ({self.max_consecutive_errors}), stopping monitor")
+                    logger.critical(f"[MONITOR] FATAL: Too many consecutive errors ({self.max_consecutive_errors}), stopping!")
                     self.stop()
                     break
 
+                logger.info(f"[MONITOR] Waiting {self.poll_interval * 2}s before retry...")
                 time.sleep(self.poll_interval * 2)  # Wait longer on error
+
+        logger.info(f"[MONITOR] Loop ended after {loop_count} iterations")
 
     def _query_trades(self, from_block: int, to_block: int) -> int:
         """
@@ -395,6 +526,9 @@ class PolymarketMonitor:
             current_time = int(time.time())
             capture_delay = current_time - timestamp
 
+            # Determine trade type: MAKER (挂单被执行) vs TAKER (主动吃单)
+            trade_type = 'MAKER' if role == 'maker' else 'TAKER'
+
             # Prepare trade record
             trade_record = {
                 'tx_hash': tx_hash,
@@ -411,7 +545,8 @@ class PolymarketMonitor:
                 'gas_price': str(tx['gasPrice']),
                 'value': str(tx['value']),
                 'status': 'success' if receipt['status'] == 1 else 'failed',
-                'capture_delay_seconds': capture_delay
+                'capture_delay_seconds': capture_delay,
+                'trade_type': trade_type
             }
 
             # Save to database
@@ -499,10 +634,15 @@ class PolymarketMonitor:
             market_question = market_info.get('question', 'N/A') if market_info else 'Fetching...'
             outcome_name = market_info.get('outcome_name', 'N/A') if market_info else 'N/A'
 
+            # Trade type emoji
+            type_emoji = "🏷️" if trade_type == 'MAKER' else "🎯"
+            type_label = "MAKER (挂单被执行)" if trade_type == 'MAKER' else "TAKER (主动交易)"
+
             logger.info("=" * 80)
             logger.info(f"📊 TRADE DETECTED | Block: {log['blockNumber']:,}")
+            logger.info(f"   {type_emoji} Type: {type_label}")
             logger.info(f"   Tx Hash: {tx_hash}")
-            logger.info(f"   Address: {monitored_address[:10]}... ({role})")
+            logger.info(f"   Address: {monitored_address[:10]}...")
             logger.info(f"   Market: {market_question[:60]}")
             logger.info(f"   Outcome: {outcome_name}")
             logger.info(f"   Side: {trade_data.get('side', 'unknown')}")
@@ -511,6 +651,12 @@ class PolymarketMonitor:
             logger.info(f"   Time: {datetime.fromtimestamp(timestamp)}")
             logger.info(f"   {delay_emoji} Capture delay: {capture_delay}s{delay_note}")
             logger.info("=" * 80)
+
+            # Execute copy trade (only for real-time trades, not historical)
+            if capture_delay < 300:  # Only copy trades within 5 minutes
+                self._execute_copy_trade(trade_data, tx_hash, trade_type)
+            else:
+                logger.debug(f"Skipping copy trade for historical trade (delay: {capture_delay}s)")
 
             return True
 
@@ -536,7 +682,7 @@ class PolymarketMonitor:
 
         if not incomplete_positions:
             logger.info("✓ No incomplete positions found. All positions are complete!")
-            return {'total': 0, 'backfilled': 0, 'marked_incomplete': 0}
+            return {'total': 0, 'backfilled': 0, 'marked_incomplete': 0, 'trades_found': 0}
 
         logger.info(f"Found {len(incomplete_positions)} incomplete positions to backfill")
         logger.info("-" * 80)

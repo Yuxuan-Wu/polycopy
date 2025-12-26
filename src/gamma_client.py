@@ -25,8 +25,14 @@ class GammaClient:
             timeout: Request timeout in seconds
         """
         self.timeout = timeout
-        self.client = httpx.Client(timeout=timeout)
-        logger.info("Gamma API client initialized")
+        # Explicitly bypass proxy - Gamma API should always go direct
+        # This prevents issues when HTTP_PROXY is set for copy trading
+        # Use mounts to force direct transport without proxy
+        self.client = httpx.Client(
+            timeout=timeout,
+            mounts={'all://': httpx.HTTPTransport()}  # Force direct connection
+        )
+        logger.info("Gamma API client initialized (direct connection)")
 
     def get_market_by_token_id(self, token_id: str) -> Optional[Dict]:
         """

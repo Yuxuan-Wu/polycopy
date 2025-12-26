@@ -39,11 +39,12 @@ class PositionBackfiller:
     MAX_LOOKBACK_DAYS = 7
     BLOCKS_PER_DAY = 43200  # Polygon: ~2 seconds per block
 
-    def __init__(self, db_manager: DatabaseManager, rpc_manager: RPCManager, monitored_address: str):
+    def __init__(self, db_manager: DatabaseManager, rpc_manager: RPCManager, monitored_address: str, config: dict):
         self.db = db_manager
         self.rpc = rpc_manager
         self.monitored_address = monitored_address
-        self.monitor = PolymarketMonitor(rpc_manager, db_manager, monitored_addresses=[monitored_address])
+        self.config = config
+        self.monitor = PolymarketMonitor(rpc_manager, db_manager, monitored_addresses=[monitored_address], config=config.get('monitoring', {}))
 
     def detect_incomplete_positions(self) -> List[Dict]:
         """
@@ -280,6 +281,10 @@ class PositionBackfiller:
 def main():
     """Main entry point"""
     import yaml
+    from dotenv import load_dotenv
+
+    # Load environment variables
+    load_dotenv()
 
     # Load config
     with open('config.yaml', 'r') as f:
@@ -289,7 +294,11 @@ def main():
     monitored_address = config['monitored_addresses'][0]
 
     # Initialize managers
-    rpc_manager = RPCManager(config)
+    rpc_manager = RPCManager(
+        rpc_endpoints=config['rpc_endpoints'],
+        max_retry=config['monitoring'].get('max_retry', 3),
+        retry_delay=config['monitoring'].get('retry_delay', 5)
+    )
     db_manager = DatabaseManager(
         db_path=config['database']['path'],
         csv_path=config['csv']['path'],
@@ -297,7 +306,7 @@ def main():
     )
 
     # Create and run backfiller
-    backfiller = PositionBackfiller(db_manager, rpc_manager, monitored_address)
+    backfiller = PositionBackfiller(db_manager, rpc_manager, monitored_address, config)
     backfiller.run()
 
 

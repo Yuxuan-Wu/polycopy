@@ -181,7 +181,7 @@ class TraderAnalyzer:
         patterns = self.analyze_trading_patterns(address)
 
         if 'error' in performance:
-            return {'score': 0, 'recommendation': 'NOT_RECOMMENDED', 'reason': 'No position data available'}
+            return {'score': 0, 'recommendation': 'NOT_RECOMMENDED', 'reason': 'No position data available', 'trader_type': 'UNKNOWN', 'factors': ['❌ No position data available']}
 
         score = 0
         factors = []

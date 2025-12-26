@@ -78,7 +78,14 @@ class RPCManager:
                 display_endpoint = self._mask_api_key(endpoint)
                 logger.info(f"Attempting to connect to RPC: {display_endpoint}")
 
-                self.w3 = Web3(Web3.HTTPProvider(endpoint, request_kwargs={'timeout': 30}))
+                # Explicitly bypass proxy - RPC should always go direct
+                self.w3 = Web3(Web3.HTTPProvider(
+                    endpoint,
+                    request_kwargs={
+                        'timeout': 30,
+                        'proxies': {}  # Force no proxy
+                    }
+                ))
 
                 # Inject POA middleware for Polygon compatibility
                 self.w3.middleware_onion.inject(ExtraDataToPOAMiddleware, layer=0)

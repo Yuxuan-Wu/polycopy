@@ -62,3 +62,12 @@ backfill:
   enabled: true  # Enable automatic backfill on startup
   max_lookback_days: 7  # Only search back 7 days from first recorded trade
   # Positions with first trade older than 7 days will be marked as incomplete
+
+# Copy Trading Settings
+# Automatically execute trades when monitored addresses trade
+copy_trading:
+  enabled: true  # Set to true to enable copy trading (requires wallet config in .env)
+  min_shares: 5   # Minimum shares per trade (Polymarket minimum)
+  min_usd: 1.0    # Minimum USD value per trade
+  retry_count: 3  # Number of retries on failure
+  retry_delay: 3  # Seconds between retries

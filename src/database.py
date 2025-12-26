@@ -111,6 +111,31 @@ class DatabaseManager:
                 CREATE INDEX IF NOT EXISTS idx_positions_token ON positions(token_id)
             """)
 
+            # Create copy_orders table for tracking copy trading execution
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS copy_orders (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    original_tx_hash TEXT,
+                    token_id TEXT NOT NULL,
+                    side TEXT NOT NULL,
+                    amount REAL,
+                    price REAL,
+                    order_id TEXT,
+                    status TEXT NOT NULL DEFAULT 'pending',
+                    error_message TEXT,
+                    created_at TEXT NOT NULL,
+                    executed_at TEXT
+                )
+            """)
+
+            # Create index for copy_orders
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_copy_orders_status ON copy_orders(status)
+            """)
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_copy_orders_token ON copy_orders(token_id)
+            """)
+
             # Add capture_delay_seconds column if it doesn't exist (migration)
             try:
                 cursor.execute("""
@@ -119,6 +144,26 @@ class DatabaseManager:
                 logger.info("✓ Added capture_delay_seconds column to trades table")
             except sqlite3.OperationalError as e:
                 # Column already exists, that's fine
+                if "duplicate column" not in str(e).lower():
+                    logger.debug(f"Column migration: {e}")
+
+            # Add trade_type column (TAKER=主动交易, MAKER=挂单被执行)
+            try:
+                cursor.execute("""
+                    ALTER TABLE trades ADD COLUMN trade_type TEXT DEFAULT 'TAKER'
+                """)
+                logger.info("✓ Added trade_type column to trades table")
+            except sqlite3.OperationalError as e:
+                if "duplicate column" not in str(e).lower():
+                    logger.debug(f"Column migration: {e}")
+
+            # Add trade_type to copy_orders table
+            try:
+                cursor.execute("""
+                    ALTER TABLE copy_orders ADD COLUMN trade_type TEXT DEFAULT 'TAKER'
+                """)
+                logger.info("✓ Added trade_type column to copy_orders table")
+            except sqlite3.OperationalError as e:
                 if "duplicate column" not in str(e).lower():
                     logger.debug(f"Column migration: {e}")
 
@@ -140,7 +185,7 @@ class DatabaseManager:
                         'tx_hash', 'block_number', 'timestamp', 'datetime',
                         'from_address', 'to_address', 'method', 'token_id',
                         'amount', 'price', 'side', 'gas_used', 'gas_price',
-                        'value', 'status', 'capture_delay_seconds'
+                        'value', 'status', 'capture_delay_seconds', 'trade_type'
                     ])
                 logger.info(f"✓ CSV file initialized: {self.csv_path}")
             except Exception as e:
@@ -165,8 +210,8 @@ class DatabaseManager:
                 INSERT OR IGNORE INTO trades (
                     tx_hash, block_number, timestamp, from_address, to_address,
                     method, token_id, amount, price, side, gas_used, gas_price,
-                    value, status, created_at, capture_delay_seconds
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    value, status, created_at, capture_delay_seconds, trade_type
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 trade_data.get('tx_hash'),
                 trade_data.get('block_number'),
@@ -183,7 +228,8 @@ class DatabaseManager:
                 trade_data.get('value'),
                 trade_data.get('status'),
                 datetime.utcnow().isoformat(),
-                trade_data.get('capture_delay_seconds')
+                trade_data.get('capture_delay_seconds'),
+                trade_data.get('trade_type', 'TAKER')
             ))
 
             inserted = cursor.rowcount > 0
@@ -228,7 +274,8 @@ class DatabaseManager:
                     trade_data.get('gas_price'),
                     trade_data.get('value'),
                     trade_data.get('status'),
-                    trade_data.get('capture_delay_seconds')
+                    trade_data.get('capture_delay_seconds'),
+                    trade_data.get('trade_type', 'TAKER')
                 ])
         except Exception as e:
             logger.error(f"Failed to append to CSV: {e}")
@@ -671,3 +718,142 @@ class DatabaseManager:
 
         except Exception as e:
             logger.error(f"Failed to mark backfill status: {e}")
+
+    def save_copy_order(
+        self,
+        original_tx_hash: str,
+        token_id: str,
+        side: str,
+        amount: float,
+        price: float,
+        order_id: str = None,
+        status: str = 'pending',
+        error_message: str = None,
+        trade_type: str = 'TAKER'
+    ) -> bool:
+        """
+        Save a copy trade order record
+
+        Args:
+            original_tx_hash: Hash of the original trade being copied
+            token_id: Token ID
+            side: 'buy' or 'sell'
+            amount: Order amount
+            price: Execution price
+            order_id: Polymarket order ID
+            status: 'pending', 'success', or 'failed'
+            error_message: Error message if failed
+            trade_type: 'TAKER' (主动交易) or 'MAKER' (挂单被执行)
+
+        Returns:
+            bool: True if save successful
+        """
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            now = datetime.utcnow().isoformat()
+
+            executed_at = now if status in ('success', 'failed') else None
+
+            cursor.execute("""
+                INSERT INTO copy_orders (
+                    original_tx_hash, token_id, side, amount, price,
+                    order_id, status, error_message, created_at, executed_at, trade_type
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                original_tx_hash, token_id, side, amount, price,
+                order_id, status, error_message, now, executed_at, trade_type
+            ))
+
+            conn.commit()
+            conn.close()
+
+            if status == 'success':
+                logger.info(f"✓ Copy order saved: {side} {amount} @ ${price:.4f}")
+            else:
+                logger.warning(f"✗ Copy order failed: {error_message}")
+
+            return True
+
+        except Exception as e:
+            logger.error(f"Failed to save copy order: {e}")
+            return False
+
+    def get_copy_orders(self, status: str = None, limit: int = 100) -> List[Dict]:
+        """
+        Get copy orders from database
+
+        Args:
+            status: Filter by status ('pending', 'success', 'failed')
+            limit: Maximum number of orders to return
+
+        Returns:
+            List of copy order dictionaries
+        """
+        try:
+            conn = sqlite3.connect(self.db_path)
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+
+            if status:
+                cursor.execute("""
+                    SELECT * FROM copy_orders
+                    WHERE status = ?
+                    ORDER BY created_at DESC
+                    LIMIT ?
+                """, (status, limit))
+            else:
+                cursor.execute("""
+                    SELECT * FROM copy_orders
+                    ORDER BY created_at DESC
+                    LIMIT ?
+                """, (limit,))
+
+            rows = cursor.fetchall()
+            conn.close()
+
+            return [dict(row) for row in rows]
+
+        except Exception as e:
+            logger.error(f"Failed to get copy orders: {e}")
+            return []
+
+    def get_copy_order_stats(self) -> Dict:
+        """
+        Get copy order statistics
+
+        Returns:
+            Dictionary with success/failure counts and rates
+        """
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            cursor.execute("""
+                SELECT
+                    COUNT(*) as total,
+                    SUM(CASE WHEN status = 'success' THEN 1 ELSE 0 END) as success_count,
+                    SUM(CASE WHEN status = 'failed' THEN 1 ELSE 0 END) as failed_count,
+                    SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) as pending_count
+                FROM copy_orders
+            """)
+
+            row = cursor.fetchone()
+            conn.close()
+
+            total = row[0] or 0
+            success = row[1] or 0
+            failed = row[2] or 0
+            pending = row[3] or 0
+
+            return {
+                'total': total,
+                'success': success,
+                'failed': failed,
+                'pending': pending,
+                'success_rate': (success / total * 100) if total > 0 else 0
+            }
+
+        except Exception as e:
+            logger.error(f"Failed to get copy order stats: {e}")
+            return {'total': 0, 'success': 0, 'failed': 0, 'pending': 0, 'success_rate': 0}
